@@ -21,5 +21,8 @@ export const getters = {
   getSiteStyleFromIndex: state => (index) => {
     return state.siteStyleLabels[index] ||
       state.siteStyleLabels[state.siteStyleLabels.length - 1]
+  },
+  getCurrentSiteStyle: (state) => {
+    return state.siteStyleLabels[state.siteStyle]
   }
 }

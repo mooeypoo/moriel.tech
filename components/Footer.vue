@@ -18,7 +18,6 @@
         text
         rounded
         class="my-2 mx-2"
-        @click="link.onclick"
       >
         <v-icon color="pink" :left="link.showText">
           mdi-{{ link.icon }}

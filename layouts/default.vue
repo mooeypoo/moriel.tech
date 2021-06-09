@@ -1,6 +1,7 @@
 <template>
   <v-app
     :dark="$vuetify.theme.dark"
+    :class="siteStyleClass"
   >
     <v-navigation-drawer
       v-model="drawer"
@@ -185,6 +186,9 @@ export default {
     }
   },
   computed: {
+    siteStyleClass () {
+      return 'style-' + this.$store.getters.getCurrentSiteStyle
+    },
     siteStyleLabels () {
       return this.$store.state.siteStyleLabels
     },
