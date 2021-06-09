@@ -7,7 +7,7 @@
     <v-row
       justify="center"
       no-gutters
-      class="py-2 text-center white--text"
+      class="py-2 text-center"
     >
       <v-btn
         v-for="link in links"
@@ -39,7 +39,7 @@
       </v-btn>
 
       <v-col
-        class="text-center white--text"
+        class="text-center"
         cols="12"
       >
         {{ new Date().getFullYear() }} — <strong>Moriel Schottlender</strong>

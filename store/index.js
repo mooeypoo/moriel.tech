@@ -24,5 +24,8 @@ export const getters = {
   },
   getCurrentSiteStyle: (state) => {
     return state.siteStyleLabels[state.siteStyle]
+  },
+  getWhatIDo: (state) => {
+    return state.whatido
   }
 }

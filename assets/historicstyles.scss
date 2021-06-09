@@ -1,13 +1,15 @@
-.style-1995 {
-  &.v-application {
-    font-family: 'Times New Roman', Times, serif;
-
+.v-application {
+  &.style-1995,
+  &.style-2000 {
     .container {
+      font-family: 'Times New Roman', Times, serif;
       max-width: none;
     }
+  }
 
+  &.style-1995 {
     &.theme--dark {
-      background-color: #000;
+      background-color: #666;
       color: white;
     }
 
@@ -17,7 +19,21 @@
     }
   }
 
-  // .v-main {
+  &.style-2000 {
+    &.theme--dark {
+      background-image: url('~/assets/backgrounds/starfield.jpg');
+      background-color: #000;
+      color: white;
+    }
 
-  // }
+    &.theme--light {
+      background-image: url('~/assets/backgrounds/skies.jpg');
+      background-color: #ccc;
+      color: black;
+    }
+
+    .container img {
+      border-style: outset;
+    }
+  }
 }

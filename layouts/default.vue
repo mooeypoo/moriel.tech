@@ -97,7 +97,7 @@
       >
         <img
           alt="Moriel Schottlender"
-          src="/images/gravatar.jpg"
+          src="~/assets/images/gravatar.jpg"
         >
       </v-avatar>
       <v-toolbar-title
