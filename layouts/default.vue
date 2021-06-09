@@ -9,7 +9,9 @@
       app
     >
       <v-list>
-        <v-list-item>
+        <v-list-item
+          @click="$router.push({ path: '/' })"
+        >
           <v-list-item-content>
             <v-list-item-title class="text-h6">
               Moriel Schottlender
@@ -90,13 +92,17 @@
       <v-avatar
         size="36px"
         class="mr-5"
+        @click="$router.push({ path: '/' })"
       >
         <img
           alt="Moriel Schottlender"
           src="/images/gravatar.jpg"
         >
       </v-avatar>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title
+        @click="$router.push({ path: '/' })"
+        v-text="title"
+      />
 
       <v-spacer />
 
@@ -147,18 +153,11 @@
 
     <v-main>
       <v-container>
-        {{ $store.state.whatido }}
         <nuxt />
       </v-container>
     </v-main>
 
     <Footer />
-    <!-- <v-footer
-      fixed
-      app
-    >
-      <span>Moriel Schottlender &copy; {{ new Date().getFullYear() }}</span>
-    </v-footer> -->
   </v-app>
 </template>
 

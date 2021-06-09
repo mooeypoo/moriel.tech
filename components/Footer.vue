@@ -18,6 +18,7 @@
         text
         rounded
         class="my-2 mx-2"
+        @click="link.onclick"
       >
         <v-icon color="pink" :left="link.showText">
           mdi-{{ link.icon }}
@@ -25,16 +26,19 @@
         <span v-if="link.showText">{{ link.text }}</span>
       </v-btn>
 
-      <!-- <v-btn
-        v-for="link in links"
-        :key="link"
+      <v-btn
+        title="Email me"
         color="white"
         text
         rounded
-        class="my-2"
+        class="my-2 mx-2"
+        @click="$router.push({ path: '/contact' })"
       >
-        {{ link }}
-      </v-btn> -->
+        <v-icon color="pink">
+          mdi-email
+        </v-icon>
+      </v-btn>
+
       <v-col
         class="text-center white--text"
         cols="12"
@@ -74,13 +78,14 @@ export default {
         text: 'Polywork',
         icon: 'account-circle',
         href: 'https://www.polywork.com/mooeypoo'
-      },
-      {
-        name: 'email',
-        text: 'Email',
-        icon: 'email',
-        href: ''
       }
+      // {
+      //   name: 'email',
+      //   text: 'Email',
+      //   icon: 'email',
+      //   href: '',
+      //   onclick: "$router.push({ path: '/' })"
+      // }
     ]
     // links: [
     //   'Home',
