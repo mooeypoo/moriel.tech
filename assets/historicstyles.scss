@@ -49,13 +49,15 @@
   }
 
   &.style-1995 {
-    font-family: monospace;
+    .container {
+      font-family: monospace;
+    }
   }
 
   &.style-2000 {
-    font-family: 'Times New Roman', Times, serif;
-
     .container {
+      font-family: 'Times New Roman', Times, serif;
+
       .mainpicture img {
         border-style: outset;
       }

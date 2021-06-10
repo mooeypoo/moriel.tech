@@ -25,7 +25,7 @@
         <span v-if="link.showText">{{ link.text }}</span>
       </v-btn>
 
-      <v-btn
+      <!-- <v-btn
         title="Email me"
         color="white"
         text
@@ -36,7 +36,7 @@
         <v-icon color="pink">
           mdi-email
         </v-icon>
-      </v-btn>
+      </v-btn> -->
 
       <v-col
         class="text-center"
@@ -78,22 +78,7 @@ export default {
         icon: 'account-circle',
         href: 'https://www.polywork.com/mooeypoo'
       }
-      // {
-      //   name: 'email',
-      //   text: 'Email',
-      //   icon: 'email',
-      //   href: '',
-      //   onclick: "$router.push({ path: '/' })"
-      // }
     ]
-    // links: [
-    //   'Home',
-    //   'About Us',
-    //   'Team',
-    //   'Services',
-    //   'Blog',
-    //   'Contact Us'
-    // ]
   })
 }
 </script>
