@@ -100,6 +100,10 @@ export default {
   animation: marquee 15s linear infinite;
 }
 
+.theme--light .marquee h1 {
+  color: #042c54;
+}
+
 @-moz-keyframes marquee {
   0% {
     -moz-transform: translateX(100%);
