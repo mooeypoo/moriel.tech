@@ -1,6 +1,7 @@
 <template>
   <v-form
     ref="contactForm"
+    netlify
     name="contact-form"
     method="post"
     data-netlify="true"
@@ -66,8 +67,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'ContactForm',
   data: () => ({
@@ -97,7 +96,7 @@ export default {
     },
     submit () {
       if (this.$refs.contactForm.validate()) {
-        axios.post(
+        this.$axios.post(
           '/',
           this.encode({
             'form-name': 'contact-form',
