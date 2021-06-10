@@ -41,20 +41,9 @@
 
         <v-divider />
 
-        <v-list-item-group
-          v-model="whatido"
-          color="pink accent-3"
-        >
-          <v-list-item value="build">
-            Build
-          </v-list-item>
-          <v-list-item value="write">
-            Write
-          </v-list-item>
-          <v-list-item value="speak">
-            Speak
-          </v-list-item>
-        </v-list-item-group>
+        <WhatIDoPicker
+          display="list"
+        />
 
         <v-divider />
 
@@ -107,23 +96,10 @@
 
       <v-spacer />
 
-      <v-btn-toggle
+      <WhatIDoPicker
         v-if="$vuetify.breakpoint.smAndUp"
-        v-model="whatido"
-        tile
-        color="pink accent-3"
-        group
-      >
-        <v-btn value="build">
-          Build
-        </v-btn>
-        <v-btn value="write">
-          Write
-        </v-btn>
-        <v-btn value="speak">
-          Speak
-        </v-btn>
-      </v-btn-toggle>
+        display="buttons"
+      />
 
       <v-spacer />
 
@@ -163,10 +139,14 @@
 </template>
 
 <script>
+import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
-  components: { Footer },
+  components: {
+    Footer,
+    WhatIDoPicker
+  },
   data () {
     return {
       drawer: false,
@@ -198,14 +178,6 @@ export default {
       },
       set (value) {
         this.$store.commit('changeSiteStyle', value)
-      }
-    },
-    whatido: {
-      get () {
-        return this.$store.state.whatido
-      },
-      set (value) {
-        this.$store.commit('changeWhatIDo', value)
       }
     }
   }

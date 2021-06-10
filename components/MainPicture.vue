@@ -44,7 +44,7 @@ export default {
       'getCurrentSiteStyle'
     ]),
     pictureOfMe () {
-      switch (this.$store.getters.getCurrentSiteStyle) {
+      switch (this.getCurrentSiteStyle) {
         case '1995':
           return 'moriel-50px'
         case '2000':

@@ -1,39 +1,60 @@
 .v-application {
+  &.theme--dark {
+    &.style-1995 {
+      background-color: #666;
+      color: white;
+    }
+
+    &.style-2000 {
+      background-image: url('~/assets/backgrounds/starfield.jpg');
+      background-color: #000;
+      color: white;
+    }
+  }
+
+  &.theme--light {
+    &.style-1995 {
+      background-color: white;
+      color: black;
+    }
+
+    &.style-2000 {
+      background-image: url('~/assets/backgrounds/skies.jpg');
+      background-color: #ccc;
+      color: black;
+    }
+  }
+
+  // Container and contents overrides
+
   &.style-1995,
   &.style-2000 {
     .container {
       font-family: 'Times New Roman', Times, serif;
       max-width: none;
-    }
-  }
 
-  &.style-1995 {
-    &.theme--dark {
-      background-color: #666;
-      color: white;
-    }
+      // Old-style blue links
+      a {
+        color: blue;
+        text-decoration: underline;
+      }
 
-    &.theme--light {
-      background-color: white;
-      color: black;
+      a:visited {
+        color: purple;
+      }
     }
   }
 
   &.style-2000 {
-    &.theme--dark {
-      background-image: url('~/assets/backgrounds/starfield.jpg');
-      background-color: #000;
-      color: white;
-    }
+    .container {
+      img {
+        border-style: outset;
+      }
 
-    &.theme--light {
-      background-image: url('~/assets/backgrounds/skies.jpg');
-      background-color: #ccc;
-      color: black;
-    }
-
-    .container img {
-      border-style: outset;
+      .whatidopicker {
+        display: table;
+        margin: 0 auto;
+      }
     }
   }
 }
