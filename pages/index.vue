@@ -2,6 +2,15 @@
   <div class="maininfo">
     <MainPicture />
 
+    <v-row>
+      <v-col class="text-center">
+        <img
+          v-if="Number(getCurrentSiteStyle) === 2000"
+          src="~/assets/images/under-construction.gif"
+        >
+      </v-col>
+    </v-row>
+
     <v-row
       v-if="Number(getCurrentSiteStyle) === 2021"
       justify="center"
@@ -15,7 +24,7 @@
     </v-row>
     <WhatIDoPicker
       v-else
-      class="whatidopicker my-5"
+      class="whatidopicker mb-5"
       :display="pickerDisplay"
     />
 

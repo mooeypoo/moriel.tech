@@ -1,7 +1,7 @@
 .v-application {
   &.theme--dark {
     &.style-1995 {
-      background-color: #666;
+      background-color: #999;
       color: white;
     }
 
@@ -30,7 +30,6 @@
   &.style-1995,
   &.style-2000 {
     .container {
-      font-family: 'Times New Roman', Times, serif;
       max-width: none;
 
       // Old-style blue links
@@ -45,9 +44,15 @@
     }
   }
 
+  &.style-1995 {
+    font-family: monospace;
+  }
+
   &.style-2000 {
+    font-family: 'Times New Roman', Times, serif;
+
     .container {
-      img {
+      .mainpicture img {
         border-style: outset;
       }
 

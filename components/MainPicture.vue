@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainpicture">
     <v-row
       v-if="isCurrent(2021)"
       justify="center"
