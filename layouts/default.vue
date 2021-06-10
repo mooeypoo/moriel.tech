@@ -79,7 +79,7 @@
 
       <v-switch
         v-model="$vuetify.theme.dark"
-        label="Dark mode"
+        label="Dark"
         color="blue"
         inset
         hide-details
@@ -90,6 +90,9 @@
       /> -->
 
       <template #extension>
+        <!-- <v-subheader align="center">
+          Choose an era
+        </v-subheader>
         <v-slider
           v-model="siteStyle"
           :tick-labels="siteStyleLabels"
@@ -97,7 +100,34 @@
           step="1"
           ticks="always"
           tick-size="1"
-        />
+          class="eraslider"
+          append-icon="mdi-laptop"
+          prepend-icon="mdi-desktop-classic"
+          @click:append="increaseEra"
+          @click:prepend="decreaseEra"
+        /> -->
+        <v-row no-gutters align="center">
+          <v-col cols="2" md="1" lg="1" align="center">
+            <v-subheader align="center" class="eraslider-label">
+              Choose an era:
+            </v-subheader>
+          </v-col>
+          <v-col class="flex-grow-1">
+            <v-slider
+              v-model="siteStyle"
+              :tick-labels="siteStyleLabels"
+              :max="2"
+              step="1"
+              ticks="always"
+              tick-size="1"
+              class="eraslider"
+              append-icon="mdi-laptop"
+              prepend-icon="mdi-desktop-classic"
+              @click:append="increaseEra"
+              @click:prepend="decreaseEra"
+            />
+          </v-col>
+        </v-row>
       </template>
     </v-app-bar>
 
@@ -153,6 +183,24 @@ export default {
         this.$store.commit('changeSiteStyle', value)
       }
     }
+  },
+  methods: {
+    decreaseEra () {
+      this.$store.commit('decreaseSiteStyleEra')
+    },
+    increaseEra () {
+      this.$store.commit('increaseSiteStyleEra')
+    }
   }
 }
 </script>
+
+<style>
+.v-application .eraslider .v-messages {
+  margin-top: 10px;
+}
+
+.v-application .eraslider-label {
+  padding: 0;
+}
+</style>

@@ -14,6 +14,18 @@ export const mutations = {
   },
   changeWhatIDo (state, topic) {
     state.whatido = topic
+  },
+  decreaseSiteStyleEra (state) {
+    const currIndex = state.siteStyle
+    if (currIndex > 0) {
+      state.siteStyle = currIndex - 1
+    }
+  },
+  increaseSiteStyleEra (state) {
+    const currIndex = state.siteStyle
+    if (currIndex < state.siteStyleLabels.length - 1) {
+      state.siteStyle = currIndex + 1
+    }
   }
 }
 
