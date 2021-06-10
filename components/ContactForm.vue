@@ -6,7 +6,6 @@
     method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
-    @submit.prevent="submit"
   >
     <!-- eslint-disable-next-line vue/html-self-closing -->
     <input type="hidden" name="form-name" value="contact-form" />
@@ -93,23 +92,23 @@ export default {
       return Object.keys(params)
         .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
         .join('&')
-    },
-    submit () {
-      if (this.$refs.contactForm.validate()) {
-        this.$axios.post(
-          '/',
-          this.encode({
-            'form-name': 'contact-form',
-            name: this.name,
-            topic: this.topic,
-            message: this.message
-          }),
-          {
-            header: { 'Content-Type': 'application/x-www-form-urlencoded' }
-          }
-        )
-      }
     }
+    // submit () {
+    //   if (this.$refs.contactForm.validate()) {
+    //     this.$axios.post(
+    //       '/',
+    //       this.encode({
+    //         'form-name': 'contact-form',
+    //         name: this.name,
+    //         topic: this.topic,
+    //         message: this.message
+    //       }),
+    //       {
+    //         header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    //       }
+    //     )
+    //   }
+    // }
   }
 }
 </script>
