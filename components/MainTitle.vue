@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="maintitle mb-4">
     <v-row
       v-if="isCurrent(2021)"
       justify="center"
