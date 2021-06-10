@@ -80,7 +80,7 @@ export default {
 
 .marquee h1 {
   font-size: 3em;
-  color: limegreen;
+  color: lightskyblue;
   position: absolute;
   width: 100%;
   height: 100%;

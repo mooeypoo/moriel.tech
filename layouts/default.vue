@@ -41,37 +41,11 @@
 
         <v-divider />
 
-        <WhatIDoPicker
+        <!-- <WhatIDoPicker
           display="list"
-        />
+        /> -->
 
         <v-divider />
-
-        <!-- <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="text-h6">
-              Information
-            </v-list-item-title>
-            <v-list-item-subtitle>
-              Pages
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item> -->
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
@@ -94,27 +68,26 @@
         v-text="title"
       />
 
-      <v-spacer />
+      <!-- <v-spacer /> -->
 
-      <WhatIDoPicker
+      <!-- <WhatIDoPicker
         v-if="$vuetify.breakpoint.smAndUp"
         display="buttons"
-      />
+      /> -->
 
       <v-spacer />
 
       <v-switch
-        v-if="$vuetify.breakpoint.smAndUp"
         v-model="$vuetify.theme.dark"
         label="Dark mode"
         color="blue"
         inset
         hide-details
       />
-      <v-app-bar-nav-icon
+      <!-- <v-app-bar-nav-icon
         v-if="$vuetify.breakpoint.xsOnly"
         @click.stop="drawer = !drawer"
-      />
+      /> -->
 
       <template #extension>
         <v-slider
@@ -139,13 +112,13 @@
 </template>
 
 <script>
-import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
+// import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
-    Footer,
-    WhatIDoPicker
+    Footer
+    // WhatIDoPicker
   },
   data () {
     return {
