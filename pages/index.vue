@@ -29,6 +29,15 @@
     />
 
     <MainTitle />
+
+    <v-row>
+      <v-col class="text-center">
+        <img
+          v-if="Number(getCurrentSiteStyle) === 2000"
+          src="~/assets/images/under-construction2.gif"
+        >
+      </v-col>
+    </v-row>
   </div>
 </template>
 

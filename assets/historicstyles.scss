@@ -1,4 +1,8 @@
 .v-application {
+  img {
+    max-width: 100%;
+  }
+
   &.theme--dark {
     &.style-1995 {
       background-color: #999;
