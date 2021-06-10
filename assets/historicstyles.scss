@@ -8,12 +8,12 @@
   }
 
   &.theme--dark {
-    &.style-1995 {
+    &.style-1992 {
       background-color: #999;
       color: white;
     }
 
-    &.style-2000 {
+    &.style-1997 {
       background-image: url('~/assets/backgrounds/starfield.jpg');
       background-color: #000;
       color: white;
@@ -21,12 +21,12 @@
   }
 
   &.theme--light {
-    &.style-1995 {
+    &.style-1992 {
       background-color: white;
       color: black;
     }
 
-    &.style-2000 {
+    &.style-1997 {
       background-image: url('~/assets/backgrounds/skies.jpg');
       background-color: #ccc;
       color: black;
@@ -35,8 +35,8 @@
 
   // Container and contents overrides
 
-  &.style-1995,
-  &.style-2000 {
+  &.style-1992,
+  &.style-1997 {
     .container {
       max-width: none;
 
@@ -52,13 +52,13 @@
     }
   }
 
-  &.style-1995 {
+  &.style-1992 {
     .container {
       font-family: monospace;
     }
   }
 
-  &.style-2000 {
+  &.style-1997 {
     .container {
       font-family: 'Times New Roman', Times, serif;
 

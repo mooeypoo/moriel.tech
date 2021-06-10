@@ -3,7 +3,7 @@
     <MainPicture />
 
     <v-row
-      v-if="Number(getCurrentSiteStyle) === 2000"
+      v-if="isCurrentEra(1997)"
     >
       <v-col class="text-center">
         <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -12,7 +12,7 @@
     </v-row>
 
     <v-row
-      v-if="Number(getCurrentSiteStyle) === 2021"
+      v-if="isCurrentEra(2021)"
       justify="center"
       align="center"
     >
@@ -31,7 +31,7 @@
     <MainTitle />
 
     <v-row
-      v-if="Number(getCurrentSiteStyle) === 2000"
+      v-if="isCurrentEra(1997)"
     >
       <v-col class="text-center my-5">
         <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -59,15 +59,16 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'getCurrentSiteStyle'
+      'getCurrentSiteEra',
+      'isCurrentEra'
     ]),
     pickerDisplay () {
-      switch (this.getCurrentSiteStyle) {
-        case '1995':
+      switch (this.getCurrentSiteEra) {
+        case 1992:
           return 'plain'
-        case '2000':
+        case 1997:
           return 'plain'
-        case '2021':
+        case 2021:
         default:
           return 'buttons'
       }

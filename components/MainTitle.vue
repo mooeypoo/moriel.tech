@@ -1,7 +1,7 @@
 <template>
   <div class="maintitle mb-4">
     <v-row
-      v-if="isCurrent(2021)"
+      v-if="isCurrentEra(2021)"
       justify="center"
       align="center"
     >
@@ -11,7 +11,7 @@
         </h1>
       </v-col>
     </v-row>
-    <div v-else-if="isCurrent(2000)" class="marqueewrapper">
+    <div v-else-if="isCurrentEra(1997)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <div class="marquee">
@@ -22,7 +22,7 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
     </div>
-    <div v-else-if="isCurrent(1995)">
+    <div v-else-if="isCurrentEra(1992)">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <h1 class="my-2">
@@ -42,7 +42,8 @@ export default {
   computed: {
     ...mapGetters([
       'getWhatIDo',
-      'getCurrentSiteStyle'
+      'getCurrentSiteEra',
+      'isCurrentEra'
     ]),
     introSentence () {
       switch (this.getWhatIDo) {
@@ -54,17 +55,6 @@ export default {
         default:
           return 'and I build stuff'
       }
-    }
-  },
-  methods: {
-    isCurrent (year) {
-      return Number(this.getCurrentSiteStyle) === year
-    },
-    isCurrentHigherThan (year) {
-      return Number(this.getCurrentSiteStyle) > year
-    },
-    isCurrentLowerThan (year) {
-      return Number(this.getCurrentSiteStyle) < year
     }
   }
 }

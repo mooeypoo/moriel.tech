@@ -1,7 +1,7 @@
 <template>
   <v-app
     :dark="$vuetify.theme.dark"
-    :class="siteStyleClass"
+    :class="siteEraClass"
   >
     <!-- <v-navigation-drawer
       v-model="drawer"
@@ -94,8 +94,8 @@
           Choose an era
         </v-subheader>
         <v-slider
-          v-model="siteStyle"
-          :tick-labels="siteStyleLabels"
+          v-model="siteEra"
+          :tick-labels="siteEraLabels"
           :max="2"
           step="1"
           ticks="always"
@@ -114,8 +114,8 @@
           </v-col>
           <v-col class="flex-grow-1">
             <v-slider
-              v-model="siteStyle"
-              :tick-labels="siteStyleLabels"
+              v-model="siteEra"
+              :tick-labels="siteEraLabels"
               :max="2"
               step="1"
               ticks="always"
@@ -169,15 +169,15 @@ export default {
     }
   },
   computed: {
-    siteStyleClass () {
-      return 'style-' + this.$store.getters.getCurrentSiteStyle
+    siteEraClass () {
+      return 'style-' + this.$store.getters.getCurrentSiteEra
     },
-    siteStyleLabels () {
-      return this.$store.state.siteStyleLabels
+    siteEraLabels () {
+      return this.$store.state.siteEraLabels
     },
-    siteStyle: {
+    siteEra: {
       get () {
-        return this.$store.state.siteStyle
+        return this.$store.state.siteEra
       },
       set (value) {
         this.$store.commit('changeSiteStyle', value)
@@ -186,10 +186,10 @@ export default {
   },
   methods: {
     decreaseEra () {
-      this.$store.commit('decreaseSiteStyleEra')
+      this.$store.commit('decreaseSiteEra')
     },
     increaseEra () {
-      this.$store.commit('increaseSiteStyleEra')
+      this.$store.commit('increaseSiteEra')
     }
   }
 }

@@ -1,41 +1,50 @@
 export const state = () => ({
-  siteStyle: '2021',
+  siteEra: 2,
   whatido: 'build',
-  siteStyleLabels: [
-    '1995',
-    '2000',
-    '2021'
+  siteEraLabels: [
+    1992,
+    1997,
+    2021
   ]
 })
 
 export const mutations = {
   changeSiteStyle (state, style) {
-    state.siteStyle = style
+    state.siteEra = style
   },
   changeWhatIDo (state, topic) {
     state.whatido = topic
   },
-  decreaseSiteStyleEra (state) {
-    const currIndex = state.siteStyle
+  decreaseSiteEra (state) {
+    const currIndex = state.siteEra
     if (currIndex > 0) {
-      state.siteStyle = currIndex - 1
+      state.siteEra = currIndex - 1
     }
   },
-  increaseSiteStyleEra (state) {
-    const currIndex = state.siteStyle
-    if (currIndex < state.siteStyleLabels.length - 1) {
-      state.siteStyle = currIndex + 1
+  increaseSiteEra (state) {
+    const currIndex = state.siteEra
+    if (currIndex < state.siteEraLabels.length - 1) {
+      state.siteEra = currIndex + 1
     }
   }
 }
 
 export const getters = {
-  getSiteStyleFromIndex: state => (index) => {
-    return state.siteStyleLabels[index] ||
-      state.siteStyleLabels[state.siteStyleLabels.length - 1]
+  getSiteEraFromIndex: state => (index) => {
+    return state.siteEraLabels[index] ||
+      state.siteEraLabels[state.siteEraLabels.length - 1]
   },
-  getCurrentSiteStyle: (state) => {
-    return state.siteStyleLabels[state.siteStyle]
+  getCurrentSiteEra: (state) => {
+    return state.siteEraLabels[state.siteEra]
+  },
+  isCurrentEra: state => (era) => {
+    return state.siteEraLabels[state.siteEra] === era
+  },
+  isCurrentEraLowerThan: state => (era) => {
+    return state.siteEraLabels[state.siteEra] < era
+  },
+  isCurrentEraBiggerThan: state => (era) => {
+    return state.siteEraLabels[state.siteEra] > era
   },
   getWhatIDo: (state) => {
     return state.whatido

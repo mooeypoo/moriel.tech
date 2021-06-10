@@ -1,7 +1,7 @@
 <template>
   <div class="mainpicture">
     <v-row
-      v-if="isCurrent(2021)"
+      v-if="isCurrentEra(2021)"
       justify="center"
       align="center"
     >
@@ -22,11 +22,11 @@
     <div
       v-else
       class="mb-5"
-      :class="isCurrentHigherThan(1995) ? 'text-center' : ''"
+      :class="isCurrentEraBiggerThan(1992) ? 'text-center' : ''"
     >
       <img
         class="pictureOfMe"
-        :width="isCurrentLowerThan(2001) ? 200 : 250"
+        :width="isCurrentEraLowerThan(2001) ? 200 : 250"
         alt="Moriel Schottlender"
         :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
       >
@@ -41,29 +41,21 @@ export default {
   name: 'MainPicture',
   computed: {
     ...mapGetters([
-      'getCurrentSiteStyle'
+      'getCurrentSiteEra',
+      'isCurrentEra',
+      'isCurrentEraLowerThan',
+      'isCurrentEraBiggerThan'
     ]),
     pictureOfMe () {
-      switch (this.getCurrentSiteStyle) {
-        case '1995':
+      switch (this.getCurrentSiteEra) {
+        case '1992':
           return 'moriel-50px'
-        case '2000':
+        case '1997':
           return 'moriel-150px'
         case '2021':
         default:
           return 'moriel-320px'
       }
-    }
-  },
-  methods: {
-    isCurrent (year) {
-      return Number(this.getCurrentSiteStyle) === year
-    },
-    isCurrentHigherThan (year) {
-      return Number(this.getCurrentSiteStyle) > year
-    },
-    isCurrentLowerThan (year) {
-      return Number(this.getCurrentSiteStyle) < year
     }
   }
 }
