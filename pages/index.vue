@@ -40,6 +40,8 @@
     </v-row>
 
     <MainContent />
+
+    <MainContentLinks />
   </div>
 </template>
 
@@ -49,13 +51,15 @@ import MainPicture from '~/components/MainPicture.vue'
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
+import MainContentLinks from '~/components/MainContentLinks.vue'
 
 export default {
   components: {
     MainPicture,
     WhatIDoPicker,
     MainTitle,
-    MainContent
+    MainContent,
+    MainContentLinks
   },
   computed: {
     ...mapGetters([
