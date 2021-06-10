@@ -26,7 +26,7 @@
     >
       <img
         class="pictureOfMe"
-        width="250"
+        :width="isCurrentLowerThan(2001) ? 200 : 250"
         alt="Moriel Schottlender"
         :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
       >

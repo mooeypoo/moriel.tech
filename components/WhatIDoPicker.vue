@@ -5,13 +5,13 @@
     color="pink accent-3"
   >
     <v-list-item value="build">
-      Build
+      I Build
     </v-list-item>
     <v-list-item value="write">
-      Write
+      I Write
     </v-list-item>
     <v-list-item value="speak">
-      Speak
+      I Speak
     </v-list-item>
   </v-list-item-group>
   <v-btn-toggle
@@ -22,24 +22,24 @@
     group
   >
     <v-btn value="build">
-      Build
+      I Build
     </v-btn>
     <v-btn value="write">
-      Write
+      I Write
     </v-btn>
     <v-btn value="speak">
-      Speak
+      I Speak
     </v-btn>
   </v-btn-toggle>
   <ul v-else>
     <li @click="setWhatIdo('build')">
-      <a>Build</a>
+      <a>I Build</a>
     </li>
     <li @click="setWhatIdo('write')">
-      <a>Write</a>
+      <a>I Write</a>
     </li>
     <li @click="setWhatIdo('speak')">
-      <a>Speak</a>
+      <a>I Speak</a>
     </li>
   </ul>
 </template>
