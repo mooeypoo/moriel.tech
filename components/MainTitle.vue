@@ -11,7 +11,7 @@
         </h1>
       </v-col>
     </v-row>
-    <div v-else-if="isCurrent(2000)">
+    <div v-else-if="isCurrent(2000)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <div class="marquee">
@@ -71,6 +71,11 @@ export default {
 </script>
 
 <style>
+.marqueewrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
 /* https://www.quackit.com/html/html_editors/scratchpad/?example=/css/codes/marquees/scrolling_text */
 .marquee {
   height: 50px;

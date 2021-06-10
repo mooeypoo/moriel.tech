@@ -3,7 +3,7 @@
     :dark="$vuetify.theme.dark"
     :class="siteStyleClass"
   >
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       v-model="drawer"
       clipped
       fixed
@@ -41,13 +41,13 @@
 
         <v-divider />
 
-        <!-- <WhatIDoPicker
+        <WhatIDoPicker
           display="list"
-        /> -->
+        />
 
         <v-divider />
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-app-bar
       clipped-left
       fixed
