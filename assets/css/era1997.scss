@@ -1,0 +1,54 @@
+/* stylelint-disable no-descending-specificity */
+.v-application.style-1997 {
+  &.theme--dark {
+    background-image: url('~/assets/backgrounds/starfield.jpg');
+    background-color: #000;
+    color: white;
+
+    .container a {
+      color: lightblue;
+      text-decoration: underline;
+
+      &:visited {
+        color: magenta;
+      }
+    }
+  }
+
+  &.theme--light {
+    background-image: url('~/assets/backgrounds/skies.jpg');
+    background-color: #ccc;
+    color: black;
+
+    .container a {
+      color: blue;
+      text-decoration: underline;
+
+      &:visited {
+        color: purple;
+      }
+    }
+  }
+
+  // General container styling (regardless of dark/light)
+  .container {
+    max-width: none;
+    font-family: 'Times New Roman', Times, serif;
+
+    .mainpicture img {
+      border-style: outset;
+    }
+
+    .whatidopicker {
+      display: table;
+      margin: 0 auto;
+    }
+
+    table {
+      th,
+      td {
+        border: 2px ridge;
+      }
+    }
+  }
+}

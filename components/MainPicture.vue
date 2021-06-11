@@ -48,11 +48,12 @@ export default {
     ]),
     pictureOfMe () {
       switch (this.getCurrentSiteEra) {
-        case '1992':
+        case 1992:
           return 'moriel-50px'
-        case '1997':
+        case 1997:
           return 'moriel-150px'
-        case '2021':
+        // case 2000 is handled in its own layout
+        case 2021:
         default:
           return 'moriel-320px'
       }

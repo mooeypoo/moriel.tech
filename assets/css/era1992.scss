@@ -1,0 +1,32 @@
+.v-application.style-1992 {
+  &.theme--dark {
+    background-color: #b9b9b9;
+    color: black;
+  }
+
+  &.theme--light {
+    background-color: white;
+    color: black;
+  }
+
+  .container {
+    max-width: none;
+    font-family: monospace;
+
+    a {
+      color: blue;
+      text-decoration: underline;
+
+      &:visited {
+        color: purple;
+      }
+    }
+
+    table {
+      th,
+      td {
+        border: 2px ridge;
+      }
+    }
+  }
+}
