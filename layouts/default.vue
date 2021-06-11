@@ -90,22 +90,6 @@
       /> -->
 
       <template #extension>
-        <!-- <v-subheader align="center">
-          Choose an era
-        </v-subheader>
-        <v-slider
-          v-model="siteEra"
-          :tick-labels="siteEraLabels"
-          :max="2"
-          step="1"
-          ticks="always"
-          tick-size="1"
-          class="eraslider"
-          append-icon="mdi-laptop"
-          prepend-icon="mdi-desktop-classic"
-          @click:append="increaseEra"
-          @click:prepend="decreaseEra"
-        /> -->
         <v-row no-gutters align="center">
           <v-col cols="2" md="1" lg="1" align="center">
             <v-subheader align="center" class="eraslider-label">
@@ -116,7 +100,7 @@
             <v-slider
               v-model="siteEra"
               :tick-labels="siteEraLabels"
-              :max="2"
+              :max="siteEraLabels.length - 1"
               step="1"
               ticks="always"
               tick-size="1"

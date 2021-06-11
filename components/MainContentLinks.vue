@@ -3,6 +3,7 @@
     v-if="relevantLinks.length"
     class="whatido-links"
   >
+    <!-- simple list -->
     <div v-if="isCurrentEra(1992)">
       <div
         v-for="section in relevantLinks"
@@ -24,9 +25,8 @@
         </ul>
       </div>
     </div>
-    <div
-      v-else-if="isCurrentEra(1997)"
-    >
+    <!-- table -->
+    <div v-else-if="isCurrentEra(1997)">
       <table>
         <tr>
           <th
@@ -63,6 +63,26 @@
           </td>
         </tr>
       </table>
+    </div>
+
+    <div v-if="isCurrentEra(2000)">
+      <div
+        v-for="section in relevantLinks"
+        :key="section.title"
+        class="mb-5"
+      >
+        <div class="whatido-links-2000-header">
+          {{ section.title }}
+        </div>
+        <div class="whatido-links-2000-content">
+          <span
+            v-for="linkData in section.links"
+            :key="linkData.title"
+          >
+            <a :href="linkData.url">{{ linkData.title }}</a>
+          </span>
+        </div>
+      </div>
     </div>
 
     <!-- Modern -->
@@ -132,49 +152,6 @@
           </v-row>
         </v-tab-item>
       </v-tabs-items>
-
-      <!-- <v-container
-        v-for="section in relevantLinks"
-        :key="section.title"
-        fluid
-      >
-        <h2>{{ section.title }}</h2>
-        <v-row dense>
-          <v-col
-            v-for="linkData in section.links"
-            :key="linkData.title"
-            cols="6"
-            lg="4"
-            md="4"
-          >
-            <v-card>
-              <v-card-title v-text="linkData.title" />
-              <v-img
-                :src="linkData.img"
-                class="white--text align-end"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="200px"
-              >
-                <v-card-title v-text="linkData.title" />
-              </v-img>
-              <v-card-text>{{ linkData.description }}</v-card-text>
-
-              <v-card-actions>
-                <v-spacer />
-
-                <v-btn
-                  :href="linkData.url"
-                >
-                  <v-icon left>
-                    mdi-heart
-                  </v-icon>
-                  Visit
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container> -->
     </v-card>
   </div>
 </template>
@@ -208,12 +185,40 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-card__title {
   word-break: break-word;
 }
 
 .whatido-links table {
   margin: 0 auto;
+}
+
+.whatido-links-2000 {
+  &-header {
+    width: 100%;
+    height: 50px;
+    background-color: #57153d;
+    border-radius: 50px 50px 0 0;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 1.5em;
+
+    .theme--light & {
+      color: white;
+    }
+  }
+
+  &-content {
+    span + span::before {
+      content: ' ● ';
+    }
+
+    span a {
+      .theme--light & {
+        color: blue;
+      }
+    }
+  }
 }
 </style>
