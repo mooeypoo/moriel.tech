@@ -10,7 +10,7 @@ export const state = () => ({
   whatidoLinks: {
     build: [
       {
-        title: 'Selection of tools',
+        title: 'Web tools',
         links: [
           {
             img: 'rtlwtf.png',
@@ -29,6 +29,29 @@ export const state = () => ({
             title: 'RTL.WORKS',
             description: 'Test your website\'s Right-to-Left language support',
             url: 'http://rtl.works'
+          }
+        ]
+      },
+      {
+        title: 'Minecraft plugins',
+        links: [
+          {
+            img: '',
+            title: 'ChatMonitor',
+            description: 'A minecraft server plugin that monitors the chat and responds when text matches a list of specified words or regular expressions.',
+            url: 'https://github.com/mooeypoo/ChatMonitor'
+          },
+          {
+            img: '',
+            title: 'PlayingWithTime',
+            description: 'A minecraft plugin allowing admins to set permissions or group to players based on time played',
+            url: 'https://github.com/mooeypoo/PlayingWithTime'
+          },
+          {
+            img: '',
+            title: 'TimelyActions',
+            description: 'Minecraft plugin allowing admins to run commands for players every given time period.',
+            url: 'https://github.com/mooeypoo/TimelyActions'
           }
         ]
       }
