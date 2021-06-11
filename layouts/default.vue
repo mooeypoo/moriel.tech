@@ -80,7 +80,7 @@
 
       <v-switch
         v-model="$vuetify.theme.dark"
-        label="Dark"
+        :label="$vuetify.breakpoint.smAndUp ? 'Dark' : ''"
         color="blue"
         inset
         hide-details

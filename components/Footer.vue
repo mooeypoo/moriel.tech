@@ -7,7 +7,7 @@
     <v-row
       justify="center"
       no-gutters
-      class="py-2 text-center"
+      class="pt-2 text-center"
     >
       <v-btn
         v-for="link in links"
@@ -17,29 +17,16 @@
         color="white"
         text
         rounded
-        class="my-2 mx-2"
+        class="mb-2 mx-2"
+        small
       >
-        <v-icon color="pink" :left="link.showText">
+        <v-icon color="pink" :left="$vuetify.breakpoint.smAndUp">
           mdi-{{ link.icon }}
         </v-icon>
-        <span v-if="link.showText">{{ link.text }}</span>
+        <span v-if="$vuetify.breakpoint.smAndUp">{{ link.text }}</span>
       </v-btn>
-
-      <!-- <v-btn
-        title="Email me"
-        color="white"
-        text
-        rounded
-        class="my-2 mx-2"
-        @click="$router.push({ path: '/contact' })"
-      >
-        <v-icon color="pink">
-          mdi-email
-        </v-icon>
-      </v-btn> -->
-
       <v-col
-        class="text-center"
+        class="text-center copyright-line"
         cols="12"
       >
         {{ new Date().getFullYear() }} — <strong>Moriel Schottlender</strong>
@@ -82,3 +69,9 @@ export default {
   })
 }
 </script>
+
+<style lang="scss">
+.copyright-line {
+  font-size: 0.8em;
+}
+</style>
