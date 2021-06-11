@@ -14,9 +14,9 @@
     <div v-else-if="isCurrentEra(1997)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
-      <div class="marquee">
+      <div class="marquee" :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''">
         <h1>
-          Hi, I'm Moriel, {{ introSentence }}
+          Hi, I'm Moriel, {{ introSentence }} &nbsp; &nbsp; &nbsp;
         </h1>
       </div>
       <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -77,6 +77,7 @@ export default {
   font-size: 3em;
   color: lightskyblue;
   position: absolute;
+  white-space: nowrap;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -88,6 +89,10 @@ export default {
   -moz-animation: marquee 15s linear infinite;
   -webkit-animation: marquee 15s linear infinite;
   animation: marquee 15s linear infinite;
+}
+
+.marquee.mobile h1 {
+  font-size: 2em;
 }
 
 .theme--light .marquee h1 {
