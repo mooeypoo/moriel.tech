@@ -1,16 +1,14 @@
 <template>
   <div class="maintitle mb-4">
-    <v-row
-      v-if="isCurrentEra(2021)"
-      justify="center"
-      align="center"
-    >
-      <v-col cols="12" sm="9" md="8">
-        <h1 class="text-center">
-          Hi, I'm Moriel, {{ introSentence }}
-        </h1>
-      </v-col>
-    </v-row>
+    <div v-if="isCurrentEra(1992)">
+      <!-- eslint-disable-next-line vue/html-self-closing -->
+      <hr />
+      <h1 class="my-2">
+        Hi, I'm Moriel, {{ introSentence }}
+      </h1>
+      <!-- eslint-disable-next-line vue/html-self-closing -->
+      <hr class="mb-5" />
+    </div>
     <div v-else-if="isCurrentEra(1997)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
@@ -22,15 +20,17 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
     </div>
-    <div v-else-if="isCurrentEra(1992)">
-      <!-- eslint-disable-next-line vue/html-self-closing -->
-      <hr />
-      <h1 class="my-2">
-        Hi, I'm Moriel, {{ introSentence }}
-      </h1>
-      <!-- eslint-disable-next-line vue/html-self-closing -->
-      <hr class="mb-5" />
-    </div>
+    <v-row
+      v-else
+      justify="center"
+      align="center"
+    >
+      <v-col cols="12" sm="9" md="8">
+        <h1 class="text-center">
+          Hi, I'm Moriel, {{ introSentence }}
+        </h1>
+      </v-col>
+    </v-row>
   </div>
 </template>
 

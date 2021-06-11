@@ -25,7 +25,7 @@
         </ul>
       </div>
     </div>
-    <!-- table -->
+    <!-- table view -->
     <div v-else-if="isCurrentEra(1997)">
       <table v-if="$vuetify.breakpoint.smAndUp">
         <tr>
@@ -99,6 +99,7 @@
       </table>
     </div>
 
+    <!-- rounded section view -->
     <div v-if="isCurrentEra(2000)">
       <div
         v-for="section in relevantLinks"
@@ -106,7 +107,13 @@
         class="mb-5"
       >
         <div class="whatido-links-2000-header">
-          {{ section.title }}
+          <img
+            alt="Notebook clipart"
+            style="vertical-align: middle;"
+            width="40px"
+            :src="require('~/assets/images/clipart-notebookpencil.png')"
+          >
+          <span>{{ section.title }}</span>
         </div>
         <div class="whatido-links-2000-content">
           <span

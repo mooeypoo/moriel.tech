@@ -26,3 +26,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 * Made with :coffee: by Moriel Schottlender ([@mooeypoo](https://twitter.com/mooeypoo))
 * <a href="https://commons.wikimedia.org/wiki/File:Mars_and_Comet_Siding_Spring.jpg">NASA Hubble</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons
 * <a href="https://commons.wikimedia.org/wiki/File:Sky_-_detail.jpg">Mia Gaitanidis</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+* [Clipart notebook](http://clipart-library.com/clipart/145950.htm)

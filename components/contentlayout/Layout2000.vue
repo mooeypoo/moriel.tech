@@ -9,6 +9,7 @@
     </div>
 
     <div class="content">
+      <MainTitle />
       <MainContent />
     </div>
 
@@ -18,9 +19,19 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
+import MainTitle from '~/components/MainTitle.vue'
+import MainContent from '~/components/MainContent.vue'
+import MainContentLinks from '~/components/MainContentLinks.vue'
 
 export default {
   name: 'Layout2000',
+  components: {
+    WhatIDoPicker,
+    MainTitle,
+    MainContent,
+    MainContentLinks
+  },
   computed: {
     ...mapGetters([
       'isCurrentEra'
@@ -87,6 +98,10 @@ export default {
 
     .theme--dark & {
       background-color: #333;
+    }
+
+    .theme--light & {
+      background-color: #ccc;
     }
   }
 }
