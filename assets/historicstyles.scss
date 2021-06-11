@@ -9,7 +9,7 @@
 
   &.theme--dark {
     &.style-1992 {
-      background-color: #999;
+      background-color: #b9b9b9;
       color: black;
     }
 
@@ -48,6 +48,13 @@
 
       a:visited {
         color: purple;
+      }
+
+      table {
+        th,
+        td {
+          border: 2px ridge;
+        }
       }
     }
   }

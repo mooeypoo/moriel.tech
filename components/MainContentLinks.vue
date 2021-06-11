@@ -1,11 +1,14 @@
 <template>
-  <div class="whatido-links">
-    <div v-if="isCurrentEraLowerThan(2000)">
+  <div
+    v-if="relevantLinks.length"
+    class="whatido-links"
+  >
+    <div v-if="isCurrentEra(1992)">
       <div
         v-for="section in relevantLinks"
         :key="section.title"
       >
-        <h2>{{ section.title }}</h2>
+        <h2 class="mt-5 mb-4">{{ section.title }}</h2>
         <ul>
           <li
             v-for="linkData in section.links"
@@ -19,6 +22,38 @@
         </ul>
       </div>
     </div>
+    <div
+      v-else-if="isCurrentEra(1997)"
+    >
+      <table>
+        <tr>
+          <th
+            v-for="section in relevantLinks"
+            :key="section.title"
+          >
+            {{ section.title }}
+          </th>
+        </tr>
+        <tr>
+          <td
+            v-for="section in relevantLinks"
+            :key="section.title"
+          >
+            <ul>
+              <li
+                v-for="linkData in section.links"
+                :key="linkData.title"
+              >
+                <a :href="linkData.url">{{ linkData.title }}</a>:
+                <!-- eslint-disable-next-line vue/html-self-closing -->
+                <br />
+                {{ linkData.description }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
 
     <!-- Modern -->
     <v-container
@@ -26,7 +61,6 @@
       fluid
     >
       <v-tabs
-        v-if="relevantLinks.length"
         v-model="whatidotab"
         show-arrows
       >
@@ -157,5 +191,9 @@ export default {
 <style>
 .v-card__title {
   word-break: break-word;
+}
+
+.whatido-links table {
+  margin: 0 auto;
 }
 </style>
