@@ -184,6 +184,12 @@ export default {
     relevantLinks () {
       return this.getRelevantWhatIDoLinks
     }
+  },
+  watch: {
+    getWhatIDo (newValue, oldValue) {
+      // What 'what I do' changes, reset the value of the tab to 0
+      this.whatidotab = '0'
+    }
   }
 }
 </script>
