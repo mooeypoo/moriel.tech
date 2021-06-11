@@ -161,7 +161,10 @@ export default {
   },
   computed: {
     siteEraClass () {
-      return 'style-' + this.$store.getters.getCurrentSiteEra
+      return [
+        'style-' + this.$store.getters.getCurrentSiteEra,
+        this.$vuetify.breakpoint.xsOnly ? 'mobile' : ''
+      ].join(' ')
     },
     siteEraLabels () {
       return this.$store.state.siteEraLabels
@@ -193,5 +196,9 @@ export default {
 
 .v-application .eraslider-label {
   padding: 0;
+}
+
+.v-application.mobile .v-slider__tick-label {
+  font-size: 0.8em;
 }
 </style>
