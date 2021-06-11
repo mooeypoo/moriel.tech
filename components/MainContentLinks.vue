@@ -8,7 +8,9 @@
         v-for="section in relevantLinks"
         :key="section.title"
       >
-        <h2 class="mt-5 mb-4">{{ section.title }}</h2>
+        <h2 class="mt-5 mb-4">
+          {{ section.title }}
+        </h2>
         <ul>
           <li
             v-for="linkData in section.links"
