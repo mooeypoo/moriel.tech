@@ -1,5 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 
+const description = 'Hi. I\'m moriel, and I build stuff, write stuff, and talk about stuff. Read about what I do here.'
+const siteTitle = 'Moriel\'s does tech'
+const siteImage = '/moriel.jpg'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -8,11 +11,57 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - moriel.tech',
-    title: 'Moriel Schottlender',
+    title: siteTitle,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: description },
+      // Open Graph
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: siteTitle
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: description
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: siteImage
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: siteTitle
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: siteTitle
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: description
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: siteImage
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: siteImage
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: siteTitle
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
