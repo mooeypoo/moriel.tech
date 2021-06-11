@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 const description = 'Hi. I\'m moriel, and I build stuff, write stuff, and talk about stuff. Read about what I do here.'
-const siteTitle = 'Moriel\'s does tech'
+const siteTitle = 'Moriel does tech'
 const siteImage = '/moriel.jpg'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
