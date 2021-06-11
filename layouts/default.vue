@@ -64,6 +64,7 @@
         >
       </v-avatar>
       <v-toolbar-title
+        v-if="$vuetify.breakpoint.smAndUp"
         @click="$router.push({ path: '/' })"
         v-text="title"
       />
@@ -91,7 +92,13 @@
 
       <template #extension>
         <v-row no-gutters align="center">
-          <v-col cols="2" md="1" lg="1" align="center">
+          <v-col
+            v-if="$vuetify.breakpoint.smAndUp"
+            cols="2"
+            md="1"
+            lg="1"
+            align="center"
+          >
             <v-subheader align="center" class="eraslider-label">
               Choose an era:
             </v-subheader>
