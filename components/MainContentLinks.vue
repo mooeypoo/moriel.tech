@@ -169,11 +169,10 @@
                   v-if="linkData.img"
                   :src="require(`~/assets/screenshots/${linkData.img}`)"
                   class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,.7)"
+                  gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.4)"
                   height="200px"
-                >
-                  <v-card-title v-text="linkData.title" />
-                </v-img>
+                />
+                <v-card-title v-if="linkData.img" v-text="linkData.title" />
                 <v-card-text>{{ linkData.description }}</v-card-text>
 
                 <v-card-actions>
