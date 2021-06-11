@@ -1,7 +1,11 @@
 <template>
-  <div class="layout2000">
+  <div class="layout2000" >
     <div class="bannerimage">
-      <WhatIDoPicker class="bannerlinks" display="links" />
+      <WhatIDoPicker
+        display="links"
+        class="bannerlinks"
+        :class="$vuetify.breakpoint.xsOnly ? 'bannerlinks-mobile' : ''"
+      />
     </div>
 
     <div class="content">
@@ -43,6 +47,16 @@ export default {
     overflow: hidden;
     margin-left: 170px;
     padding-top: 30px;
+
+    &-mobile {
+      font-size: 0.8em;
+      margin-left: 155px;
+
+      li {
+        padding: 2px !important;
+        margin: 0 2px !important;
+      }
+    }
 
     li {
       float: left;

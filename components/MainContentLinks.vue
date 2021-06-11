@@ -27,7 +27,7 @@
     </div>
     <!-- table -->
     <div v-else-if="isCurrentEra(1997)">
-      <table>
+      <table v-if="$vuetify.breakpoint.smAndUp">
         <tr>
           <th
             v-for="section in relevantLinks"
@@ -41,6 +41,40 @@
             v-for="section in relevantLinks"
             :key="section.title"
           >
+            <ul>
+              <li
+                v-for="linkData in section.links"
+                :key="linkData.title"
+              >
+                <a :href="linkData.url">{{ linkData.title }}</a>:
+                <!-- eslint-disable-next-line vue/html-self-closing -->
+                <br />
+                {{ linkData.description }}
+                <!-- eslint-disable-next-line vue/html-self-closing -->
+                <br />
+                <v-img
+                  v-if="linkData.img"
+                  :src="require(`~/assets/screenshots/${linkData.img}`)"
+                  height="200px"
+                  width="200px"
+                />
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      <!-- small screens -->
+      <table
+        v-for="section in relevantLinks"
+        v-else
+        :key="section.title"
+      >
+        <tr>
+          <th>{{ section.title }}</th>
+        </tr>
+        <tr>
+          <td>
             <ul>
               <li
                 v-for="linkData in section.links"
