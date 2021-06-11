@@ -12,19 +12,19 @@ export const state = () => ({
         title: 'Selection of tools',
         links: [
           {
-            img: '',
+            img: 'rtlwtf.png',
             title: 'RTL.WTF',
             description: 'Experience and learn of Right-to-Left language support online',
             url: 'https://rtl.wtf'
           },
           {
-            img: '',
+            img: 'neutralitywtf.png',
             title: 'Neutrality:WTF',
             description: 'Challenge the perception of gendered language online',
             url: 'https://neutrality.wtf'
           },
           {
-            img: '',
+            img: 'rtlworks.png',
             title: 'RTL.WORKS',
             description: 'Test your website\'s Right-to-Left language support',
             url: 'http://rtl.works'

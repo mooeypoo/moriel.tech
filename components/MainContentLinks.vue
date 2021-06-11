@@ -50,6 +50,14 @@
                 <!-- eslint-disable-next-line vue/html-self-closing -->
                 <br />
                 {{ linkData.description }}
+                <!-- eslint-disable-next-line vue/html-self-closing -->
+                <br />
+                <v-img
+                  v-if="linkData.img"
+                  :src="require(`~/assets/screenshots/${linkData.img}`)"
+                  height="200px"
+                  width="200px"
+                />
               </li>
             </ul>
           </td>
@@ -58,9 +66,9 @@
     </div>
 
     <!-- Modern -->
-    <v-container
+    <v-card
       v-else-if="isCurrentEra(2021)"
-      fluid
+      :outlined="!$vuetify.theme.dark"
     >
       <v-tabs
         v-model="whatidotab"
@@ -92,15 +100,19 @@
               <v-card
                 :color="$vuetify.theme.dark ? '#761d3b' : '#ffb6cf'"
               >
-                <v-card-title v-text="linkData.title" />
-                <!-- <v-img
-                  :src="linkData.img"
+                <v-card-title
+                  v-if="!linkData.img"
+                  v-text="linkData.title"
+                />
+                <v-img
+                  v-if="linkData.img"
+                  :src="require(`~/assets/screenshots/${linkData.img}`)"
                   class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  gradient="to bottom, rgba(0,0,0,.4), rgba(0,0,0,.7)"
                   height="200px"
                 >
                   <v-card-title v-text="linkData.title" />
-                </v-img> -->
+                </v-img>
                 <v-card-text>{{ linkData.description }}</v-card-text>
 
                 <v-card-actions>
@@ -163,7 +175,7 @@
           </v-col>
         </v-row>
       </v-container> -->
-    </v-container>
+    </v-card>
   </div>
 </template>
 
