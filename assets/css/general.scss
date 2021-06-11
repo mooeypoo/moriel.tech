@@ -10,4 +10,8 @@
   &.theme--dark .nuxt-content-editor {
     color: white;
   }
+
+  .eraslider .v-slider.v-slider--horizontal {
+    cursor: pointer;
+  }
 }
