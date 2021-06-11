@@ -1,5 +1,5 @@
 <template>
-  <div class="layout2000" >
+  <div class="layout2000">
     <div class="bannerimage">
       <WhatIDoPicker
         display="links"
