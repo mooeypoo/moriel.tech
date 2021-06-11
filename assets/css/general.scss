@@ -6,4 +6,8 @@
   h1 {
     font-size: 1.6em;
   }
+
+  &.theme--dark .nuxt-content-editor {
+    color: white;
+  }
 }

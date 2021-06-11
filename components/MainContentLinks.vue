@@ -1,10 +1,10 @@
 <template>
   <div
     v-if="relevantLinks.length"
-    class="whatido-links"
+    class="content-links"
   >
     <!-- simple list -->
-    <div v-if="isCurrentEra(1992)">
+    <div v-if="isCurrentEraLowerThan(1993)">
       <div
         v-for="section in relevantLinks"
         :key="section.title"
@@ -106,7 +106,7 @@
         :key="section.title"
         class="mb-5"
       >
-        <div class="whatido-links-2000-header">
+        <div class="content-links-2000-header">
           <img
             alt="Notebook clipart"
             style="vertical-align: middle;"
@@ -115,7 +115,7 @@
           >
           <span>{{ section.title }}</span>
         </div>
-        <div class="whatido-links-2000-content">
+        <div class="content-links-2000-content">
           <span
             v-for="linkData in section.links"
             :key="linkData.title"
@@ -231,11 +231,11 @@ export default {
   word-break: break-word;
 }
 
-.whatido-links table {
+.content-links table {
   margin: 0 auto;
 }
 
-.whatido-links-2000 {
+.content-links-2000 {
   &-header {
     width: 100%;
     height: 50px;

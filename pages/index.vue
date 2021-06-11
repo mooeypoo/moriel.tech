@@ -1,7 +1,10 @@
 <template>
   <div class="maininfo">
+    <Layout1989
+      v-if="isCurrentEra(1989)"
+    />
     <Layout2000
-      v-if="isCurrentEra(2000)"
+      v-else-if="isCurrentEra(2000)"
     />
     <BaseLayout
       v-else
@@ -11,12 +14,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Layout1989 from '~/components/contentlayout/Layout1989.vue'
 import Layout2000 from '~/components/contentlayout/Layout2000.vue'
 import BaseLayout from '~/components/contentlayout/BaseLayout.vue'
 
 export default {
   components: {
     BaseLayout,
+    Layout1989,
     Layout2000
   },
   computed: {

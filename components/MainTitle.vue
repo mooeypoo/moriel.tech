@@ -1,6 +1,6 @@
 <template>
   <div class="maintitle mb-4">
-    <div v-if="isCurrentEra(1992)">
+    <div v-if="isCurrentEraLowerThan(1993)">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <h1 class="my-2">
@@ -43,7 +43,8 @@ export default {
     ...mapGetters([
       'getWhatIDo',
       'getCurrentSiteEra',
-      'isCurrentEra'
+      'isCurrentEra',
+      'isCurrentEraLowerThan'
     ]),
     introSentence () {
       switch (this.getWhatIDo) {
