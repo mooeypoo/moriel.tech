@@ -80,16 +80,6 @@ export default {
       overflow: hidden;
       margin-left: 0;
 
-      &-mobile {
-        font-size: 0.8em;
-        margin-left: 155px;
-
-        li {
-          padding: 2px !important;
-          margin: 0 2px !important;
-        }
-      }
-
       li {
         float: left;
         margin: 0 0.5em;
