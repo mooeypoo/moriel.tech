@@ -116,12 +116,18 @@
           <span>{{ section.title }}</span>
         </div>
         <div class="content-links-2000-content">
-          <span
+          <div
             v-for="linkData in section.links"
             :key="linkData.title"
+            class="content-links-2000-content-piece"
           >
-            <a :href="linkData.url">{{ linkData.title }}</a>
-          </span>
+            <div class="content-links-2000-content-piece-head">
+              <a :href="linkData.url">{{ linkData.title }}</a>
+            </div>
+            <div class="content-links-2000-content-piece-content">
+              {{ linkData.description }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

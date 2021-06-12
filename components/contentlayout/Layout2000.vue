@@ -1,6 +1,10 @@
 <template>
   <div class="layout2000">
     <div class="bannerimage">
+      <h1>Moriel does tech</h1>
+    </div>
+
+    <div class="menu">
       <WhatIDoPicker
         display="links"
         class="bannerlinks"
@@ -8,12 +12,17 @@
       />
     </div>
 
-    <div class="content">
-      <MainTitle />
-      <MainContent />
+    <div class="mainwrapper">
+      <div class="sidebar">
+        <MainContent />
+      </div>
+      <div class="contentwrapper">
+        <div class="content">
+          <MainTitle />
+        </div>
+        <MainContentLinks />
+      </div>
     </div>
-
-    <MainContentLinks class="mt-5" />
   </div>
 </template>
 
@@ -49,59 +58,92 @@ export default {
     background-image: url('~assets/images/moriel-150px.jpg');
     background-position: center left;
     border-radius: 50px 50px 0 0;
-  }
 
-  ul.bannerlinks {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    margin-left: 170px;
-    padding-top: 30px;
-
-    &-mobile {
-      font-size: 0.8em;
-      margin-left: 155px;
-
-      li {
-        padding: 2px !important;
-        margin: 0 2px !important;
-      }
-    }
-
-    li {
-      float: left;
-      border: 1px solid #000;
-      border-radius: 10px;
-      background-color: darkred;
-      margin: 0 0.5em;
-      padding: 0.5em;
+    h1 {
+      margin-left: 170px;
+      padding-top: 30px;
 
       .theme--light & {
-        background-color: #ca2188;
-      }
-
-      &:hover {
-        background-color: crimson;
-      }
-
-      a {
-        display: block;
         color: white;
       }
     }
   }
 
-  .content {
-    padding: 0.5em;
-    border: 1px solid #000;
+  .menu {
+    width: 100%;
+    background-color: #2b0a1e;
 
-    .theme--dark & {
-      background-color: #333;
+    ul.bannerlinks {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      margin-left: 0;
+
+      &-mobile {
+        font-size: 0.8em;
+        margin-left: 155px;
+
+        li {
+          padding: 2px !important;
+          margin: 0 2px !important;
+        }
+      }
+
+      li {
+        float: left;
+        margin: 0 0.5em;
+        padding: 0.5em;
+
+        a {
+          display: block;
+          color: white;
+          text-decoration: underline;
+        }
+
+        &.active a {
+          font-weight: bolder;
+
+          &::after {
+            content: '';
+          }
+
+          &::before {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  .mainwrapper {
+    display: flex;
+
+    .sidebar {
+      width: 200px;
+      padding: 0.5em;
+      border: 1px solid #000;
+
+      .theme--dark & {
+        background-color: #333;
+      }
+
+      .theme--light & {
+        background-color: #ccc;
+      }
     }
 
-    .theme--light & {
-      background-color: #ccc;
+    .contentwrapper {
+      flex-grow: 1;
+      margin-left: 1em;
+
+      .content {
+        padding: 0.5em;
+
+        &-links .content-links-2000-content-piece-head a {
+          font-weight: bold;
+        }
+      }
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
-  <div class="maintitle mb-4">
+  <div class="maintitle">
     <div v-if="isCurrentEraLowerThan(1993)">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
-      <h1 class="my-2">
+      <h2 class="my-2">
         Hi, I'm Moriel, {{ introSentence }}
-      </h1>
+      </h2>
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr class="mb-5" />
     </div>
@@ -13,9 +13,9 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <div class="marquee" :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''">
-        <h1>
+        <h2>
           Hi, I'm Moriel, {{ introSentence }} &nbsp; &nbsp; &nbsp;
-        </h1>
+        </h2>
       </div>
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
@@ -26,9 +26,9 @@
       align="center"
     >
       <v-col cols="12" sm="9" md="8">
-        <h1 class="text-center">
+        <h2 class="text-center">
           Hi, I'm Moriel, {{ introSentence }}
-        </h1>
+        </h2>
       </v-col>
     </v-row>
   </div>
@@ -69,7 +69,7 @@ export default {
 
 /* https://www.quackit.com/html/html_editors/scratchpad/?example=/css/codes/marquees/scrolling_text */
 .marquee {
-  height: 50px;
+  height: 35px;
   overflow: hidden;
   position: relative;
 }
