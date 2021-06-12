@@ -24,17 +24,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: description },
       // Open Graph
-      ogTag('twitter:card', 'summary'),
-      ogTag('twitter:creator', '@mooeypoo'),
-      ogTag('twitter:title', siteTitle),
-      ogTag('twitter:description', description),
-      ogTag('twitter:image', siteImage),
-      ogTag('twitter:image:alt', 'https://morieltech.netlify.app/gravatar.jpg'),
       ogTag('og:title', siteTitle),
       ogTag('og:description', description),
       ogTag('og:image', siteImage),
       ogTag('og:image:alt', siteImage),
       ogTag('og:image:secure_url', siteImage),
+      ogTag('twitter:card', 'summary'),
+      ogTag('twitter:creator', '@mooeypoo'),
+      ogTag('twitter:title', siteTitle),
+      ogTag('twitter:description', description),
+      ogTag('twitter:image', siteImage),
+      ogTag('twitter:image:alt', 'https://morieltech.netlify.app/gravatar.jpg')
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
