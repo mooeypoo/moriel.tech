@@ -2,7 +2,14 @@ import colors from 'vuetify/es5/util/colors'
 
 const description = 'Hi. I\'m moriel, and I build stuff, write stuff, and talk about stuff. Read about what I do here.'
 const siteTitle = 'Moriel does tech'
-const siteImage = '/moriel.jpg'
+const siteImage = 'https://morieltech.netlify.app/moriel.jpg'
+const ogTag = (name, content) => {
+  return {
+    hid: name,
+    name,
+    content
+  }
+}
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -17,51 +24,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: description },
       // Open Graph
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: siteTitle
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: description
-      },
-      {
-        hid: 'twitter:image',
-        name: 'twitter:image',
-        content: siteImage
-      },
-      {
-        hid: 'twitter:image:alt',
-        name: 'twitter:image:alt',
-        content: siteTitle
-      },
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: siteTitle
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: description
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: siteImage
-      },
-      {
-        hid: 'og:image:secure_url',
-        property: 'og:image:secure_url',
-        content: siteImage
-      },
-      {
-        hid: 'og:image:alt',
-        property: 'og:image:alt',
-        content: siteTitle
-      }
+      ogTag('twitter:card', 'summary'),
+      ogTag('twitter:creator', '@mooeypoo'),
+      ogTag('twitter:title', siteTitle),
+      ogTag('twitter:description', description),
+      ogTag('twitter:image', siteImage),
+      ogTag('twitter:image:alt', 'https://morieltech.netlify.app/gravatar.jpg'),
+      ogTag('og:title', siteTitle),
+      ogTag('og:description', description),
+      ogTag('og:image', siteImage),
+      ogTag('og:image:alt', siteImage),
+      ogTag('og:image:secure_url', siteImage),
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
