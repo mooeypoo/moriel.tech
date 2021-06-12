@@ -1,0 +1,138 @@
+/* stylelint-disable at-rule-no-unknown, no-descending-specificity */
+@mixin animationTransformTranslate($p1, $p2) {
+  -moz-transform: translate($p1, $p2);
+  -ms-transform: translate($p1, $p2);
+  -webkit-transform: translate($p1, $p2);
+  transform: translate($p1, $p2);
+}
+
+@mixin animationKeyframes() {
+  0%,
+  100% {
+    @include animationTransformTranslate(0, 0);
+  }
+
+  10% {
+    @include animationTransformTranslate(-5%, -10%);
+  }
+
+  20% {
+    @include animationTransformTranslate(-15%, 5%);
+  }
+
+  30% {
+    @include animationTransformTranslate(7%, -25%);
+  }
+
+  40% {
+    @include animationTransformTranslate(-5%, 25%);
+  }
+
+  50% {
+    @include animationTransformTranslate(-15%, 10%);
+  }
+
+  60% {
+    @include animationTransformTranslate(15%, 0%);
+  }
+
+  70% {
+    @include animationTransformTranslate(0%, 15%);
+  }
+
+  80% {
+    @include animationTransformTranslate(3%, 35%);
+  }
+
+  90% {
+    @include animationTransformTranslate(-10%, 10%);
+  }
+}
+
+.v-application.style-2100 {
+  &.theme--dark {
+    background-color: #333;
+    color: #ccc;
+
+    .grainy::after {
+      background: url('~/assets/backgrounds/transparent-noise-white.png');
+    }
+
+    .loading {
+      color: white;
+    }
+  }
+
+  &.theme--light {
+    background-color: #ccc;
+    color: #666;
+
+    .grainy::after {
+      background: url('~/assets/backgrounds/transparent-noise-black.png');
+    }
+
+    .loading {
+      color: #333;
+    }
+  }
+
+  /** GRAINY EFFECT **/
+
+  // SOURCE: https://codepen.io/averyvery/pen/ajrzk
+  // and https://www.viget.com/articles/film-grain-effect/
+  .grainy {
+    display: block;
+    height: 75vh;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .grainy > div {
+    z-index: 2;
+  }
+
+  .grainy::after {
+    -webkit-animation: grain 5s steps(10) infinite;
+    -moz-animation: grain 5s steps(10) infinite;
+    -ms-animation: grain 5s steps(10) infinite;
+    animation: grain 5s steps(10) infinite;
+    content: "";
+    display: block;
+    height: 300%;
+    left: -100%;
+    position: absolute;
+    top: -100%;
+    width: 300%;
+    z-index: 1;
+  }
+
+  // .grainy b {
+  //   color: #fff;
+  //   display: block;
+  //   font-family: sans-serif;
+  //   font-size: 75px;
+  //   font-weight: bold;
+  //   letter-spacing: 5px;
+  //   line-height: 850px;
+  //   position: relative;
+  //   text-align: center;
+  //   text-shadow: 0 5px 1px rgba(0, 0, 0, 0.4);
+  //   text-transform: uppercase;
+  // }
+  @-webkit-keyframes grain {
+    @include animationKeyframes();
+  }
+
+  @-moz-keyframes grain {
+    @include animationKeyframes();
+  }
+
+  @-ms-keyframes grain {
+    @include animationKeyframes();
+  }
+
+  @keyframes grain {
+    @include animationKeyframes();
+  }
+}

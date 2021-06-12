@@ -167,7 +167,15 @@ export default {
       ].join(' ')
     },
     siteEraLabels () {
-      return this.$store.state.siteEraLabels
+      return this.$store.state.siteEraLabels.map((label) => {
+        if (label === 2021) {
+          return 'Today'
+        } else if (label > 2021) {
+          return 'Future'
+        } else {
+          return label
+        }
+      })
     },
     siteEra: {
       get () {
@@ -199,6 +207,6 @@ export default {
 }
 
 .v-application.mobile .v-slider__tick-label {
-  font-size: 0.8em;
+  font-size: 0.65em;
 }
 </style>

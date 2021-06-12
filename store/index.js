@@ -1,12 +1,15 @@
+const eras = [
+  1989,
+  1992,
+  1997,
+  2000,
+  2021,
+  2100
+]
+
 export const state = () => ({
-  siteEra: 4,
-  siteEraLabels: [
-    1989,
-    1992,
-    1997,
-    2000,
-    2021
-  ],
+  siteEra: eras.length - 2, // Initial state = Modern
+  siteEraLabels: eras,
   whatido: 'build',
   whatidoLinks: {
     build: [
