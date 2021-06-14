@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
@@ -40,11 +39,6 @@ export default {
     MainTitle,
     MainContent,
     MainContentLinks
-  },
-  computed: {
-    ...mapGetters([
-      'isCurrentEra'
-    ])
   }
 }
 </script>

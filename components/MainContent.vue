@@ -1,6 +1,10 @@
 <template>
-  <v-row no-gutters>
-    <v-col>
+  <v-row
+    no-gutters
+    justify="center"
+    align="center"
+  >
+    <v-col :cols="width">
       <nuxt-content :document="mdcontent[getWhatIDo]" />
     </v-col>
   </v-row>
@@ -11,6 +15,12 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'MainContent',
+  props: {
+    width: {
+      type: Number,
+      default: 12
+    }
+  },
   data: () => ({
     mdcontent: {}
   }),

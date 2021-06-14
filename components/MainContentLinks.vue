@@ -199,6 +199,34 @@
         </v-tab-item>
       </v-tabs-items>
     </v-card>
+
+    <!-- Futuristic, split to ranom div -->
+    <div v-else-if="isCurrentEra(2100)">
+      <div
+        v-for="section in relevantLinks"
+        :key="section.title"
+      >
+        <div class="section-title">
+          {{ section.title }}
+        </div>
+        <div
+          v-for="linkData in section.links"
+          :key="linkData.title"
+          class="section-links"
+        >
+          <div
+            class="section-links-title"
+          >
+            {{ linkData.title }}
+          </div>
+          <div
+            class="section-links-description"
+          >
+            {{ linkData.description }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
