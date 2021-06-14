@@ -9,7 +9,7 @@
       </v-col>
     </v-row>
 
-    <div class="mainsection grainy">
+    <div class="mainsection changingbg">
       <v-row
         class="loading mb-5 my-2"
         justify="center"
