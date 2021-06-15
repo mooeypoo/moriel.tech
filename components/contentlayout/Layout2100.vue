@@ -8,7 +8,7 @@
       <v-col cols="12" xs="6" sm="6" class="text-center">
         <v-card>
           <v-card-title class="maintitle">
-            Loading into Consciousness Chip<sup>TM</sup>
+            Loading into your Consciousness Chip<sup>TM</sup>
           </v-card-title>
         </v-card>
       </v-col>
@@ -48,21 +48,14 @@
       justify="center"
       align="center"
     >
-      <v-col cols="12" xs="6" sm="6" class="text-center">
+      <v-col cols="12" xs="6" sm="6">
         <v-card>
           <v-card-title class="endtitle">
             Upload successful.
           </v-card-title>
           <v-card-text>
             <p>If your Consciousness Chip<sup>TM</sup> s malfunctioning or has overloaded, please contact <strong>Bio-Synthetic Brain Operation</strong> support.</p>
-            <p>You can also attempt the obsolete <strong>Analog Mode</strong> by reading the information with aid of your eyes.</p>
-            <v-alert
-              type="info"
-              elevation="2"
-              dense
-            >
-              <strong>NOTE:</strong> Your eyes must be open and directed at the text to read the contents.
-            </v-alert>
+            <p>You can also attempt the obsolete <strong>Analog Mode</strong> by reading the information with aid of your eyes. Your eyes must be open and directed at the screen.</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer />
@@ -85,8 +78,6 @@
               Restart
             </v-btn>
           </v-card-actions>
-          <!-- <v-card-subtitle>
-          </v-card-subtitle> -->
         </v-card>
       </v-col>
     </v-row>
@@ -109,7 +100,7 @@ export default {
       },
       extracting: {
         increase: [15, 30],
-        label: 'EXTRACTING TO STORAGE',
+        label: 'EXTRACTING TO GRAY MATTER',
         next: 'reasoning',
         value: 0,
         interval: null
