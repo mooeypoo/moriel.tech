@@ -8,7 +8,7 @@
       <v-col cols="12" xs="6" sm="6" class="text-center">
         <v-card>
           <v-card-title class="maintitle">
-            Loading into Consciousness Chip<sup>TM</sup>...
+            Loading into Consciousness Chip<sup>TM</sup>
           </v-card-title>
         </v-card>
       </v-col>
@@ -20,7 +20,7 @@
     >
       <v-row
         v-if="visible.indexOf(barName) > -1"
-        class="mb-4"
+        class="mb-2"
         justify="center"
         align="center"
       >
@@ -53,6 +53,38 @@
           <v-card-title class="endtitle">
             Upload successful.
           </v-card-title>
+          <v-card-text>
+            <p>If your Consciousness Chip<sup>TM</sup> s malfunctioning or has overloaded, please contact <strong>Bio-Synthetic Brain Operation</strong> support.</p>
+            <p>You can also attempt the obsolete <strong>Analog Mode</strong> by reading the information with aid of your eyes.</p>
+            <v-alert
+              type="info"
+              elevation="2"
+              dense
+            >
+              <strong>NOTE:</strong> Your eyes must be open and directed at the text to read the contents.
+            </v-alert>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              color="primary"
+              @click="$store.commit('setToTodayEra')"
+            >
+              <v-icon left>
+                mdi-eye-outline
+              </v-icon>
+              ANALOG MODE
+            </v-btn>
+            <v-btn
+              color="error"
+              @click="restart"
+            >
+              <v-icon left>
+                mdi-restart
+              </v-icon>
+              Restart
+            </v-btn>
+          </v-card-actions>
           <!-- <v-card-subtitle>
           </v-card-subtitle> -->
         </v-card>
@@ -69,35 +101,28 @@ export default {
     visible: ['uploading'],
     bars: {
       uploading: {
-        increase: [0, 15],
+        increase: [20, 25],
         label: 'UPLOADING INFORMATION',
-        next: 'processing',
-        value: 0,
-        interval: null
-      },
-      processing: {
-        increase: [10, 25],
-        label: 'PROCESSING MATERIAL',
         next: 'extracting',
         value: 0,
         interval: null
       },
       extracting: {
-        increase: [10, 25],
+        increase: [15, 30],
         label: 'EXTRACTING TO STORAGE',
         next: 'reasoning',
         value: 0,
         interval: null
       },
       reasoning: {
-        increase: [2, 5],
+        increase: [20, 40],
         label: 'APPLYING SYNTHETIC REASONING...',
         next: 'longtermstore',
         value: 0,
         interval: null
       },
       longtermstore: {
-        increase: [15, 25],
+        increase: [25, 35],
         label: 'MOVING TO LONG-TERM STORAGE',
         next: null,
         value: 0,
@@ -105,8 +130,6 @@ export default {
       }
     }
   }),
-  computed: {
-  },
   watch: {
     nextBar (val) {
       if (
@@ -138,6 +161,23 @@ export default {
       return (this.bars[name].value < 100)
         ? `${Math.ceil(this.bars[name].value)}%`
         : 'DONE'
+    },
+    restart () {
+      // Reset visible
+      this.visible = []
+
+      Object.keys(this.bars).forEach((name) => {
+        // Stop all just in case
+        this.stopBar(name)
+
+        // Reset all values
+        this.bars[name].value = 0
+      })
+
+      // Make uploading visible
+      this.visible = ['uploading']
+      // Start at the beginning
+      this.startBar('uploading')
     },
     startBar (name) {
       if (!this.bars[name]) {

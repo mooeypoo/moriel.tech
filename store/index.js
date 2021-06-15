@@ -144,6 +144,9 @@ export const mutations = {
   changeSiteStyle (state, style) {
     state.siteEra = style
   },
+  setToTodayEra (state) {
+    state.siteEra = eras.length - 2
+  },
   changeWhatIDo (state, topic) {
     state.whatido = topic
   },
