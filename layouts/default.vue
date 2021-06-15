@@ -80,10 +80,10 @@
 
       <v-switch
         v-model="$vuetify.theme.dark"
-        :label="$vuetify.breakpoint.smAndUp ? 'Dark' : ''"
         color="blue"
         inset
         hide-details
+        :append-icon="$vuetify.theme.dark ? 'mdi-weather-night' : 'mdi-white-balance-sunny'"
       />
       <!-- <v-app-bar-nav-icon
         v-if="$vuetify.breakpoint.xsOnly"
@@ -208,5 +208,9 @@ export default {
 
 .v-application.mobile .v-slider__tick-label {
   font-size: 0.65em;
+}
+
+.v-application .v-input__append-outer {
+  margin-left: 0;
 }
 </style>
