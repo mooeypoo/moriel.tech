@@ -1,126 +1,192 @@
 <template>
   <div class="layout2100">
     <v-row
+      class="loading mb-3"
       justify="center"
       align="center"
     >
-      <v-col cols="12" sm="9" md="8" class="text-center">
-        <WhatIDoPicker display="buttons" />
+      <v-col cols="12" xs="6" sm="6" class="text-center">
+        <v-card>
+          <v-card-title class="maintitle">
+            Loading into Consciousness Chip<sup>TM</sup>...
+          </v-card-title>
+        </v-card>
       </v-col>
     </v-row>
 
-    <div class="mainsection changingbg">
+    <div
+      v-for="barName in Object.keys(bars)"
+      :key="barName"
+    >
       <v-row
-        class="loading mb-5 my-2"
+        v-if="visible.indexOf(barName) > -1"
+        class="mb-4"
         justify="center"
         align="center"
       >
-        <v-col cols="12" sm="9" md="8" class="text-center">
-          <h1>Loading into Consciousness Chip<sup>TM</sup>...</h1>
+        <v-col cols="12" xs="6" sm="6" class="text-center py-1">
+          <v-card>
+            <v-card-subtitle class="pa-1">
+              {{ bars[barName].label }}
+            </v-card-subtitle>
+            <v-progress-linear
+              v-model="bars[barName].value"
+              :color="$vuetify.theme.dark ? 'pink darken-4' : 'pink lighten-2'"
+              height="20"
+              :buffer-value="bars[barName].value"
+              stream
+            >
+              <strong>{{ displayValueLabel(barName) }}</strong>
+            </v-progress-linear>
+          </v-card>
         </v-col>
       </v-row>
-      <MainTitle />
-
-      <MainContent class="maincontent" :width="$vuetify.breakpoint.xsOnly ? 12 : 6" />
-
-      <div class="maincontentlinks slidewrapper">
-        <MainContentLinks class="slide" />
-      </div>
     </div>
+    <v-row
+      v-if="visible.indexOf('end') > -1"
+      class="ending"
+      justify="center"
+      align="center"
+    >
+      <v-col cols="12" xs="6" sm="6" class="text-center">
+        <v-card>
+          <v-card-title class="endtitle">
+            Upload successful.
+          </v-card-title>
+          <!-- <v-card-subtitle>
+          </v-card-subtitle> -->
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
-import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
-import MainTitle from '~/components/MainTitle.vue'
-import MainContent from '~/components/MainContent.vue'
-import MainContentLinks from '~/components/MainContentLinks.vue'
-
 export default {
   name: 'Layout2100',
-  components: {
-    WhatIDoPicker,
-    MainTitle,
-    MainContent,
-    MainContentLinks
+  data: () => ({
+    nextBar: 'uploading',
+    visible: ['uploading'],
+    bars: {
+      uploading: {
+        increase: [0, 15],
+        label: 'UPLOADING INFORMATION',
+        next: 'processing',
+        value: 0,
+        interval: null
+      },
+      processing: {
+        increase: [10, 25],
+        label: 'PROCESSING MATERIAL',
+        next: 'extracting',
+        value: 0,
+        interval: null
+      },
+      extracting: {
+        increase: [10, 25],
+        label: 'EXTRACTING TO STORAGE',
+        next: 'reasoning',
+        value: 0,
+        interval: null
+      },
+      reasoning: {
+        increase: [2, 5],
+        label: 'APPLYING SYNTHETIC REASONING...',
+        next: 'longtermstore',
+        value: 0,
+        interval: null
+      },
+      longtermstore: {
+        increase: [15, 25],
+        label: 'MOVING TO LONG-TERM STORAGE',
+        next: null,
+        value: 0,
+        interval: null
+      }
+    }
+  }),
+  computed: {
+  },
+  watch: {
+    nextBar (val) {
+      if (
+        val !== null &&
+        this.bars[val]
+      ) {
+        this.visible.push(val)
+        this.startBar(val)
+      } else if (val === null) {
+        // End!
+        this.visible.push('end')
+      }
+    }
+  },
+  mounted () {
+    this.startBar('uploading')
+  },
+  beforeDestroy () {
+    // Stop all
+    Object.keys(this.bars).forEach((name) => {
+      this.stopBar(name)
+    })
+  },
+  methods: {
+    getRandNum (min, max) {
+      return Math.floor(Math.random() * (max - min)) + min
+    },
+    displayValueLabel (name) {
+      return (this.bars[name].value < 100)
+        ? `${Math.ceil(this.bars[name].value)}%`
+        : 'DONE'
+    },
+    startBar (name) {
+      if (!this.bars[name]) {
+        return null
+      }
+
+      this.bars[name].interval = setInterval(() => {
+        this.bars[name].value += this.getRandNum(
+          this.bars[name].increase[0],
+          this.bars[name].increase[1]
+        )
+
+        if (this.bars[name].value >= 100) {
+          // Stop this one
+          this.stopBar(name)
+          // Start the next one
+          this.nextBar = this.bars[name].next
+        }
+      }, 500)
+    },
+    stopBar (name) {
+      if (!this.bars[name]) {
+        return null
+      }
+      clearInterval(this.bars[name].interval)
+    }
   }
 }
 </script>
 
 <style lang="scss">
 .layout2100 {
-  .loading h1 {
-    font-size: 2em;
-    font-variant: small-caps;
-    line-height: 1;
+  .loading {
+    .maintitle {
+      font-variant: small-caps;
+      line-height: 1;
+      animation: fadeinout 3s linear 1 forwards;
+      animation-iteration-count: infinite;
+    }
   }
 
   &.mobile .loading h1 {
     font-size: 1.2em;
   }
 
-  .mainsection {
-    .maintitle {
-      animation: fadeinout 5s linear 1 forwards;
-      animation-iteration-count: infinite;
-    }
-
-    .maincontent {
-      font-size: 0.8em;
-      animation: fadeinoutdelay1 5s linear 1 forwards;
-      animation-iteration-count: infinite;
-    }
-
-    .maincontentlinks {
-      .content-links {
-        text-align: center;
-
-        .section-title {
-          font-weight: bolder;
-        }
-      }
-
-      &.slidewrapper {
-        overflow: hidden;
-
-        .slide {
-          text-align: center;
-          text-transform: uppercase;
-          animation: 10s credits linear infinite;
-        }
-      }
-      // .slide {
-      //   overflow-y: hidden;
-      //   max-height: 500px; /* approximate max height */
-      //   transition-property: all;
-      //   transition-duration: .5s;
-      //   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-      // }
-    }
-  }
-
   @keyframes fadeinout {
-    0% { opacity: 0; }
+    0% { opacity: 0.5; }
     50% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-
-  @keyframes fadeinoutdelay1 {
-    0% { opacity: 0; }
-    25% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
-  }
-
-  @keyframes credits {
-    0% {
-      margin-top: 110%;
-    }
-
-    100% {
-      margin-top: -110%;
-    }
+    100% { opacity: 0.5; }
   }
 }
 </style>
