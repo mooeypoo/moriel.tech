@@ -62,11 +62,28 @@
         align="center"
       >
         <v-col cols="12" sm="9" md="8">
-          <p>The best method to contact me is through social media, using the links on the footer.</p>
-          <p>If you want to send me a longer message via email, you can use the form below.</p>
+          <p>The best method to contact me is through social media on twitter, LinkedIn or polywork.</p>
+          <p>You can use the form below to contact me directly.</p>
+          <h3>Request a speaking engagement</h3>
+          <p>Want to invite me to your event, or have me speak at your company? Please provide details below.</p>
+          <p>Some of my usual topics include:</p>
+          <ul>
+            <li>Developing Wikipedia - how we do it, and how's it like working in the open</li>
+            <li>Modernizing Wikipedia - why it matters, and how we approach it</li>
+            <li>Open source - how to start with Open Source, how to kickstart your development career with Open Source</li>
+            <li>Supporting non-Left to Right languages when developing products</li>
+            <li>Bias and diversity in online applications</li>
+          </ul>
         </v-col>
       </v-row>
-
+      <v-row
+        justify="center"
+        align="center"
+      >
+        <v-col cols="12" sm="9" md="8">
+          <h3>Send me an email</h3>
+        </v-col>
+      </v-row>
       <ContactForm />
     </div>
   </div>
