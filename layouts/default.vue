@@ -150,7 +150,8 @@ export default {
     siteEraClass () {
       return [
         'style-' + this.$store.getters.getCurrentSiteEra,
-        this.$vuetify.breakpoint.xsOnly ? 'mobile' : ''
+        this.$vuetify.breakpoint.xsOnly ? 'mobile' : '',
+        this.$vuetify.breakpoint.xsOnly ? 'pb-5' : ''
       ].join(' ')
     },
     siteEraLabels () {
