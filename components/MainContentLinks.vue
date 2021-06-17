@@ -261,7 +261,7 @@ export default {
 
 <style lang="scss">
 .v-card__title {
-  word-break: break-word;
+  word-break: break-word !important;
 }
 
 .content-links table {
