@@ -13,7 +13,7 @@
     <!-- eslint-disable-next-line vue/html-self-closing -->
     <input type="hidden" name="form-name" value="Contact" />
     <!-- eslint-disable-next-line vue/html-self-closing -->
-    <input type="hidden" name="Era" :value="$store.getters.getCurrentSiteEra" />
+    <input type="hidden" name="era" :value="getCurrentSiteEra" />
     <v-card
       v-if="isCurrentEra(2021)"
       class="mx-auto"
@@ -249,7 +249,8 @@ export default {
   computed: {
     ...mapGetters([
       'isCurrentEra',
-      'isCurrentEraLowerThan'
+      'isCurrentEraLowerThan',
+      'getCurrentSiteEra'
     ]),
     isValidManually () {
       return (
