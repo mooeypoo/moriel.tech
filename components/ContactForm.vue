@@ -2,11 +2,12 @@
   <v-form
     ref="form"
     v-model="valid"
+    netlify
+    netlify-honeypot="bot-field"
     class="contactform"
     name="Contact"
     action="/thanks"
-    netlify
-    netlify-honeypot="bot-field"
+    method="POST"
     @submit="onSubmit"
   >
     <!-- eslint-disable-next-line vue/html-self-closing -->
