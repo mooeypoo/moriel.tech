@@ -22,6 +22,7 @@
     color="pink accent-3"
     class="whatidopicker"
     group
+    mandatory
   >
     <v-btn value="build">
       I Build

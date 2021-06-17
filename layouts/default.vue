@@ -3,14 +3,24 @@
     :dark="$vuetify.theme.dark"
     :class="siteEraClass"
   >
-    <!-- <v-navigation-drawer
-      v-model="drawer"
+    <v-navigation-drawer
+      v-if="$vuetify.breakpoint.xsOnly"
+      v-model="navdrawer"
       clipped
       fixed
       app
     >
       <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img
+              alt="Moriel Schottlender"
+              :src="require('~/assets/images/gravatar.jpg')"
+            />
+          </v-list-item-avatar>
+        </v-list-item>
         <v-list-item
+          link
           @click="$router.push({ path: '/' })"
         >
           <v-list-item-content>
@@ -22,32 +32,13 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-
-        <v-divider />
-
-        <v-list-item>
-          <v-list-item-action>
-            <v-switch
-              v-model="$vuetify.theme.dark"
-              color="blue"
-              inset
-              hide-details
-            />
-          </v-list-item-action>
-          <v-list-item-content>
-            Dark mode
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider />
-
-        <WhatIDoPicker
-          display="list"
-        />
-
-        <v-divider />
       </v-list>
-    </v-navigation-drawer> -->
+
+      <v-divider />
+
+      <Menu type="list" @click="navdrawer = false" />
+    </v-navigation-drawer>
+
     <v-app-bar
       clipped-left
       fixed
@@ -69,13 +60,8 @@
         v-text="title"
       />
 
-      <!-- <v-spacer /> -->
-
-      <!-- <WhatIDoPicker
-        v-if="$vuetify.breakpoint.smAndUp"
-        display="buttons"
-      /> -->
-
+      <v-spacer v-if="$vuetify.breakpoint.smAndUp" />
+      <Menu v-if="$vuetify.breakpoint.smAndUp" />
       <v-spacer />
 
       <v-switch
@@ -85,10 +71,11 @@
         hide-details
         :append-icon="$vuetify.theme.dark ? 'mdi-weather-night' : 'mdi-white-balance-sunny'"
       />
-      <!-- <v-app-bar-nav-icon
+
+      <v-app-bar-nav-icon
         v-if="$vuetify.breakpoint.xsOnly"
-        @click.stop="drawer = !drawer"
-      /> -->
+        @click.stop="navdrawer = !navdrawer"
+      />
 
       <template #extension>
         <v-row no-gutters align="center">
@@ -133,17 +120,17 @@
 </template>
 
 <script>
-// import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
+import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
+    Menu,
     Footer
-    // WhatIDoPicker
   },
   data () {
     return {
-      drawer: false,
+      navdrawer: false,
       items: [
         {
           icon: 'mdi-apps',

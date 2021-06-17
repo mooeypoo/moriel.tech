@@ -42,6 +42,12 @@
 <script>
 export default {
   name: 'NavigationDrawer',
+  // props: {
+  //   state: {
+  //     type: Boolean,
+  //     default: false
+  //   }
+  // },
   computed: {
     drawerState: {
       get () { return this.$store.getters.getNavigationDrawerState },

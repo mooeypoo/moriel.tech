@@ -50,5 +50,30 @@
         border: 2px ridge;
       }
     }
+
+    textarea,
+    input {
+      &:not([type="submit"]) {
+        background: white;
+        border: 1px inset;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      &.submitbutton {
+        background-color: #ccc;
+        border: 1px outset;
+        padding: 5px;
+        color: black;
+      }
+    }
+
+    .contactform {
+      label {
+        margin-right: 10px;
+      }
+    }
   }
 }
