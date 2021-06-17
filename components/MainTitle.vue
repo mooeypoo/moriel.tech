@@ -69,12 +69,12 @@ export default {
 
 /* https://www.quackit.com/html/html_editors/scratchpad/?example=/css/codes/marquees/scrolling_text */
 .marquee {
-  height: 35px;
+  height: 50px;
   overflow: hidden;
   position: relative;
 }
 
-.marquee h1 {
+.marquee h2 {
   font-size: 3em;
   color: lightskyblue;
   position: absolute;
@@ -92,11 +92,11 @@ export default {
   animation: marquee 15s linear infinite;
 }
 
-.marquee.mobile h1 {
+.marquee.mobile h2 {
   font-size: 2em;
 }
 
-.theme--light .marquee h1 {
+.theme--light .marquee h2 {
   color: #042c54;
 }
 
