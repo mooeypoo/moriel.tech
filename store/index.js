@@ -136,6 +136,38 @@ export const state = () => ({
           }
         ]
       }
+    ],
+    speak: [
+      {
+        title: 'Language support',
+        links: [
+          {
+            title: 'Wait Wait, ?tahW: The Twisted Road to Right-to-Left Language Support',
+            description: 'This lecture was given in linux.conf.au Conference 2016 in Australia, introducing the challenges of supporting Right-to-Left online and when developing applications.',
+            url: 'https://ltr.wtf/talks/2016-11-02-linux-conf-au.html'
+          },
+          {
+            title: 'BiDi WAT??',
+            description: 'A quick glance into some of the bigger challenges in supporting Right to Left content (and UI) online.',
+            url: 'https://ltr.wtf/talks/2018-08-23-bidi-wat.html'
+          },
+          {
+            title: 'Wait, it does ??THAW',
+            description: 'StrangeLoop 2017: A lecture aimed at UX/UI developers and designers. It focuses on the common challenges involved in supporting i18n in general and Right-to-Left in particular when building user interfaces.',
+            url: 'https://www.thestrangeloop.com/2017/wait-it-does-tahw-how-supporting-right-to-left-can-expose-your-bad-ux-decisions.html'
+          },
+          {
+            title: 'It\'s All Backwards: How the Human Element Makes Supporting BiDi Difficult (and What to do About It)',
+            description: 'Unicode Conference 43: Examples of real life misuse and mistakes that happen when the bidirectional algorithm is not applied properly',
+            url: 'https://www.unicodeconference.org/iuc43/Conference_Program.pdf'
+          },
+          {
+            title: 'How We Let Our Users Translate Wikipedia\'s Interfaces for more than 400 Languages and Locales',
+            description: 'Unicode Conference 42:  the infrastructure that allows this process to happen; how do we define messages that can be adjusted to languages that have gendered pronouns and verbs? How do we account for differences in numerals, plural rules, or language variants? How do we give clear context to the message that is translated, so the translators can utilize the subtleties of their language to maintain clarity? How do we allow non-technical users to contribute translations in a flexible and yet controlled manner, into our production software, and what tools do we offer to make this process easy for other organizations that wish to follow our lead?',
+            url: 'https://www.unicodeconference.org/iuc42/Conference_Program.pdf'
+          }
+        ]
+      }
     ]
   }
 })

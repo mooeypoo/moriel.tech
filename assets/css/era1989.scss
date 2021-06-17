@@ -137,6 +137,12 @@
       }
     }
 
+    .contact {
+      li::before {
+        content: '- ';
+      }
+    }
+
     .contactform {
       label {
         display: block;
