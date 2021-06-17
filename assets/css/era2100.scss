@@ -1,4 +1,23 @@
 .v-application.style-2100 {
+  .loading {
+    .maintitle {
+      display: block;
+      font-variant: small-caps;
+      line-height: 1;
+      animation: fadeinout 3s linear 1 forwards;
+      animation-iteration-count: infinite;
+
+      .brand {
+        margin-left: 2px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &.mobile .loading h1 {
+    font-size: 1.2em;
+  }
+
   &.theme--dark {
     // background-color: #333;
     color: #ccc;
@@ -20,6 +39,12 @@
       color: #333;
     }
   }
+}
+
+@keyframes fadeinout {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
 @keyframes animatebgdark {

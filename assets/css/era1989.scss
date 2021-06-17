@@ -16,6 +16,20 @@
       hr {
         border-top: 2px solid #0f0;
       }
+
+      .submitbutton {
+        color: cyan;
+      }
+
+      .formerror {
+        color: red;
+      }
+
+      textarea,
+      input:not([type="submit"]) {
+        border-color: cyan;
+        color: cyan;
+      }
     }
   }
 
@@ -34,6 +48,20 @@
 
       hr {
         border-top: 2px solid white;
+      }
+
+      .submitbutton {
+        color: #0f0;
+      }
+
+      .formerror {
+        color: darkred;
+      }
+
+      textarea,
+      input:not([type="submit"]) {
+        border-color: cyan;
+        color: cyan;
       }
     }
   }
@@ -83,6 +111,36 @@
 
     .mobile pre {
       font-size: 0.5em;
+    }
+
+    input:-internal-autofill-selected {
+      background-color: black !important;
+    }
+
+    textarea,
+    input {
+      &:not([type="submit"]) {
+        width: 100%;
+        background: black;
+        border: 0;
+        border-bottom: 1px solid;
+        padding: 2px 5px;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      &.submitbutton {
+        background-color: inherit;
+        border: 0;
+      }
+    }
+
+    .contactform {
+      label {
+        display: block;
+      }
     }
   }
 }
