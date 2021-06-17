@@ -176,6 +176,22 @@ export const mutations = {
   changeSiteStyle (state, style) {
     state.siteEra = style
   },
+  changeSiteEraFromLabel (state, label) {
+    if (label === 'future') {
+      label = 2100
+    } else if (label === 'today') {
+      label = 2021
+    }
+    let index = state.siteEraLabels.indexOf(Number(label))
+
+    if (index < 0) {
+      // default on today
+      index = eras.length - 2
+    } else {
+      // set to requested index
+      state.siteEra = index
+    }
+  },
   setToTodayEra (state) {
     state.siteEra = eras.length - 2
   },
@@ -199,7 +215,17 @@ export const mutations = {
 export const getters = {
   getSiteEraFromIndex: state => (index) => {
     return state.siteEraLabels[index] ||
-      state.siteEraLabels[state.siteEraLabels.length - 1]
+      state.siteEraLabels[state.siteEraLabels.length - 2]
+  },
+  getCurrentSiteEraForPath: (state) => {
+    const current = state.siteEraLabels[state.siteEra]
+
+    if (current === 2021) {
+      return 'today'
+    } else if (current === 2100) {
+      return 'future'
+    }
+    return current
   },
   getCurrentSiteEra: (state) => {
     return state.siteEraLabels[state.siteEra]

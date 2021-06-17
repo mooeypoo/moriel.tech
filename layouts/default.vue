@@ -21,7 +21,7 @@
         </v-list-item>
         <v-list-item
           link
-          @click="$router.push({ path: '/' })"
+          @click="$router.push({ path: '/', query: { era: $route.query.era } })"
         >
           <v-list-item-content>
             <v-list-item-title class="text-h6">
@@ -47,7 +47,7 @@
       <v-avatar
         size="36px"
         class="mr-5"
-        @click="$router.push({ path: '/' })"
+        @click="$router.push({ path: '/', query: { era: $route.query.era } })"
       >
         <img
           alt="Moriel Schottlender"
@@ -56,7 +56,7 @@
       </v-avatar>
       <v-toolbar-title
         v-if="$vuetify.breakpoint.smAndUp"
-        @click="$router.push({ path: '/' })"
+        @click="$router.push({ path: '/', query: { era: $route.query.era } })"
         v-text="title"
       />
 
@@ -120,6 +120,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
 
@@ -147,6 +148,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'getSiteEraFromIndex',
+      'getCurrentSiteEra',
+      'getCurrentSiteEraForPath'
+    ]),
     siteEraClass () {
       return [
         'style-' + this.$store.getters.getCurrentSiteEra,
@@ -174,7 +180,35 @@ export default {
       }
     }
   },
+  watch: {
+    siteEra (value) {
+      this.setRouteForEra()
+    }
+  },
+  mounted () {
+    const era = this.$route.query.era || 'today'
+    console.log('mounted', {
+      'this.$route.query.era': this.$route.query.era,
+      era
+    })
+
+    this.$store.commit('changeSiteEraFromLabel', era)
+    this.setRouteForEra()
+  },
   methods: {
+    setRouteForEra () {
+      const path = this.$route.name === 'index'
+        ? '/'
+        : `/${this.$route.name}`
+
+      // Update the url param
+      this.$router.push(
+        {
+          path,
+          query: { era: this.getCurrentSiteEraForPath }
+        }
+      )
+    },
     decreaseEra () {
       this.$store.commit('decreaseSiteEra')
     },
