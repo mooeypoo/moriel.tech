@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-const description = 'Hi. I\'m moriel, and I build stuff, write stuff, and talk about stuff. Read about what I do here.'
+const description = 'Hi. I\'m Moriel, and I build stuff, write stuff, and talk about stuff. Read about what I do here.'
 const siteTitle = 'Moriel does tech'
 const siteImage = 'https://morieltech.netlify.app/moriel.jpg'
 const ogTag = (name, content) => {
@@ -54,6 +54,7 @@ export default {
     '~/assets/css/era1989.scss',
     '~/assets/css/era1992.scss',
     '~/assets/css/era1997.scss',
+    '~/assets/css/era2021.scss',
     '~/assets/css/era2100.scss',
     '~/assets/css/general.scss'
   ],

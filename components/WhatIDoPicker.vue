@@ -8,11 +8,11 @@
     <v-list-item value="build">
       I Build
     </v-list-item>
-    <v-list-item value="write">
-      I Write
-    </v-list-item>
     <v-list-item value="speak">
       I Speak
+    </v-list-item>
+    <v-list-item value="write">
+      I Write
     </v-list-item>
   </v-list-item-group>
   <v-btn-toggle
@@ -27,11 +27,11 @@
     <v-btn value="build">
       I Build
     </v-btn>
-    <v-btn value="write">
-      I Write
-    </v-btn>
     <v-btn value="speak">
       I Speak
+    </v-btn>
+    <v-btn value="write">
+      I Write
     </v-btn>
   </v-btn-toggle>
   <ul
@@ -45,16 +45,16 @@
       <a>I Build</a>
     </li>
     <li
-      :class="whatido === 'write' ? 'active' : ''"
-      @click="setWhatIdo('write')"
-    >
-      <a>I Write</a>
-    </li>
-    <li
       :class="whatido === 'speak' ? 'active' : ''"
       @click="setWhatIdo('speak')"
     >
       <a>I Speak</a>
+    </li>
+    <li
+      :class="whatido === 'write' ? 'active' : ''"
+      @click="setWhatIdo('write')"
+    >
+      <a>I Write</a>
     </li>
   </ul>
 </template>

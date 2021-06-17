@@ -39,7 +39,7 @@
       </v-col>
     </v-row>
 
-    <MainContent />
+    <MainContent class="maincontent" />
 
     <MainContentLinks />
   </div>

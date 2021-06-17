@@ -1,0 +1,23 @@
+.v-application.style-2021 {
+  .maintitle h2 {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 0.5em;
+  }
+
+  .maincontent {
+    margin-bottom: 0.5em;
+  }
+
+  &.mobile {
+    .maintitle h2 {
+      font-size: 2em;
+      font-weight: 800;
+      margin-bottom: 1em;
+    }
+
+    .maincontent {
+      margin-bottom: 1em;
+    }
+  }
+}

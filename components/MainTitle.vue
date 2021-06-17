@@ -25,7 +25,7 @@
       justify="center"
       align="center"
     >
-      <v-col cols="12" sm="9" md="8">
+      <v-col cols="12">
         <h2 class="text-center">
           Hi, I'm Moriel, {{ introSentence }}
         </h2>
