@@ -51,12 +51,12 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/general.scss',
     '~/assets/css/era1989.scss',
     '~/assets/css/era1992.scss',
     '~/assets/css/era1997.scss',
     '~/assets/css/era2021.scss',
-    '~/assets/css/era2100.scss',
-    '~/assets/css/general.scss'
+    '~/assets/css/era2100.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

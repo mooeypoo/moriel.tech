@@ -24,12 +24,16 @@
       class="mb-5"
       :class="isCurrentEraBiggerThan(1992) ? 'text-center' : ''"
     >
-      <img
-        class="pictureOfMe"
-        :width="isCurrentEraLowerThan(2001) ? 200 : 250"
-        alt="Moriel Schottlender"
-        :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
-      >
+      <div class="imageplaceholder">
+        <div class="imagecontainer">
+          <img
+            class="pictureOfMe"
+            :width="isCurrentEraLowerThan(2001) ? 200 : 250"
+            alt="Moriel Schottlender"
+            :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>

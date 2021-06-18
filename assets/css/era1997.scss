@@ -35,8 +35,11 @@
     max-width: none;
     font-family: 'Times New Roman', Times, serif;
 
-    .mainpicture img {
+    .imageplaceholder {
+      margin: 0 auto;
       border-style: outset;
+      height: 200px;
+      width: 200px;
     }
 
     .whatidopicker {
