@@ -69,6 +69,9 @@ export default {
   beforeMount () {
     this.addAnimation()
   },
+  beforeUpdate () {
+    this.addAnimation()
+  },
   beforeDestroy () {
     this.removeAnimation()
   },
