@@ -156,8 +156,7 @@ export default {
     siteEraClass () {
       return [
         'style-' + this.$store.getters.getCurrentSiteEra,
-        this.$vuetify.breakpoint.xsOnly ? 'mobile' : '',
-        this.$vuetify.breakpoint.xsOnly ? 'pb-5' : ''
+        this.$vuetify.breakpoint.xsOnly ? 'mobile' : ''
       ].join(' ')
     },
     siteEraLabels () {
@@ -187,10 +186,6 @@ export default {
   },
   mounted () {
     const era = this.$route.query.era || 'today'
-    console.log('mounted', {
-      'this.$route.query.era': this.$route.query.era,
-      era
-    })
 
     this.$store.commit('changeSiteEraFromLabel', era)
     this.setRouteForEra()
