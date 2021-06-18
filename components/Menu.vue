@@ -10,7 +10,7 @@
   >
     <v-btn
       value="index"
-      @click="$router.push({ path: '/' })"
+      @click="getRouteAction('/')"
     >
       <v-icon left>
         mdi-home
@@ -19,7 +19,7 @@
     </v-btn>
     <v-btn
       value="contact"
-      @click="$router.push({ path: '/contact' })"
+      @click="getRouteAction('/contact')"
     >
       <v-icon left>
         mdi-card-account-mail
@@ -38,7 +38,7 @@
       <v-list-item
         link
         value="index"
-        @click="$router.push({ path: '/' })"
+        @click="getRouteAction('/')"
       >
         <v-list-item-icon>
           <v-icon>mdi-home</v-icon>
@@ -50,7 +50,7 @@
       <v-list-item
         link
         value="contact"
-        @click="$router.push({ path: '/contact' })"
+        @click="getRouteAction('/contact')"
       >
         <v-list-item-icon>
           <v-icon>mdi-card-account-mail</v-icon>
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Menu',
   props: {
@@ -76,6 +78,9 @@ export default {
     menu: 'index'
   }),
   computed: {
+    ...mapGetters([
+      'getCurrentSiteEraForPath'
+    ]),
     currentRoute () {
       return this.$nuxt.$route.name
     }
@@ -87,6 +92,16 @@ export default {
   },
   mounted () {
     this.menu = this.currentRoute
+  },
+  methods: {
+    getRouteAction (target) {
+      return this.$router.push(
+        {
+          path: target,
+          query: { era: this.getCurrentSiteEraForPath }
+        }
+      )
+    }
   }
 }
 </script>
