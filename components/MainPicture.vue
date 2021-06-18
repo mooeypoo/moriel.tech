@@ -25,7 +25,7 @@
       :class="isCurrentEraBiggerThan(1992) ? 'text-center' : ''"
     >
       <div class="imageplaceholder">
-        <div class="imagecontainer">
+        <div :class="imageClasses.join(' ')" @animationend="removeAnimation">
           <img
             class="pictureOfMe"
             :width="isCurrentEraLowerThan(2001) ? 200 : 250"
@@ -43,6 +43,9 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'MainPicture',
+  data: () => ({
+    imageClasses: ['imagecontainer']
+  }),
   computed: {
     ...mapGetters([
       'getCurrentSiteEra',
@@ -61,6 +64,25 @@ export default {
         default:
           return 'moriel-320px'
       }
+    }
+  },
+  beforeMount () {
+    this.addAnimation()
+  },
+  beforeDestroy () {
+    this.removeAnimation()
+  },
+  methods: {
+    removeAnimation () {
+      this.imageClasses = [
+        'imagecontainer'
+      ]
+    },
+    addAnimation () {
+      this.imageClasses = [
+        'imagecontainer',
+        'slowloadimage'
+      ]
     }
   }
 }
