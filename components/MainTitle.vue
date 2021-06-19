@@ -20,6 +20,11 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
     </div>
+    <div
+      v-else-if="isCurrentEra(2012)"
+    >
+      {{ introSentenceThirdPerson }}
+    </div>
     <v-row
       v-else
       justify="center"
@@ -55,6 +60,17 @@ export default {
         case 'build':
         default:
           return 'and I build stuff'
+      }
+    },
+    introSentenceThirdPerson () {
+      switch (this.getWhatIDo) {
+        case 'speak':
+          return 'Moriel speaks about stuff'
+        case 'write':
+          return 'Moriel writes stuff'
+        case 'build':
+        default:
+          return 'Moriel builds stuff'
       }
     }
   }

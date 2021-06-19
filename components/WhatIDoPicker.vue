@@ -34,6 +34,30 @@
       I Write
     </v-btn>
   </v-btn-toggle>
+  <div v-else-if="display === 'divs'">
+    <div
+      class="whatidopicker"
+    >
+      <div
+        :class="getButtonClass('build')"
+        @click="setWhatIdo('build')"
+      >
+        I Build
+      </div>
+      <div
+        :class="getButtonClass('speak')"
+        @click="setWhatIdo('speak')"
+      >
+        I Speak
+      </div>
+      <div
+        :class="getButtonClass('write')"
+        @click="setWhatIdo('write')"
+      >
+        I Write
+      </div>
+    </div>
+  </div>
   <ul
     v-else
     class="whatidopicker"
@@ -66,6 +90,18 @@ export default {
     display: {
       type: String,
       default: 'buttons'
+    },
+    buttonclasses: {
+      type: String,
+      default: ''
+    },
+    activeclasses: {
+      type: String,
+      default: ''
+    },
+    inactiveclasses: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -81,6 +117,13 @@ export default {
   methods: {
     setWhatIdo (what) {
       this.$store.commit('changeWhatIDo', what)
+    },
+    getButtonClass (name) {
+      return [
+        this.buttonclasses,
+        this.whatido !== name ? this.inactiveclasses : '',
+        this.whatido === name ? this.activeclasses : ''
+      ].join(' ')
     }
   }
 }

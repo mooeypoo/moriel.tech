@@ -47,7 +47,20 @@
       </ProgressBars>
     </div>
     <div v-else>
+      <div
+        v-if="isCurrentEra(2012)"
+        class="bootstrap-hero"
+      >
+        <h1>Contact me</h1>
+        <p>
+          The best method to contact me is through social media on twitter, LinkedIn or polywork.
+          <!-- eslint-disable-next-line vue/html-self-closing -->
+          <br />
+          You can use the form below to contact me directly.
+        </p>
+      </div>
       <v-row
+        v-else
         justify="center"
         align="center"
       >
@@ -57,7 +70,22 @@
           </h2>
         </v-col>
       </v-row>
+      <div
+        v-if="isCurrentEra(2012)"
+        class="mt-5 bootstrap-alert-message bootstrap-block-message"
+      >
+        <p>Want to invite me to your event, or have me speak at your company? Please provide details below.</p>
+        <p>Some of my usual topics include:</p>
+        <ul>
+          <li>Developing Wikipedia - how we do it, and how's it like working in the open</li>
+          <li>Modernizing Wikipedia - why it matters, and how we approach it</li>
+          <li>Open source - how to start with Open Source, how to kickstart your development career with Open Source</li>
+          <li>Supporting non-Left to Right languages when developing products</li>
+          <li>Bias and diversity in online applications</li>
+        </ul>
+      </div>
       <v-row
+        v-else
         justify="center"
         align="center"
       >
@@ -76,7 +104,14 @@
           </ul>
         </v-col>
       </v-row>
+      <div
+        v-if="isCurrentEra(2012)"
+        class="maincontent mt-5"
+      >
+        <ContactForm />
+      </div>
       <v-row
+        v-else
         justify="center"
         align="center"
       >
@@ -84,7 +119,7 @@
           <h3>Send me an email</h3>
         </v-col>
       </v-row>
-      <ContactForm />
+      <ContactForm v-if="!isCurrentEra(2012)" />
     </div>
   </div>
 </template>

@@ -1,0 +1,381 @@
+/* stylelint-disable at-rule-no-unknown, no-descending-specificity, function-linear-gradient-no-nonstandard-direction */
+@mixin bootstrap_clearfix () {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.v-application.style-2012 {
+  .container {
+    font-family: 'Arimo', sans-serif;
+    font-size: 13px;
+
+    h3 {
+      color: #404040;
+      font-size: 18px;
+      line-height: 36px;
+      font-weight: bold;
+      display: block;
+      margin-block-end: 1em;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+    }
+
+    // FORM!
+    label {
+      font-weight: normal;
+      padding-top: 6px;
+      font-size: 13px;
+      line-height: 18px;
+      float: left;
+      width: 130px;
+      text-align: right;
+      color: #404040;
+    }
+
+    input:not([type="submit"]),
+    textarea {
+      background-color: white;
+      display: inline-block;
+      width: 400px;
+      padding: 4px;
+      margin-left: 10px;
+      font-size: 13px;
+      line-height: 18px;
+      color: #808080;
+      border: 1px solid #ccc;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+      -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+      transition: border linear 0.2s, box-shadow linear 0.2s;
+      -webkit-box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%);
+      -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%);
+
+      &:focus {
+        outline: 0;
+        border-color: rgba(82, 168, 236, 0.8);
+        -webkit-box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 8px rgb(82 168 236 / 60%);
+        -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+        box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 8px rgb(82 168 236 / 60%);
+      }
+    }
+  }
+
+  &.theme--dark {
+    background-color: #888;
+
+    .container {
+      h3 {
+        color: white;
+      }
+
+      label {
+        color: white;
+      }
+
+      input:not([type="submit"]),
+      textarea {
+        background-color: #ccc;
+      }
+
+      .section-title {
+        color: #fff;
+        border-bottom: 1px solid #666;
+        box-shadow: 0 1px 0 #888;
+      }
+    }
+
+    .bootstrap {
+      &-hero {
+        background-color: #3e3e3e;
+      }
+
+      &-bordered-table {
+        color: #333;
+        background-color: #e5e5e5;
+        // background-color: #737373;
+        border: 1px solid #666;
+
+        td {
+          border-top: 1px solid #666;
+        }
+
+        th + th,
+        td + td,
+        th + td {
+          border-left: 1px solid #666;
+        }
+
+        tbody tr:hover td,
+        tbody tr:hover th {
+          background-color: #f1f1f1;
+        }
+        // tbody tr:nth-child(odd) td,
+        // tbody tr:nth-child(odd) th {
+        //   background-color: #5f5f5f;
+        // }
+      }
+    }
+  }
+
+  &.mobile {
+    .bootstrap {
+      &-hero {
+        padding: 30px;
+
+        h1 {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .container {
+      label {
+        width: 100px;
+      }
+
+      input:not([type="submit"]),
+      textarea {
+        width: 200px;
+      }
+
+      input[type="submit"] {
+        float: right;
+        margin-right: 25px;
+      }
+    }
+  }
+  // Boostrap 2.0 styles
+  // Taken from https://github.com/twbs/bootstrap/tree/v2.0.0
+  .bootstrap {
+    &-hero {
+      background-color: #f5f5f5;
+      padding: 60px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+
+      h1 {
+        margin-bottom: 0;
+        font-size: 60px;
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 27px;
+      }
+    }
+
+    &-modal {
+      max-height: 500px;
+      overflow: auto;
+      background-color: #fff;
+      border: 1px solid #999;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+      background-clip: padding-box;
+      color: #404040;
+
+      .modal-header {
+        font-weight: bold;
+        padding: 9px 15px;
+        border-bottom: 1px solid #eee;
+        // Close icon
+        .close { margin-top: 2px; }
+      }
+
+      .modal-body {
+        padding: 15px;
+      }
+
+      .modal-footer {
+        padding: 14px 15px 15px;
+        margin-bottom: 0;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        border-radius: 0 0 6px 6px;
+        box-shadow: inset 0 1px 0 #fff;
+
+        @include bootstrap_clearfix();
+
+        .bootstrap-btn {
+          float: right;
+          margin-left: 5px;
+          margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+        }
+      }
+    }
+
+    &-bordered-table {
+      border: 1px solid #ddd;
+      border-collapse: separate;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      margin-bottom: 18px;
+      font-size: 13px;
+      border-spacing: 0;
+
+      thead tr:first-child th:first-child,
+      tbody tr:first-child td:first-child {
+        border-radius: 4px 0 0 0;
+      }
+
+      th {
+        padding-top: 9px;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+
+      td {
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 10px 10px 9px;
+        line-height: 18px;
+        text-align: left;
+      }
+
+      th + th,
+      td + td,
+      th + td {
+        border-left: 1px solid #ddd;
+      }
+
+      tbody tr:nth-child(odd) td,
+      tbody tr:nth-child(odd) th {
+        background-color: #f9f9f9;
+      }
+
+      tbody tr:hover td,
+      tbody tr:hover th {
+        background-color: #f5f5f5;
+      }
+    }
+
+    &-alert-message {
+      position: relative;
+      padding: 7px 15px;
+      color: #404040;
+      background-color: #eedc94;
+      background-repeat: repeat-x;
+      background-image: -khtml-gradient(linear, left top, left bottom, from(#fceec1), to(#eedc94));
+      background-image: -moz-linear-gradient(top, #fceec1, #eedc94);
+      background-image: -ms-linear-gradient(top, #fceec1, #eedc94);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fceec1), color-stop(100%, #eedc94));
+      background-image: -webkit-linear-gradient(top, #fceec1, #eedc94);
+      background-image: -o-linear-gradient(top, #fceec1, #eedc94);
+      background-image: linear-gradient(top, #fceec1, #eedc94);
+      // text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
+      border-color: #eedc94 #eedc94 #e4c652;
+      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+      text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+      border-width: 1px;
+      border-style: solid;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
+      -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / 25%);
+
+      &.bootstrap-block-message {
+        background-image: none;
+        background-color: #fdf5d9;
+        padding: 14px;
+        border-color: #fceec1;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+
+    &-btn {
+      display: inline-block;
+      padding: 4px 10px 4px;
+      // font-size: @baseFontSize; // 13px?
+      // line-height: @baseLineHeight;
+      color: #333;
+      text-align: center;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+      // #gradient > .vertical-three-colors(#fff, #fff, 25%, darken(#fff, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
+      border: 1px solid #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 4px;
+      // @shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      &-regular {
+        background-color: mix(#fff, darken(#fff, 10%), 80%);
+        background-image: linear-gradient(#fff, #fff 25%, darken(#fff, 10%));
+        background-repeat: no-repeat;
+
+        &:hover {
+          // color: #333;
+          text-decoration: none;
+          background-color: darken(#fff, 10%);
+          background-position: 0 -15px;
+          // transition is only when going to hover, otherwise the background
+          // behind the gradient (there for IE<=9 fallback) gets mismatched
+          transition: background-position 0.1s linear;
+        }
+      }
+
+      &-primary {
+        color: #fff;
+        background-color: #0064cd;
+        background-repeat: repeat-x;
+        background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+        background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+        background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+        background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+        background-image: linear-gradient(top, #049cdb, #0064cd);
+        text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
+        border-color: #0064cd #0064cd #003f81;
+        border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+        &:hover,
+        &:active,
+        &.active,
+        &.disabled,
+        &[disabled] {
+          background-position: 0 -15px;
+          color: #fff;
+          text-decoration: none;
+          // background-color: adjust-hue(#08c, 20);
+        }
+      }
+    }
+  }
+}
