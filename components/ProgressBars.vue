@@ -55,31 +55,17 @@ export default {
     }
   },
   data: () => ({
-    nextBar: '',
     visible: [],
     bars: {}
   }),
-  watch: {
-    nextBar (val) {
-      if (
-        val !== null &&
-        this.bars[val]
-      ) {
-        this.visible.push(val)
-        this.startBar(val)
-      } else if (val === null) {
-        // End!
-        this.visible.push('end')
-      }
-    }
-  },
-  mounted () {
-    this.reset()
+  beforeMount () {
+    this.restart()
   },
   beforeDestroy () {
-    // Stop all
+    // Stop all and reset the value
     Object.keys(this.bars).forEach((name) => {
       this.stopBar(name)
+      this.bars[name].value = 0
     })
   },
   methods: {
@@ -91,7 +77,7 @@ export default {
         ? `${Math.ceil(this.bars[name].value)}%`
         : 'DONE'
     },
-    reset () {
+    restart () {
       // Reset values
       this.visible = []
       this.bars = Object.assign({}, this.data)
@@ -105,8 +91,6 @@ export default {
         this.bars[name].value = 0
       })
 
-      // Make the start visible
-      this.visible = [this.start]
       // Start at the beginning
       this.startBar(this.start)
     },
@@ -115,17 +99,24 @@ export default {
         return null
       }
 
+      this.visible.push(name)
       this.bars[name].interval = setInterval(() => {
-        this.bars[name].value += this.getRandNum(
-          this.bars[name].increase[0],
-          this.bars[name].increase[1]
-        )
+        if (this.bars[name].value < 100) {
+          this.bars[name].value += this.getRandNum(
+            this.bars[name].increase[0],
+            this.bars[name].increase[1]
+          )
+        } else {
+          // Start the next one
+          const next = this.bars[name].next
+          if (next && this.bars[next]) {
+            this.startBar(this.bars[name].next)
+          } else {
+            this.visible.push('end')
+          }
 
-        if (this.bars[name].value >= 100) {
           // Stop this one
           this.stopBar(name)
-          // Start the next one
-          this.nextBar = this.bars[name].next
         }
       }, 500)
     },
@@ -134,6 +125,7 @@ export default {
         return null
       }
       clearInterval(this.bars[name].interval)
+      this.bars[name].interval = null
     }
   }
 }

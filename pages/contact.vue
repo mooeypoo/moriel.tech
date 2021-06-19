@@ -14,7 +14,7 @@
           </v-card>
         </v-col>
       </v-row>
-      <ProgressBars ref="pbar" :data="bars" start="packaging">
+      <ProgressBars ref="pbar" :data="timers" start="packaging">
         <v-card>
           <v-card-title class="endtitle">
             Message successfully sent.
@@ -26,7 +26,7 @@
             <v-spacer />
             <v-btn
               color="primary"
-              @click="$store.commit('setToTodayEra')"
+              @click="goToMainToday"
             >
               <v-icon left>
                 mdi-wifi
@@ -35,7 +35,7 @@
             </v-btn>
             <v-btn
               color="error"
-              @click="$refs.pbar.reset()"
+              @click="$refs.pbar.restart()"
             >
               <v-icon left>
                 mdi-restart
@@ -91,14 +91,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ProgressBars from '~/components/ProgressBars.vue'
 import ContactForm from '~/components/ContactForm.vue'
 
 export default {
   components: {
+    ProgressBars,
     ContactForm
   },
   data: () => ({
-    bars: {
+    timers: {
       packaging: {
         increase: [20, 40],
         label: 'PACKAGING MESSAGE',
@@ -140,6 +142,12 @@ export default {
     ...mapGetters([
       'isCurrentEra'
     ])
+  },
+  methods: {
+    goToMainToday () {
+      this.$store.commit('setToTodayEra')
+      this.$router.push({ path: '/' })
+    }
   }
 }
 </script>

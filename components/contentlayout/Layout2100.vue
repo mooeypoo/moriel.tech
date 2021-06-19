@@ -13,7 +13,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <ProgressBars ref="pbar" :data="bars" start="uploading">
+    <ProgressBars ref="pbar" :data="timers" start="uploading">
       <v-card>
         <v-card-title class="endtitle">
           Upload successful.
@@ -35,7 +35,7 @@
           </v-btn>
           <v-btn
             color="error"
-            @click="$refs.pbar.reset()"
+            @click="$refs.pbar.restart()"
           >
             <v-icon left>
               mdi-restart
@@ -57,7 +57,7 @@ export default {
     ProgressBars
   },
   data: () => ({
-    bars: {
+    timers: {
       uploading: {
         increase: [20, 25],
         label: 'UPLOADING INFORMATION',
