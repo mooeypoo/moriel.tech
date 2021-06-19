@@ -188,9 +188,9 @@
                     :href="linkData.url"
                   >
                     <v-icon left>
-                      mdi-heart
+                      {{ getTodayButtonIcon }}
                     </v-icon>
-                    Visit
+                    {{ getTodayButtonText }}
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -248,12 +248,42 @@ export default {
     ]),
     relevantLinks () {
       return this.getRelevantWhatIDoLinks
+    },
+    getTodayButtonText () {
+      const details = this.getTodayButtonDetails()
+      return details.text
+    },
+    getTodayButtonIcon () {
+      const details = this.getTodayButtonDetails()
+      return details.icon
     }
   },
   watch: {
     getWhatIDo (newValue, oldValue) {
       // What 'what I do' changes, reset the value of the tab to 0
       this.whatidotab = '0'
+    }
+  },
+  methods: {
+    getTodayButtonDetails () {
+      switch (this.getWhatIDo) {
+        case 'speak':
+          return {
+            text: 'Watch and read',
+            icon: 'mdi-account-voice'
+          }
+        case 'write':
+          return {
+            text: 'Read',
+            icon: 'mdi-book-open-blank-variant'
+          }
+        case 'build':
+        default:
+          return {
+            text: 'Visit',
+            icon: 'mdi-share-variant'
+          }
+      }
     }
   }
 }
