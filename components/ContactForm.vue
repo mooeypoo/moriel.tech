@@ -127,7 +127,7 @@
             align="center"
           >
             <v-col cols="12" md="2" lg="2" xl="2">
-              <label for="email">Your email</label>
+              <label for="email">Your message</label>
             </v-col>
             <v-col cols="12" md="10" lg="10" xl="10">
               <v-textarea
@@ -157,7 +157,7 @@
       </v-row>
     </div>
     <div
-      v-else-if="isCurrentEra(1989) || isCurrentEra(1992) || isCurrentEra(1997)"
+      v-else-if="isCurrentEra(1989) || isCurrentEra(1992) || isCurrentEra(1997) || isCurrentEra(2012)"
     >
       <v-row
         v-if="error"
@@ -200,11 +200,18 @@
             v-model="message"
             name="message"
             required="true"
+            rows="10"
           ></textarea>
         </v-col>
       </v-row>
       <v-row justify="center" align="center">
-        <v-col cols="12" md="8" sm="9">
+        <v-col
+          cols="12"
+          md="8"
+          sm="9"
+          :justify="isCurrentEra(2012) ? 'center' : ''"
+          :align="isCurrentEra(2012) ? 'center' : ''"
+        >
           <!-- eslint-disable-next-line vue/html-self-closing -->
           <input
             v-if="isCurrentEra(1989)"
@@ -218,6 +225,7 @@
             type="submit"
             value="Send"
             class="submitbutton"
+            :class="isCurrentEra(2012) ? 'bootstrap-btn bootstrap-btn-primary' : ''"
           />
         </v-col>
       </v-row>
