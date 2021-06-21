@@ -132,6 +132,94 @@
       </div>
     </div>
 
+    <!-- 2012: Bootstrap! -->
+    <div v-else-if="isCurrentEra(2012)">
+      <v-row
+        align="start"
+      >
+        <v-col
+          v-for="section in relevantLinks"
+          :key="section.title"
+          class="section"
+          cols="12"
+          :md="colsBySections"
+          :lg="colsBySections"
+          :xl="colsBySections"
+        >
+          <h3>{{ section.title }}</h3>
+          <table class="bootstrap-bordered-table">
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Description
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="linkData in section.links"
+                :key="linkData.title"
+                class="section-links"
+              >
+                <td>
+                  {{ linkData.title }}
+                </td>
+                <td>
+                  {{ linkData.description }}
+                </td>
+                <td>
+                  <div
+                    class="section-links-url bootstrap-btn bootstrap-btn-regular"
+                  >
+                    <a :href="linkData.url">{{ getTodayButtonText }}</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </v-col>
+      </v-row>
+      <!-- <v-row>
+        <v-col
+          v-for="section in relevantLinks"
+          :key="section.title"
+          class="section"
+          cols="12"
+        >
+          <div class="section-title">
+            {{ section.title }}
+          </div>
+          <div
+            v-for="linkData in section.links"
+            :key="linkData.title"
+            class="section-links"
+          >
+            <div
+              class="section-links-title"
+            >
+              {{ linkData.title }}
+            </div>
+            <div
+              class="section-links-description"
+            >
+              {{ linkData.description }}
+            </div>
+            <div
+              class="section-links-url bootstrap-btn bootstrap-btn-regular"
+            >
+              <a :href="linkData.url">{{ getTodayButtonText }}</a>
+            </div>
+          </div>
+        </v-col>
+      </v-row> -->
+    </div>
+
     <!-- Modern -->
     <v-card
       v-else-if="isCurrentEra(2021)"
@@ -199,34 +287,6 @@
         </v-tab-item>
       </v-tabs-items>
     </v-card>
-
-    <!-- Futuristic, split to ranom div -->
-    <div v-else-if="isCurrentEra(2100)">
-      <div
-        v-for="section in relevantLinks"
-        :key="section.title"
-      >
-        <div class="section-title">
-          {{ section.title }}
-        </div>
-        <div
-          v-for="linkData in section.links"
-          :key="linkData.title"
-          class="section-links"
-        >
-          <div
-            class="section-links-title"
-          >
-            {{ linkData.title }}
-          </div>
-          <div
-            class="section-links-description"
-          >
-            {{ linkData.description }}
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -256,6 +316,14 @@ export default {
     getTodayButtonIcon () {
       const details = this.getTodayButtonDetails()
       return details.icon
+    },
+    colsBySections () {
+      if (this.relevantLinks.length === 1) {
+        return 12 // One big column
+      } else if (this.relevantLinks.length === 2) {
+        return 6 // Two columns
+      }
+      return 4 // Three columns by default
     }
   },
   watch: {

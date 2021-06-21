@@ -9,6 +9,9 @@
     <Layout2000
       v-else-if="isCurrentEra(2000)"
     />
+    <Layout2012
+      v-else-if="isCurrentEra(2012)"
+    />
     <Layout2100
       v-else-if="isCurrentEra(2100)"
     />
@@ -23,6 +26,7 @@ import { mapGetters } from 'vuex'
 import Layout1989 from '~/components/contentlayout/Layout1989.vue'
 import Layout1997 from '~/components/contentlayout/Layout1997.vue'
 import Layout2000 from '~/components/contentlayout/Layout2000.vue'
+import Layout2012 from '~/components/contentlayout/Layout2012.vue'
 import Layout2100 from '~/components/contentlayout/Layout2100.vue'
 import BaseLayout from '~/components/contentlayout/BaseLayout.vue'
 
@@ -32,6 +36,7 @@ export default {
     Layout1989,
     Layout1997,
     Layout2000,
+    Layout2012,
     Layout2100
   },
   computed: {
