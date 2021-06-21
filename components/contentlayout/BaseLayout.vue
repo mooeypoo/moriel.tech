@@ -3,15 +3,6 @@
     <MainPicture />
 
     <v-row
-      v-if="isCurrentEra(1997)"
-    >
-      <v-col class="text-center">
-        <!-- eslint-disable-next-line vue/html-self-closing -->
-        <img src="~/assets/images/under-construction.gif" />
-      </v-col>
-    </v-row>
-
-    <v-row
       v-if="isCurrentEra(2021)"
       justify="center"
       align="center"
@@ -29,15 +20,6 @@
     />
 
     <MainTitle />
-
-    <v-row
-      v-if="isCurrentEra(1997)"
-    >
-      <v-col class="text-center my-5">
-        <!-- eslint-disable-next-line vue/html-self-closing -->
-        <img src="~/assets/images/under-construction2.gif" />
-      </v-col>
-    </v-row>
 
     <MainContent class="maincontent" />
 
