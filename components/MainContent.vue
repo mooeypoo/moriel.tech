@@ -1,5 +1,9 @@
 <template>
+  <div v-if="type === 'plain'">
+    <nuxt-content :document="mdcontent[getWhatIDo]" />
+  </div>
   <v-row
+    v-else
     no-gutters
     justify="center"
     align="center"
@@ -19,6 +23,10 @@ export default {
     width: {
       type: Number,
       default: 12
+    },
+    type: {
+      type: String,
+      default: 'regular'
     }
   },
   data: () => ({
