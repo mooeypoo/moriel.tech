@@ -4,7 +4,7 @@
       v-if="isCurrentEra(1989)"
     />
     <Layout1997
-      v-if="isCurrentEra(1997)"
+      v-else-if="isCurrentEra(1997)"
     />
     <Layout2000
       v-else-if="isCurrentEra(2000)"
