@@ -55,6 +55,7 @@ export default {
     '~/assets/css/era1989.scss',
     '~/assets/css/era1992.scss',
     '~/assets/css/era1997.scss',
+    '~/assets/css/era2000.scss',
     '~/assets/css/era2012.scss',
     '~/assets/css/era2021.scss',
     '~/assets/css/era2100.scss'
