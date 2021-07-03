@@ -26,6 +26,15 @@
       </v-icon>
       Contact
     </v-btn>
+    <v-btn
+      value="credits"
+      @click="getRouteAction('/credits')"
+    >
+      <v-icon left>
+        mdi-heart-multiple
+      </v-icon>
+      Credits
+    </v-btn>
   </v-btn-toggle>
   <v-list
     v-else
@@ -57,6 +66,18 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>Contact</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item
+        link
+        value="credits"
+        @click="getRouteAction('/credits')"
+      >
+        <v-list-item-icon>
+          <v-icon>mdi-heart-multiple</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>Credits</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list-item-group>

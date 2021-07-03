@@ -1,0 +1,3 @@
+* 1997 background (dark mode): <a href="https://commons.wikimedia.org/wiki/File:Mars_and_Comet_Siding_Spring.jpg">NASA Hubble</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons
+* 1997 background (light mode): <a href="https://commons.wikimedia.org/wiki/File:Sky_-_detail.jpg">Mia Gaitanidis</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+* 2000 [notebook clipart image](http://clipart-library.com/clipart/145950.htm)

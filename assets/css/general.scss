@@ -16,6 +16,10 @@
   .eraslider .v-slider.v-slider--horizontal {
     cursor: pointer;
   }
+
+  .v-card__title {
+    word-break: normal;
+  }
 }
 
 @keyframes rolldown {
