@@ -170,7 +170,37 @@ export const state = () => ({
         ]
       }
     ]
-  }
+  },
+  awesomePeople: [
+    {
+      name: 'Tamás Deme',
+      forwhat: 'For brainstorming, bugflushing, and nerdsniping',
+      url: 'https://tomzorz.me/',
+      img: 'https://pbs.twimg.com/profile_images/1228278611964284929/ccolJHb2_400x400.jpg',
+      twitter: 'tomzorz_'
+    },
+    {
+      name: 'Cassidy Williams',
+      forwhat: 'For brainstorming, inspiration, poking and prodding',
+      url: 'https://cassidoo.co/',
+      img: 'https://pbs.twimg.com/profile_images/1292888896938729473/tDmJ1K6m_400x400.jpg',
+      twitter: 'cassidoo'
+    },
+    {
+      name: 'Ximena Vila Ferral',
+      forwhat: 'For design expertise',
+      url: 'https://ximenavf.com/',
+      img: 'https://pbs.twimg.com/profile_images/1280592934136688640/tbKJMjZA_400x400.jpg',
+      twitter: 'ximenavf92'
+    },
+    {
+      name: 'Diana Montalion',
+      forwhat: 'For applying healthy doses of reason',
+      url: 'https://www.montalion.com/',
+      img: 'https://pbs.twimg.com/profile_images/1265638202628587520/hFvwERx__400x400.jpg',
+      twitter: 'dianamontalion'
+    }
+  ]
 })
 
 export const mutations = {
@@ -245,5 +275,8 @@ export const getters = {
   },
   getRelevantWhatIDoLinks: (state) => {
     return state.whatidoLinks[state.whatido] || []
+  },
+  getAwesomePeople: (state) => {
+    return state.awesomePeople
   }
 }
