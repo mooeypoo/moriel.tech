@@ -4,6 +4,36 @@
     max-width: none !important;
     padding: 10px 0 !important;
 
+    .contact {
+      padding: 20px;
+    }
+
+    .contactform {
+      label {
+        display: block;
+      }
+
+      textarea,
+      input:not([type="submit"]) {
+        padding: 5px;
+        background: white;
+        border: 1px solid black;
+        width: 400px;
+        max-width: 100%;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .submitbutton {
+        background-color: #ccc;
+        border: 1px outset;
+        padding: 5px 20px;
+        color: black;
+      }
+    }
+
     .iframelike {
       overflow-y: scroll;
       border-bottom: 3px ridge;
