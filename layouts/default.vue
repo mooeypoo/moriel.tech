@@ -176,6 +176,7 @@ export default {
       },
       set (value) {
         this.$store.commit('changeSiteStyle', value)
+        this.scrollToTop()
       }
     }
   },
@@ -191,6 +192,9 @@ export default {
     this.setRouteForEra()
   },
   methods: {
+    scrollToTop () {
+      window.scrollTo(0, 0)
+    },
     setRouteForEra () {
       const path = this.$route.name === 'index'
         ? '/'
@@ -215,6 +219,10 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 .v-application .eraslider .v-messages {
   margin-top: 10px;
 }
