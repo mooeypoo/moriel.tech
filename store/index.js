@@ -140,19 +140,33 @@ export const state = () => ({
     ],
     speak: [
       {
+        title: 'Wikipedia',
+        links: [
+          {
+            img: 'youtube-internetarchive.png',
+            title: 'Weaving Books into the Web—Starting with Wikipedia',
+            description: 'Presentation at the Internet Archive event on October 29th, 2019',
+            url: 'https://blog.archive.org/2019/10/29/weaving-books-into-the-web-starting-with-wikipedia/'
+          }
+        ]
+      },
+      {
         title: 'Language support',
         links: [
           {
+            img: 'youtube-LCA-Wait-tahW-LTR-WTF.png',
             title: 'Wait Wait, ?tahW: The Twisted Road to Right-to-Left Language Support',
             description: 'This lecture was given in linux.conf.au Conference 2016 in Australia, introducing the challenges of supporting Right-to-Left online and when developing applications.',
             url: 'https://ltr.wtf/talks/2016-11-02-linux-conf-au.html'
           },
           {
+            img: 'youtube-Lightning-talk-BiDi-WAT-LTR-WTF.png',
             title: 'BiDi WAT??',
             description: 'A quick glance into some of the bigger challenges in supporting Right to Left content (and UI) online.',
             url: 'https://ltr.wtf/talks/2018-08-23-bidi-wat.html'
           },
           {
+            img: 'youtube-Wait-it-does-tahW-How-supporting-Right-to-Left-can-expose-your-bad-UX-decisions-Strange-Loop.png',
             title: 'Wait, it does ??THAW',
             description: 'StrangeLoop 2017: A lecture aimed at UX/UI developers and designers. It focuses on the common challenges involved in supporting i18n in general and Right-to-Left in particular when building user interfaces.',
             url: 'https://www.thestrangeloop.com/2017/wait-it-does-tahw-how-supporting-right-to-left-can-expose-your-bad-ux-decisions.html'
