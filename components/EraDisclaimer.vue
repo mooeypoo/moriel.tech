@@ -25,11 +25,11 @@ export default {
     ]),
     disclaimer () {
       if (this.isCurrentEra(1989)) {
-        return 'You are viewing this page through the lense of a 1989 BBS server'
+        return 'You are viewing this page through the lens of a 1989 BBS server'
       } else if (this.isCurrentEraLowerThan(2021)) {
-        return `You are viewing this page through the lense of ${this.getCurrentSiteEra} internet`
+        return `You are viewing this page through the lens of ${this.getCurrentSiteEra} internet`
       } else if (this.isCurrentEra(2100)) {
-        return 'You are viewing this page through the lense of The Future Internet'
+        return 'You are viewing this page through the lens of The Future Internet'
       }
       return ''
     }
