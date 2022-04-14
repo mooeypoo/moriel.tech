@@ -11,7 +11,7 @@ const eras = [
 export const state = () => ({
   siteEra: eras.length - 2, // Initial state = Modern
   siteEraLabels: eras,
-  whatido: 'build',
+  whatido: 'speak',
   whatidoLinks: {
     build: [
       {
@@ -65,6 +65,11 @@ export const state = () => ({
       {
         title: 'Tech',
         links: [
+          {
+            title: 'How caching microservice outputs led to a 7x performance improvement',
+            description: 'How migrating my dynamic site to serverless architecture I ended up making it 7x faster! Published on Netlify blogs.',
+            url: 'https://www.netlify.com/blog/2021/08/17/how-caching-microservice-outputs-led-to-a-7x-performance-improvement/'
+          },
           {
             title: 'Can Dynamic Sites Go Serverless?',
             description: 'Why I migrated my dynamic sites to a serverless architecture. Published on Netlify blogs.',
@@ -140,19 +145,26 @@ export const state = () => ({
     ],
     speak: [
       {
-        title: 'Wikipedia',
+        title: 'Tech and Localization',
         links: [
           {
-            img: 'youtube-internetarchive.png',
-            title: 'Weaving Books into the Web—Starting with Wikipedia',
-            description: 'Presentation at the Internet Archive event on October 29th, 2019',
-            url: 'https://blog.archive.org/2019/10/29/weaving-books-into-the-web-starting-with-wikipedia/'
-          }
-        ]
-      },
-      {
-        title: 'Language support',
-        links: [
+            img: 'youtube-remoteconnect2022.png',
+            title: 'Internationalization when you\'re not localized',
+            description: 'Remote international work involves working with people from all over the world, but in today\'s remote workplace environment, it also involves people whose culture does not necessarily depend on their current physical or geographic location. This talk will cover principles in localization that will help us provide a respectful welcoming environment when your workforce is distributed.',
+            url: 'https://connect2022.remote.com/on-demand/sourceCode'
+          },
+          {
+            img: 'youtube-jamstack2021.png',
+            title: 'How migrating my tool to Jamstack made me a better open source denizen',
+            description: 'Migrating neutrality.wtf from hackathon-php to Jamstack architecture empowered me to decouple the behavior and create a microservice that utilizes a generalized npm package that makes the tool more maintainable, easily upgraded, and available for others to use in other contexts.',
+            url: 'https://jamstackconf.com/talk/493b564f39ce/how-migrating-my-tool-to-jamstack-made-me-a-better-open-source-denizen/'
+          },
+          {
+            img: 'youtube-learnwithjason2021.png',
+            title: 'Learn with Jason: Right-to Left (RTL) Support for Websites',
+            description: 'RTL support has a lot of quirks that can make sites uncomfortable to use for RTL readers. In this episode, Moriel Schottlender will teach us what to watch for and how to make the web better for everyone!',
+            url: 'https://ltr.wtf/talks/2016-11-02-linux-conf-au.html'
+          },
           {
             img: 'youtube-LCA-Wait-tahW-LTR-WTF.png',
             title: 'Wait Wait, ?tahW: The Twisted Road to Right-to-Left Language Support',
@@ -180,6 +192,17 @@ export const state = () => ({
             title: 'How We Let Our Users Translate Wikipedia\'s Interfaces for more than 400 Languages and Locales',
             description: 'Unicode Conference 42:  the infrastructure that allows this process to happen; how do we define messages that can be adjusted to languages that have gendered pronouns and verbs? How do we account for differences in numerals, plural rules, or language variants? How do we give clear context to the message that is translated, so the translators can utilize the subtleties of their language to maintain clarity? How do we allow non-technical users to contribute translations in a flexible and yet controlled manner, into our production software, and what tools do we offer to make this process easy for other organizations that wish to follow our lead?',
             url: 'https://www.unicodeconference.org/iuc42/Conference_Program.pdf'
+          }
+        ]
+      },
+      {
+        title: 'Wikipedia',
+        links: [
+          {
+            img: 'youtube-internetarchive.png',
+            title: 'Weaving Books into the Web—Starting with Wikipedia',
+            description: 'Presentation at the Internet Archive event on October 29th, 2019',
+            url: 'https://blog.archive.org/2019/10/29/weaving-books-into-the-web-starting-with-wikipedia/'
           }
         ]
       }

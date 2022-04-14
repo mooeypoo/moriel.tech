@@ -3,6 +3,8 @@
     v-if="relevantLinks.length"
     class="content-links"
   >
+    <!-- title -->
+    <h2>{{ portfolioTitle }}</h2>
     <!-- simple list -->
     <div v-if="isCurrentEraLowerThan(1993)">
       <div
@@ -100,7 +102,7 @@
     </div>
 
     <!-- rounded section view -->
-    <div v-if="isCurrentEra(2000)">
+    <div v-else-if="isCurrentEra(2000)">
       <div
         v-for="section in relevantLinks"
         :key="section.title"
@@ -324,6 +326,17 @@ export default {
         return 6 // Two columns
       }
       return 4 // Three columns by default
+    },
+    portfolioTitle () {
+      switch (this.getWhatIDo) {
+        case 'speak':
+          return 'Some of my talks:'
+        case 'write':
+          return 'Some of my writing:'
+        case 'build':
+        default:
+          return 'Some of my stuff:'
+      }
     }
   },
   watch: {

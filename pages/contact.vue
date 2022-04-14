@@ -77,11 +77,10 @@
         <p>Want to invite me to your event, or have me speak at your company? Please provide details below.</p>
         <p>Some of my usual topics include:</p>
         <ul>
-          <li>Developing Wikipedia - how we do it, and how's it like working in the open</li>
-          <li>Modernizing Wikipedia - why it matters, and how we approach it</li>
-          <li>Open source - how to start with Open Source, how to kickstart your development career with Open Source</li>
+          <li>Localization: supporting your user no matter where they are</li>
+          <li>Technical aspect of language support and translations</li>
+          <li>Open Source and developing Wikipedia in the open</li>
           <li>Supporting non-Left to Right languages when developing products</li>
-          <li>Bias and diversity in online applications</li>
         </ul>
       </div>
       <v-row
@@ -90,17 +89,15 @@
         align="center"
       >
         <v-col cols="12" sm="9" md="8">
-          <p>The best method to contact me is through social media on twitter, LinkedIn or polywork.</p>
           <p>You can use the form below to contact me directly.</p>
           <h3>Request a speaking engagement</h3>
           <p>Want to invite me to your event, or have me speak at your company? Please provide details below.</p>
           <p>Some of my usual topics include:</p>
           <ul>
-            <li>Developing Wikipedia - how we do it, and how's it like working in the open</li>
-            <li>Modernizing Wikipedia - why it matters, and how we approach it</li>
-            <li>Open source - how to start with Open Source, how to kickstart your development career with Open Source</li>
+            <li>Localization: supporting your user no matter where they are</li>
+            <li>Technical aspect of language support and translations</li>
+            <li>Open Source and developing Wikipedia in the open</li>
             <li>Supporting non-Left to Right languages when developing products</li>
-            <li>Bias and diversity in online applications</li>
           </ul>
         </v-col>
       </v-row>

@@ -8,8 +8,8 @@
       <v-col cols="12" sm="8" md="6">
         <div class="text-center mb-5">
           <v-avatar
-            size="250px"
-            class="mt-5"
+            size="200px"
+            class="mt-2"
           >
             <img
               alt="Moriel Schottlender"

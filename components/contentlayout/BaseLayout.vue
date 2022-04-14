@@ -7,7 +7,7 @@
       justify="center"
       align="center"
     >
-      <v-col cols="12" sm="9" md="8" class="text-center">
+      <v-col cols="12" sm="9" md="8" class="text-center whatido-wrapper">
         <WhatIDoPicker
           :display="pickerDisplay"
         />
@@ -15,7 +15,7 @@
     </v-row>
     <WhatIDoPicker
       v-else
-      class="whatidopicker mb-5"
+      class="whatidopicker mb-2"
       :display="pickerDisplay"
     />
 

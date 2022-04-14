@@ -5,6 +5,12 @@
     margin-bottom: 0.5em;
   }
 
+  .whatido-wrapper {
+    // Override the internal padding that comes from
+    // the col-sm-9 styling
+    padding: 0;
+  }
+
   .maincontent {
     margin-bottom: 0.5em;
   }
