@@ -220,7 +220,7 @@ export const state = () => ({
       name: 'Cassidy Williams',
       forwhat: 'For brainstorming, inspiration, poking and prodding',
       url: 'https://cassidoo.co/',
-      img: 'https://pbs.twimg.com/profile_images/1292888896938729473/tDmJ1K6m_400x400.jpg',
+      img: 'https://github.com/cassidoo.png',
       twitter: 'cassidoo'
     },
     {
