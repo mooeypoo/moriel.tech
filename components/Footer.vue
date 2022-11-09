@@ -70,7 +70,7 @@ export default {
   },
   data: () => ({
     links: [
-    {
+      {
         name: 'twitter',
         text: 'Twitter',
         showText: false,

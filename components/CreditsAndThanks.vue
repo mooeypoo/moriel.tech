@@ -141,7 +141,9 @@
         </li>
       </ul>
 
-      <h2 class="mt-3">Assets</h2>
+      <h2 class="mt-3">
+        Assets
+      </h2>
       <nuxt-content :document="mdcredits.assets" />
     </v-col>
   </v-row>
