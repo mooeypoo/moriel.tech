@@ -37,7 +37,10 @@
               class="mx-2"
               small
             >
-              <v-icon color="pink" :left="$vuetify.breakpoint.smAndUp">
+              <v-icon
+                color="pink"
+                :left="$vuetify.breakpoint.smAndUp"
+              >
                 mdi-{{ link.icon }}
               </v-icon>
               <span v-if="$vuetify.breakpoint.smAndUp">{{ link.text }}</span>
