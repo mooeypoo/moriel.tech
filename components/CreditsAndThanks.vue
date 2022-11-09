@@ -19,7 +19,9 @@
             href="https://www.buymeacoffee.com/mooeypoo"
             target="_blank"
           >
-            <v-icon left>mdi-coffee</v-icon>
+            <v-icon left>
+              mdi-coffee
+            </v-icon>
             Buy me a coffee
           </v-btn>
         </v-card-actions>
@@ -97,7 +99,9 @@
     align="center"
   >
     <v-col cols="12" sm="9" md="8">
-      <h2>Technology</h2>
+      <h2>
+        Technology
+      </h2>
       <nuxt-content :document="mdcredits.tech" />
       <a
         href="https://www.buymeacoffee.com/mooeypoo"
@@ -105,7 +109,9 @@
       >
         <strong>Buy me a ☕ coffee!</strong>
       </a>
-      <h2 class="mt-3">Awesome people</h2>
+      <h2 class="mt-3">
+        Awesome people
+      </h2>
       <p>Some awesome people were involved in various capacities in the inspiration, brainstorming, testing and tweaking of this site. They deserve thanks.</p>
 
       <ul>
@@ -135,7 +141,9 @@
         </li>
       </ul>
 
-      <h2 class="mt-3">Assets</h2>
+      <h2 class="mt-3">
+        Assets
+      </h2>
       <nuxt-content :document="mdcredits.assets" />
     </v-col>
   </v-row>

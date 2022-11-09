@@ -30,13 +30,17 @@
               :key="link.name"
               :title="link.name"
               :href="link.href"
+              :rel="link.rel"
               color="white"
               text
               rounded
               class="mx-2"
               small
             >
-              <v-icon color="pink" :left="$vuetify.breakpoint.smAndUp">
+              <v-icon
+                color="pink"
+                :left="$vuetify.breakpoint.smAndUp"
+              >
                 mdi-{{ link.icon }}
               </v-icon>
               <span v-if="$vuetify.breakpoint.smAndUp">{{ link.text }}</span>
@@ -72,6 +76,13 @@ export default {
         showText: false,
         icon: 'twitter',
         href: 'https://twitter.com/mooeypoo'
+      },
+      {
+        name: 'mastodon',
+        text: 'Mastodon',
+        icon: 'account-circle',
+        rel: 'me',
+        href: 'https://notacult.social/@mooeypoo'
       },
       {
         name: 'github',
