@@ -30,6 +30,7 @@
               :key="link.name"
               :title="link.name"
               :href="link.href"
+              :rel="link.rel"
               color="white"
               text
               rounded
@@ -66,12 +67,19 @@ export default {
   },
   data: () => ({
     links: [
-      {
+    {
         name: 'twitter',
         text: 'Twitter',
         showText: false,
         icon: 'twitter',
         href: 'https://twitter.com/mooeypoo'
+      },
+      {
+        name: 'mastodon',
+        text: 'Mastodon',
+        icon: 'account-circle',
+        rel: 'me',
+        href: 'https://notacult.social/@mooeypoo'
       },
       {
         name: 'github',
