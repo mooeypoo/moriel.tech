@@ -157,7 +157,7 @@ export const state = () => ({
             img: 'youtube-jamstack2021.png',
             title: 'How migrating my tool to Jamstack made me a better open source denizen',
             description: 'Migrating neutrality.wtf from hackathon-php to Jamstack architecture empowered me to decouple the behavior and create a microservice that utilizes a generalized npm package that makes the tool more maintainable, easily upgraded, and available for others to use in other contexts.',
-            url: 'https://jamstackconf.com/talk/493b564f39ce/how-migrating-my-tool-to-jamstack-made-me-a-better-open-source-denizen/'
+            url: 'https://www.youtube.com/watch?v=SBZDm52ymzM'
           },
           {
             img: 'youtube-learnwithjason2021.png',
