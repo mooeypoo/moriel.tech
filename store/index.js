@@ -151,7 +151,7 @@ export const state = () => ({
             img: 'youtube-remoteconnect2022.png',
             title: 'Internationalization when you\'re not localized',
             description: 'Remote international work involves working with people from all over the world, but in today\'s remote workplace environment, it also involves people whose culture does not necessarily depend on their current physical or geographic location. This talk will cover principles in localization that will help us provide a respectful welcoming environment when your workforce is distributed.',
-            url: 'https://connect2022.remote.com/on-demand/sourceCode'
+            url: 'https://remote.com/events/on-demand/internationalization-when-youre-not-localized'
           },
           {
             img: 'youtube-jamstack2021.png',
