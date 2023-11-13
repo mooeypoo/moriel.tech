@@ -213,7 +213,7 @@ export const state = () => ({
       name: 'Tamás Deme',
       forwhat: 'For brainstorming, bugflushing, and nerdsniping',
       url: 'https://tomzorz.me/',
-      img: 'https://pbs.twimg.com/profile_images/1228278611964284929/ccolJHb2_400x400.jpg',
+      img: 'https://github.com/tomzorz.png',
       twitter: 'tomzorz_'
     },
     {
@@ -227,7 +227,7 @@ export const state = () => ({
       name: 'Ximena Vila Ferral',
       forwhat: 'For design expertise',
       url: 'https://ximenavf.com/',
-      img: 'https://pbs.twimg.com/profile_images/1280592934136688640/tbKJMjZA_400x400.jpg',
+      img: 'https://github.com/ximenavf92.png',
       twitter: 'ximenavf92'
     },
     {
