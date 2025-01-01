@@ -148,6 +148,12 @@ export const state = () => ({
         title: 'Tech and Localization',
         links: [
           {
+            img: 'youtube-dddeu2024.png',
+            title: 'Evolving Wikipedia: A Case Study in Applying DDD',
+            description: 'This talk will present a case study of utilizing Domain-Driven Design (DDD) methodologies to address the challenges of evolving Wikipedia\'s underlying system architecture. Wikipedia is a 23-year-old open-source monolith that serves billions of reads and millions of simultaneous writes, with a unique combination of dynamic user-generated content and workflows. The scale, complexity, and socio-technical nature of Wikipedia make it a challenging environment for applying DDD.',
+            url: 'https://www.youtube.com/watch?v=IvTmHMAd7nY'
+          },
+          {
             img: 'youtube-remoteconnect2022.png',
             title: 'Internationalization when you\'re not localized',
             description: 'Remote international work involves working with people from all over the world, but in today\'s remote workplace environment, it also involves people whose culture does not necessarily depend on their current physical or geographic location. This talk will cover principles in localization that will help us provide a respectful welcoming environment when your workforce is distributed.',
