@@ -1,5 +1,5 @@
 <template>
-  <div class="layout1989" :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''">
+  <div class="layout1989" :class="display?.xs ? 'mobile' : ''">
     <pre class="bbs-title-moriel">
 .___  ___.   ______   .______       __   _______  __
 |   \/   |  /  __  \  |   _  \     |  | |   ____||  |
@@ -21,7 +21,7 @@
     <WhatIDoPicker
       display="links"
       class="bbs-whatido my-5"
-      :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''"
+      :class="display?.xs ? 'mobile' : ''"
     />
     <div class="bbs-content mt-5">
       <MainTitle />
@@ -35,9 +35,14 @@
 <script>
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import { useDisplay } from 'vuetify'
 
 export default {
   name: 'Layout1989',
+  setup () {
+    const display = useDisplay()
+    return { display }
+  },
   components: {
     WhatIDoPicker,
     MainContentLinks

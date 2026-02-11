@@ -17,7 +17,7 @@
             </v-card-subtitle>
             <v-progress-linear
               v-model="bars[barName].value"
-              :color="$vuetify.theme.dark ? 'pink darken-4' : 'pink lighten-2'"
+              :color="isDark ? 'pink-darken-4' : 'pink-lighten-2'"
               height="20"
               :buffer-value="bars[barName].value"
               stream
@@ -42,8 +42,16 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useTheme } from 'vuetify'
+
 export default {
   name: 'ProgressBars',
+  setup () {
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.name.value === 'dark')
+    return { isDark }
+  },
   props: {
     data: {
       type: Object,

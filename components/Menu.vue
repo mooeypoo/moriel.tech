@@ -2,17 +2,15 @@
   <v-btn-toggle
     v-if="type === 'buttons'"
     v-model="menu"
-    tile
-    color="pink accent-3"
+    color="pink-accent-3"
     class="whatidopicker"
-    group
-    mandatory
+    :mandatory="true"
   >
     <v-btn
       value="index"
       @click="getRouteAction('/')"
     >
-      <v-icon left>
+      <v-icon start>
         mdi-home
       </v-icon>
       Main
@@ -21,7 +19,7 @@
       value="contact"
       @click="getRouteAction('/contact')"
     >
-      <v-icon left>
+      <v-icon start>
         mdi-card-account-mail
       </v-icon>
       Contact
@@ -30,7 +28,7 @@
       value="credits"
       @click="getRouteAction('/credits')"
     >
-      <v-icon left>
+      <v-icon start>
         mdi-heart-multiple
       </v-icon>
       Credits
@@ -38,54 +36,44 @@
   </v-btn-toggle>
   <v-list
     v-else
-    dense
+    density="compact"
+    v-model:selected="menuSelection"
+    :mandatory="true"
+    selectable
   >
-    <v-list-item-group
-      v-model="menu"
-      mandatory
+    <v-list-item
+      value="index"
+      @click="getRouteAction('/')"
     >
-      <v-list-item
-        link
-        value="index"
-        @click="getRouteAction('/')"
-      >
-        <v-list-item-icon>
-          <v-icon>mdi-home</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Main information</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item
-        link
-        value="contact"
-        @click="getRouteAction('/contact')"
-      >
-        <v-list-item-icon>
-          <v-icon>mdi-card-account-mail</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Contact</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item
-        link
-        value="credits"
-        @click="getRouteAction('/credits')"
-      >
-        <v-list-item-icon>
-          <v-icon>mdi-heart-multiple</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>Credits</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list-item-group>
+      <template #prepend>
+        <v-icon>mdi-home</v-icon>
+      </template>
+      <v-list-item-title>Main information</v-list-item-title>
+    </v-list-item>
+    <v-list-item
+      value="contact"
+      @click="getRouteAction('/contact')"
+    >
+      <template #prepend>
+        <v-icon>mdi-card-account-mail</v-icon>
+      </template>
+      <v-list-item-title>Contact</v-list-item-title>
+    </v-list-item>
+    <v-list-item
+      value="credits"
+      @click="getRouteAction('/credits')"
+    >
+      <template #prepend>
+        <v-icon>mdi-heart-multiple</v-icon>
+      </template>
+      <v-list-item-title>Credits</v-list-item-title>
+    </v-list-item>
   </v-list>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'Menu',
@@ -95,33 +83,44 @@ export default {
       default: 'buttons'
     }
   },
+  setup () {
+    const eraStore = useEraStore()
+    const route = useRoute()
+    return { eraStore, route }
+  },
   data: () => ({
     menu: 'index'
   }),
   computed: {
-    ...mapGetters([
-      'getCurrentSiteEraForPath'
-    ]),
+    getCurrentSiteEraForPath () {
+      return this.eraStore.getCurrentSiteEraForPath
+    },
     currentRoute () {
-      return this.$nuxt.$route.name
+      return this.route?.name || this.$route?.name
+    },
+    menuSelection: {
+      get () {
+        return [this.menu]
+      },
+      set (v) {
+        this.menu = Array.isArray(v) && v.length ? v[0] : this.menu
+      }
     }
   },
   watch: {
     currentRoute (route) {
-      this.menu = route
+      this.menu = route || 'index'
     }
   },
   mounted () {
-    this.menu = this.currentRoute
+    this.menu = this.currentRoute || 'index'
   },
   methods: {
     getRouteAction (target) {
-      return this.$router.push(
-        {
-          path: target,
-          query: { era: this.getCurrentSiteEraForPath }
-        }
-      )
+      return this.$router.push({
+        path: target,
+        query: { era: this.eraStore.getCurrentSiteEraForPath }
+      })
     }
   }
 }

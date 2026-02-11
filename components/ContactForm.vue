@@ -20,7 +20,7 @@
     >
       <v-card-text>
         <v-row
-          no-gutters
+          no-gutter
           justify="center"
           align="center"
         >
@@ -31,12 +31,12 @@
               label="Your name"
               name="fullname"
               required
-              filled
+              variant="filled"
             />
           </v-col>
         </v-row>
         <v-row
-          no-gutters
+          no-gutter
           justify="center"
           align="center"
         >
@@ -47,12 +47,12 @@
               label="Your email"
               name="email"
               required
-              filled
+              variant="filled"
             />
           </v-col>
         </v-row>
         <v-row
-          no-gutters
+          no-gutter
           justify="center"
           align="center"
         >
@@ -62,7 +62,7 @@
               :rules="messageRules"
               label="Your message"
               name="message"
-              filled
+              variant="filled"
               required
             />
           </v-col>
@@ -158,9 +158,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
 
 export default {
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   data: () => ({
     error: false,
     valid: false,
@@ -179,11 +183,15 @@ export default {
     ]
   }),
   computed: {
-    ...mapGetters([
-      'isCurrentEra',
-      'isCurrentEraLowerThan',
-      'getCurrentSiteEra'
-    ]),
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
     isValidManually () {
       return (
         !!this.fullname &&
@@ -194,13 +202,13 @@ export default {
     }
   },
   methods: {
-    onSubmit (event) {
+    async onSubmit (event) {
       this.error = false
       // validate
       if (
         (
           this.isCurrentEra(2021) &&
-          !this.$refs.form.validate()
+          !(await this.$refs.form?.validate())?.valid
         ) ||
         (
           !this.isCurrentEra(2021) &&

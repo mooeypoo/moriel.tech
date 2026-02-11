@@ -1,9 +1,5 @@
 <template>
-  <v-footer
-    app
-    fixed
-    padless
-  >
+  <v-footer padless>
     <v-row
       justify="center"
       align="center"
@@ -17,7 +13,7 @@
           <v-card-text
             v-if="!isCurrentEra(2021)"
             class="py-1 mb-0"
-            :class="$vuetify.theme.dark ? 'blue darken-3 white--text' : 'blue lighten-2'"
+            :class="isDark ? 'bg-blue-darken-3 text-white' : 'bg-blue-lighten-2'"
           >
             <EraDisclaimer />
           </v-card-text>
@@ -32,24 +28,24 @@
               :href="link.href"
               :rel="link.rel"
               color="white"
-              text
+              variant="text"
               rounded
               class="mx-2"
-              small
+              size="small"
             >
               <v-icon
                 color="pink"
-                :left="$vuetify.breakpoint.smAndUp"
+                :start="!display.xs"
               >
                 mdi-{{ link.icon }}
               </v-icon>
-              <span v-if="$vuetify.breakpoint.smAndUp">{{ link.text }}</span>
+              <span v-if="!display.xs">{{ link.text }}</span>
             </v-btn>
           </v-card-text>
-          <v-divider v-if="$vuetify.breakpoint.smAndUp" />
+          <v-divider v-if="!display.xs" />
           <v-card-text
-            v-if="$vuetify.breakpoint.smAndUp"
-            class="white--text py-1"
+            v-if="!display.xs"
+            class="text-white py-1"
           >
             {{ new Date().getFullYear() }} — <strong>Moriel Schottlender</strong>
           </v-card-text>
@@ -60,13 +56,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { computed } from 'vue'
 import EraDisclaimer from '~/components/EraDisclaimer.vue'
+import { useEraStore } from '~/stores/era'
+import { useDisplay, useTheme } from 'vuetify'
 
 export default {
   name: 'Footer',
   components: {
     EraDisclaimer
+  },
+  setup () {
+    const eraStore = useEraStore()
+    const display = useDisplay()
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.name.value === 'dark')
+    return { eraStore, display, isDark }
   },
   data: () => ({
     links: [
@@ -75,7 +80,7 @@ export default {
         text: 'Twitter',
         showText: false,
         icon: 'twitter',
-        href: 'https://twitter.com/mooeypoo'
+        href: 'https://x.com/mooeypoo'
       },
       {
         name: 'mastodon',
@@ -96,18 +101,12 @@ export default {
         icon: 'linkedin',
         href: 'https://www.linkedin.com/in/moriel/'
       },
-      {
-        name: 'polywork',
-        text: 'Polywork',
-        icon: 'account-circle',
-        href: 'https://www.polywork.com/mooeypoo'
-      }
     ]
   }),
   computed: {
-    ...mapGetters([
-      'isCurrentEra'
-    ])
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    }
   }
 }
 </script>

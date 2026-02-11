@@ -52,14 +52,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import CreditsAndThanks from '~/components/CreditsAndThanks.vue'
 import ProgressBars from '~/components/ProgressBars.vue'
+import { useEraStore } from '~/stores/era'
 
 export default {
   components: {
     CreditsAndThanks,
     ProgressBars
+  },
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
   },
   data: () => ({
     timers: {
@@ -81,9 +85,9 @@ export default {
     }
   }),
   computed: {
-    ...mapGetters([
-      'isCurrentEra'
-    ])
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    }
   }
 }
 </script>

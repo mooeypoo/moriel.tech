@@ -12,7 +12,7 @@
     <div v-else-if="isCurrentEra(1997)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
-      <div class="marquee" :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''">
+      <div class="marquee" :class="display?.xs ? 'mobile' : ''">
         <h2>
           Hi, I'm Moriel, {{ introSentence }} &nbsp; &nbsp; &nbsp;
         </h2>
@@ -40,17 +40,29 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
+import { useDisplay } from 'vuetify'
 
 export default {
   name: 'MainTitle',
+  setup () {
+    const eraStore = useEraStore()
+    const display = useDisplay()
+    return { eraStore, display }
+  },
   computed: {
-    ...mapGetters([
-      'getWhatIDo',
-      'getCurrentSiteEra',
-      'isCurrentEra',
-      'isCurrentEraLowerThan'
-    ]),
+    getWhatIDo () {
+      return this.eraStore.getWhatIDo
+    },
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
     introSentence () {
       switch (this.getWhatIDo) {
         case 'speak':

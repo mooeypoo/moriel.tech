@@ -53,7 +53,7 @@
       >
         <h1>Contact me</h1>
         <p>
-          The best method to contact me is through social media on twitter, LinkedIn or polywork.
+          The best method to contact me is through social media on twitter or LinkedIn.
           <!-- eslint-disable-next-line vue/html-self-closing -->
           <br />
           You can use the form below to contact me directly.
@@ -88,7 +88,11 @@
         justify="center"
         align="center"
       >
-        <v-col cols="12" sm="9" md="8">
+        <v-col
+          cols="12"
+          sm="9"
+          md="8"
+        >
           <p>You can use the form below to contact me directly.</p>
           <h3>Request a speaking engagement</h3>
           <p>Want to invite me to your event, or have me speak at your company? Please provide details below.</p>
@@ -112,7 +116,13 @@
         justify="center"
         align="center"
       >
-        <v-col cols="12" sm="9" md="8">
+        <v-col
+          cols="12"
+          sm="9"
+          md="8"
+          :justify="isCurrentEra(2012) ? 'center' : ''"
+          :align="isCurrentEra(2012) ? 'center' : ''"
+        >
           <h3>Send me an email</h3>
         </v-col>
       </v-row>
@@ -122,14 +132,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import ProgressBars from '~/components/ProgressBars.vue'
 import ContactForm from '~/components/ContactForm.vue'
+import { useEraStore } from '~/stores/era'
 
 export default {
   components: {
     ProgressBars,
     ContactForm
+  },
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
   },
   data: () => ({
     timers: {
@@ -171,13 +185,13 @@ export default {
     }
   }),
   computed: {
-    ...mapGetters([
-      'isCurrentEra'
-    ])
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    }
   },
   methods: {
     goToMainToday () {
-      this.$store.commit('setToTodayEra')
+      this.eraStore.setToTodayEra()
       this.$router.push({ path: '/' })
     }
   }

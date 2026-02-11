@@ -28,13 +28,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 import MainPicture from '~/components/MainPicture.vue'
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'BaseLayout',
@@ -45,13 +44,19 @@ export default {
     MainContent,
     MainContentLinks
   },
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   computed: {
-    ...mapGetters([
-      'isCurrentEra',
-      'getCurrentSiteEra'
-    ]),
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
     pickerDisplay () {
-      switch (this.getCurrentSiteEra) {
+      switch (this.eraStore.getCurrentSiteEra) {
         case 1992:
         case 1997:
           return 'plain'

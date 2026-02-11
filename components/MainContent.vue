@@ -1,21 +1,27 @@
 <template>
   <div v-if="type === 'plain'">
-    <nuxt-content :document="mdcontent[getWhatIDo]" />
+    <ContentRenderer
+      v-if="mdcontent && mdcontent[getWhatIDo]"
+      :value="mdcontent[getWhatIDo]"
+    />
   </div>
   <v-row
     v-else
-    no-gutters
+    no-gutter
     justify="center"
     align="center"
   >
     <v-col :cols="width">
-      <nuxt-content :document="mdcontent[getWhatIDo]" />
+      <ContentRenderer
+        v-if="mdcontent && mdcontent[getWhatIDo]"
+        :value="mdcontent[getWhatIDo]"
+      />
     </v-col>
   </v-row>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'MainContent',
@@ -29,19 +35,21 @@ export default {
       default: 'regular'
     }
   },
-  data: () => ({
-    mdcontent: {}
-  }),
-  computed: {
-    ...mapGetters([
-      'getWhatIDo'
-    ])
+  async setup () {
+    const eraStore = useEraStore()
+    const { data: mdcontent } = await useAsyncData('main-whatido', async () => {
+      const [build, write, speak] = await Promise.all([
+        queryContent('whatido/build').findOne(),
+        queryContent('whatido/write').findOne(),
+        queryContent('whatido/speak').findOne()
+      ])
+      return { build, write, speak }
+    })
+    return { eraStore, mdcontent }
   },
-  async mounted () {
-    this.mdcontent = {
-      build: await this.$content('whatido', 'build').fetch(),
-      write: await this.$content('whatido', 'write').fetch(),
-      speak: await this.$content('whatido', 'speak').fetch()
+  computed: {
+    getWhatIDo () {
+      return this.eraStore.getWhatIDo
     }
   }
 }
