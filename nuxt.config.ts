@@ -67,7 +67,9 @@ export default defineNuxtConfig({
     },
   },
 
-  content: {},
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
 
   nitro: {
     preset: 'static',
