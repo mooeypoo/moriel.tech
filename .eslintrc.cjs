@@ -16,6 +16,10 @@ module.exports = {
   rules: {
     'vue/multi-word-component-names': 'off',
     'vue/no-reserved-component-names': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/order-in-components': 'off',
+    'vue/attributes-order': 'off',
+    'vue/html-indent': 'off',
   },
   ignorePatterns: ['node_modules', '.nuxt', 'dist', 'output'],
   globals: {
