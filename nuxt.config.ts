@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxt/content',
-    (_options: unknown, nuxt: { hooks: { hook: (name: string, fn: (config: { plugins?: unknown[] }) => void) => void } }) => {
+    (_options: unknown, nuxt: { hooks: { hook: (_name: string, _fn: (_cfg: { plugins?: unknown[] }) => void) => void } }) => {
       nuxt.hooks.hook('vite:extendConfig', (config: { plugins?: unknown[] }) => {
         config.plugins = config.plugins || []
         config.plugins.push(vuetify({ autoImport: true }))

@@ -266,10 +266,9 @@
               <v-card
                 :color="isDark ? '#761d3b' : '#ffb6cf'"
               >
-                <v-card-title
-                  v-if="!linkData.img"
-                  v-text="linkData.title"
-                />
+                <v-card-title v-if="!linkData.img">
+                  {{ linkData.title }}
+                </v-card-title>
                 <v-img
                   v-if="linkData.img"
                   :src="`/screenshots/${linkData.img}`"
@@ -277,7 +276,9 @@
                   gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.4)"
                   height="200px"
                 />
-                <v-card-title v-if="linkData.img" v-text="linkData.title" />
+                <v-card-title v-if="linkData.img">
+                  {{ linkData.title }}
+                </v-card-title>
                 <v-card-text>{{ linkData.description }}</v-card-text>
 
                 <v-card-actions>

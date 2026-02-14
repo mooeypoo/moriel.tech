@@ -15,6 +15,63 @@ module.exports = {
   ],
   rules: {
     'vue/multi-word-component-names': 'off',
+    'vue/no-reserved-component-names': 'off',
   },
   ignorePatterns: ['node_modules', '.nuxt', 'dist', 'output'],
+  globals: {
+    // Nuxt auto-imports (compiler macros and composables)
+    defineNuxtPlugin: 'readonly',
+    defineNuxtConfig: 'readonly',
+    defineNuxtRouteMiddleware: 'readonly',
+    definePageMeta: 'readonly',
+    useNuxtApp: 'readonly',
+    useRuntimeConfig: 'readonly',
+    useState: 'readonly',
+    useFetch: 'readonly',
+    useAsyncData: 'readonly',
+    useLazyAsyncData: 'readonly',
+    useLazyFetch: 'readonly',
+    navigateTo: 'readonly',
+    abortNavigation: 'readonly',
+    addRouteMiddleware: 'readonly',
+    clearNuxtData: 'readonly',
+    createError: 'readonly',
+    defineNuxtComponent: 'readonly',
+    useRequestEvent: 'readonly',
+    useRequestFetch: 'readonly',
+    useRoute: 'readonly',
+    useRouter: 'readonly',
+    reloadNuxtApp: 'readonly',
+    setPageLayout: 'readonly',
+    clearError: 'readonly',
+    isNuxtError: 'readonly',
+    showError: 'readonly',
+    useError: 'readonly',
+    useHead: 'readonly',
+    useSeoMeta: 'readonly',
+    useServerSeoMeta: 'readonly',
+    // @nuxt/content auto-imports
+    queryContent: 'readonly',
+    queryCollection: 'readonly',
+  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+      rules: {
+        'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      },
+    },
+    {
+      files: ['*.vue'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.vue'],
+      },
+    },
+  ],
 }

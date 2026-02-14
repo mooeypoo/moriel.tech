@@ -3,7 +3,8 @@
     <ContentRenderer
       v-if="currentPage"
       :value="currentPage"
-    />
+      class="maincontent"
+      />
   </div>
   <v-row
     v-else
@@ -15,6 +16,7 @@
       <ContentRenderer
         v-if="currentPage"
         :value="currentPage"
+        class="maincontent"
       />
     </v-col>
   </v-row>

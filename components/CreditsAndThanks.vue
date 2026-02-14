@@ -13,6 +13,7 @@
           <ContentRenderer
             v-if="mdcredits.tech"
             :value="mdcredits.tech"
+            class="maincontent"
           />
         </v-card-text>
         <v-card-actions>
@@ -87,6 +88,7 @@
           <ContentRenderer
             v-if="mdcredits.rwc"
             :value="mdcredits.rwc"
+            class="maincontent"
           />
         </v-card-text>
       </v-card>
@@ -97,6 +99,7 @@
           <ContentRenderer
             v-if="mdcredits.assets"
             :value="mdcredits.assets"
+            class="maincontent"
           />
         </v-card-text>
       </v-card>
@@ -171,11 +174,12 @@ export default {
   name: 'CreditsAndThanks',
   async setup () {
     const eraStore = useEraStore()
+    const q = (path) => queryCollection('credits').path(path).first()
     const { data: mdcredits } = await useAsyncData('credits-content', () =>
       Promise.all([
-        queryContent('credits/tech').findOne(),
-        queryContent('credits/assets').findOne(),
-        queryContent('credits/rwc').findOne()
+        q('/credits/tech'),
+        q('/credits/assets'),
+        q('/credits/rwc')
       ]).then(([tech, assets, rwc]) => ({ tech, assets, rwc }))
     )
     return { eraStore, mdcredits }

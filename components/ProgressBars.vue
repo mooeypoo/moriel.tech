@@ -69,7 +69,7 @@ export default {
   beforeMount () {
     this.restart()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     // Stop all and reset the value
     Object.keys(this.bars).forEach((name) => {
       this.stopBar(name)
