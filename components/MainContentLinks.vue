@@ -235,6 +235,7 @@
       v-else-if="isCurrentEra(2021)"
       :key="getWhatIDo"
       :variant="isDark ? 'elevated' : 'outlined'"
+      class="whatido-links-card"
     >
       <v-tabs
         v-model="whatidotab"
@@ -398,8 +399,11 @@ export default {
 </script>
 
 <style lang="scss">
-.v-card__title {
-  word-break: break-word !important;
+.whatido-links-card .v-card .v-card-title {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .content-links table {
