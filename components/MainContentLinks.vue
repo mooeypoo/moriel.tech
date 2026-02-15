@@ -233,6 +233,7 @@
     <!-- Modern -->
     <v-card
       v-else-if="isCurrentEra(2021)"
+      :key="getWhatIDo"
       :variant="isDark ? 'elevated' : 'outlined'"
     >
       <v-tabs
@@ -366,7 +367,9 @@ export default {
   },
   watch: {
     getWhatIDo () {
-      this.whatidotab = '0'
+      this.$nextTick(() => {
+        this.whatidotab = '0'
+      })
     }
   },
   methods: {
