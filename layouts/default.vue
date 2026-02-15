@@ -116,9 +116,10 @@
 <script>
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 import { computed } from 'vue'
 import { useEraStore } from '~/stores/era'
-import { useDisplay, useTheme } from 'vuetify'
+import { useTheme } from 'vuetify'
 
 export default {
   components: {
@@ -127,7 +128,7 @@ export default {
   },
   setup () {
     const eraStore = useEraStore()
-    const display = useDisplay()
+    const { display } = useDisplaySSRSafe()
     const theme = useTheme()
     const isDark = computed({
       get: () => theme.global.name.value === 'dark',

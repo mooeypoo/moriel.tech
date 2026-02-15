@@ -35,12 +35,12 @@
 <script>
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
-import { useDisplay } from 'vuetify'
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 
 export default {
   name: 'Layout1989',
   setup () {
-    const display = useDisplay()
+    const { display } = useDisplaySSRSafe()
     return { display }
   },
   components: {

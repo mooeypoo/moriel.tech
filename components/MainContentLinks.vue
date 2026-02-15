@@ -305,15 +305,16 @@
 </template>
 
 <script>
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 import { computed } from 'vue'
 import { useEraStore } from '~/stores/era'
-import { useDisplay, useTheme } from 'vuetify'
+import { useTheme } from 'vuetify'
 
 export default {
   name: 'MainContentLinks',
   setup () {
     const eraStore = useEraStore()
-    const display = useDisplay()
+    const { display } = useDisplaySSRSafe()
     const theme = useTheme()
     const isDark = computed(() => theme.global.name.value === 'dark')
     return { eraStore, display, isDark }

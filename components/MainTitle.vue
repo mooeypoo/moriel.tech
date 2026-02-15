@@ -43,14 +43,14 @@
 </template>
 
 <script>
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 import { useEraStore } from '~/stores/era'
-import { useDisplay } from 'vuetify'
 
 export default {
   name: 'MainTitle',
   setup () {
     const eraStore = useEraStore()
-    const display = useDisplay()
+    const { display } = useDisplaySSRSafe()
     return { eraStore, display }
   },
   computed: {
