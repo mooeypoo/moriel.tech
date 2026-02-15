@@ -4,7 +4,8 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <h2 class="my-2">
-        Hi, I'm Moriel, {{ introSentence }}
+        Hi, I'm Moriel, I create human-centered software
+        <small>{{ introSentence }}</small>
       </h2>
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr class="mb-5" />
@@ -13,8 +14,9 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <div class="marquee" :class="display?.xs ? 'mobile' : ''">
-        <h2>
-          Hi, I'm Moriel, {{ introSentence }} &nbsp; &nbsp; &nbsp;
+        <h2 class="my-2">
+          Hi, I'm Moriel, I create human-centered software
+          <small>{{ introSentence }}</small>
         </h2>
       </div>
       <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -32,7 +34,8 @@
     >
       <v-col cols="12">
         <h2 class="text-center">
-          Hi, I'm Moriel, {{ introSentence }}
+          Hi, I'm Moriel, I create human-centered software
+          <small>{{ introSentence }}</small>
         </h2>
       </v-col>
     </v-row>
@@ -90,6 +93,9 @@ export default {
 </script>
 
 <style>
+.maintitle small {
+  display: block;
+}
 .marqueewrapper {
   width: 80%;
   margin: 0 auto;
