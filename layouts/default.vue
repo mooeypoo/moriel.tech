@@ -23,7 +23,7 @@
             Moriel Schottlender
           </v-list-item-title>
           <v-list-item-subtitle>
-            Multidimensional multitasker
+            Human-centered software
           </v-list-item-subtitle>
         </v-list-item>
       </v-list>
@@ -70,17 +70,6 @@
 
       <template #extension>
         <v-row no-gutter align="center">
-          <v-col
-            v-if="!display.xs"
-            cols="2"
-            md="1"
-            lg="1"
-            align="center"
-          >
-            <v-list-subheader class="eraslider-label">
-              Choose an era:
-            </v-list-subheader>
-          </v-col>
           <v-col class="flex-grow-1">
             <v-slider
               v-model="siteEra"

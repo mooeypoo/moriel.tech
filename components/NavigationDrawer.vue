@@ -19,7 +19,7 @@
           Moriel Schottlender
         </v-list-item-title>
         <v-list-item-subtitle>
-          Multidimensional multitasker
+          Human-centered software
         </v-list-item-subtitle>
       </v-list-item>
     </v-list>
