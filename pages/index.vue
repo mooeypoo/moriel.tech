@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Layout1989 from '~/components/contentlayout/Layout1989.vue'
 import Layout1997 from '~/components/contentlayout/Layout1997.vue'
 import Layout2000 from '~/components/contentlayout/Layout2000.vue'
 import Layout2012 from '~/components/contentlayout/Layout2012.vue'
 import Layout2100 from '~/components/contentlayout/Layout2100.vue'
 import BaseLayout from '~/components/contentlayout/BaseLayout.vue'
+import { useEraStore } from '~/stores/era'
 
 export default {
   components: {
@@ -39,10 +39,14 @@ export default {
     Layout2012,
     Layout2100
   },
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   computed: {
-    ...mapGetters([
-      'isCurrentEra'
-    ])
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    }
   }
 }
 </script>

@@ -4,7 +4,7 @@
     <v-btn
       x-small
       plain
-      @click="$store.commit('setToTodayEra')"
+      @click="eraStore.setToTodayEra()"
     >
       Click for traditional view
     </v-btn>
@@ -12,17 +12,27 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'EraDisclaimer',
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   computed: {
-    ...mapGetters([
-      'getCurrentSiteEra',
-      'isCurrentEra',
-      'isCurrentEraLowerThan',
-      'isCurrentEraBiggerThan'
-    ]),
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
+    isCurrentEraBiggerThan () {
+      return this.eraStore.isCurrentEraBiggerThan
+    },
     disclaimer () {
       if (this.isCurrentEra(1989)) {
         return 'You are viewing this page through the lens of a 1989 BBS server'

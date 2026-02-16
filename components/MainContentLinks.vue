@@ -29,41 +29,45 @@
     </div>
     <!-- table view -->
     <div v-else-if="isCurrentEra(1997)">
-      <table v-if="$vuetify.breakpoint.smAndUp">
-        <tr>
-          <th
-            v-for="section in relevantLinks"
-            :key="section.title"
-          >
-            {{ section.title }}
-          </th>
-        </tr>
-        <tr>
-          <td
-            v-for="section in relevantLinks"
-            :key="section.title"
-          >
-            <ul>
-              <li
-                v-for="linkData in section.links"
-                :key="linkData.title"
-              >
-                <a :href="linkData.url">{{ linkData.title }}</a>:
-                <!-- eslint-disable-next-line vue/html-self-closing -->
-                <br />
-                {{ linkData.description }}
-                <!-- eslint-disable-next-line vue/html-self-closing -->
-                <br />
-                <v-img
-                  v-if="linkData.img"
-                  :src="require(`~/assets/screenshots/${linkData.img}`)"
-                  height="200px"
-                  width="200px"
-                />
-              </li>
-            </ul>
-          </td>
-        </tr>
+      <table v-if="!display.xs">
+        <thead>
+          <tr>
+            <th
+              v-for="section in relevantLinks"
+              :key="section.title"
+            >
+              {{ section.title }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              v-for="section in relevantLinks"
+              :key="section.title"
+            >
+              <ul>
+                <li
+                  v-for="linkData in section.links"
+                  :key="linkData.title"
+                >
+                  <a :href="linkData.url">{{ linkData.title }}</a>:
+                  <!-- eslint-disable-next-line vue/html-self-closing -->
+                  <br />
+                  {{ linkData.description }}
+                  <!-- eslint-disable-next-line vue/html-self-closing -->
+                  <br />
+                  <v-img
+                    v-if="linkData.img"
+                    :src="`/screenshots/${linkData.img}`"
+                    height="200px"
+                    width="200px"
+                  />
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <!-- small screens -->
@@ -72,32 +76,36 @@
         v-else
         :key="section.title"
       >
-        <tr>
-          <th>{{ section.title }}</th>
-        </tr>
-        <tr>
-          <td>
-            <ul>
-              <li
-                v-for="linkData in section.links"
-                :key="linkData.title"
-              >
-                <a :href="linkData.url">{{ linkData.title }}</a>:
-                <!-- eslint-disable-next-line vue/html-self-closing -->
-                <br />
-                {{ linkData.description }}
-                <!-- eslint-disable-next-line vue/html-self-closing -->
-                <br />
-                <v-img
-                  v-if="linkData.img"
-                  :src="require(`~/assets/screenshots/${linkData.img}`)"
-                  height="200px"
-                  width="200px"
-                />
-              </li>
-            </ul>
-          </td>
-        </tr>
+        <thead>
+          <tr>
+            <th>{{ section.title }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ul>
+                <li
+                  v-for="linkData in section.links"
+                  :key="linkData.title"
+                >
+                  <a :href="linkData.url">{{ linkData.title }}</a>:
+                  <!-- eslint-disable-next-line vue/html-self-closing -->
+                  <br />
+                  {{ linkData.description }}
+                  <!-- eslint-disable-next-line vue/html-self-closing -->
+                  <br />
+                  <v-img
+                    v-if="linkData.img"
+                    :src="`/screenshots/${linkData.img}`"
+                    height="200px"
+                    width="200px"
+                  />
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
@@ -113,7 +121,7 @@
             alt="Notebook clipart"
             style="vertical-align: middle;"
             width="40px"
-            :src="require('~/assets/images/clipart-notebookpencil.png')"
+            src="/images/clipart-notebookpencil.png"
           >
           <span>{{ section.title }}</span>
         </div>
@@ -225,26 +233,29 @@
     <!-- Modern -->
     <v-card
       v-else-if="isCurrentEra(2021)"
-      :outlined="!$vuetify.theme.dark"
+      :key="getWhatIDo"
+      :variant="isDark ? 'elevated' : 'outlined'"
+      class="whatido-links-card"
     >
       <v-tabs
         v-model="whatidotab"
         show-arrows
+        slider-color="yellow"
       >
-        <v-tabs-slider color="yellow" />
-
         <v-tab
-          v-for="section in relevantLinks"
+          v-for="(section, idx) in relevantLinks"
           :key="section.title"
+          :value="String(idx)"
         >
           {{ section.title }}
         </v-tab>
       </v-tabs>
 
-      <v-tabs-items v-model="whatidotab">
-        <v-tab-item
-          v-for="section in relevantLinks"
+      <v-window v-model="whatidotab">
+        <v-window-item
+          v-for="(section, idx) in relevantLinks"
           :key="section.title"
+          :value="String(idx)"
         >
           <v-row class="pa-4">
             <v-col
@@ -255,20 +266,21 @@
               md="4"
             >
               <v-card
-                :color="$vuetify.theme.dark ? '#761d3b' : '#ffb6cf'"
+                :color="isDark ? '#761d3b' : '#ffb6cf'"
               >
-                <v-card-title
-                  v-if="!linkData.img"
-                  v-text="linkData.title"
-                />
+                <v-card-title v-if="!linkData.img">
+                  {{ linkData.title }}
+                </v-card-title>
                 <v-img
                   v-if="linkData.img"
-                  :src="require(`~/assets/screenshots/${linkData.img}`)"
+                  :src="`/screenshots/${linkData.img}`"
                   class="white--text align-end"
                   gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.4)"
                   height="200px"
                 />
-                <v-card-title v-if="linkData.img" v-text="linkData.title" />
+                <v-card-title v-if="linkData.img">
+                  {{ linkData.title }}
+                </v-card-title>
                 <v-card-text>{{ linkData.description }}</v-card-text>
 
                 <v-card-actions>
@@ -277,7 +289,7 @@
                   <v-btn
                     :href="linkData.url"
                   >
-                    <v-icon left>
+                    <v-icon start>
                       {{ getTodayButtonIcon }}
                     </v-icon>
                     {{ getTodayButtonText }}
@@ -286,30 +298,48 @@
               </v-card>
             </v-col>
           </v-row>
-        </v-tab-item>
-      </v-tabs-items>
+        </v-window-item>
+      </v-window>
     </v-card>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
+import { computed } from 'vue'
+import { useEraStore } from '~/stores/era'
+import { useTheme } from 'vuetify'
 
 export default {
   name: 'MainContentLinks',
+  setup () {
+    const eraStore = useEraStore()
+    const { display } = useDisplaySSRSafe()
+    const theme = useTheme()
+    const isDark = computed(() => theme.global.name.value === 'dark')
+    return { eraStore, display, isDark }
+  },
   data: () => ({
-    whatidotab: null
+    whatidotab: '0'
   }),
   computed: {
-    ...mapGetters([
-      'getRelevantWhatIDoLinks',
-      'getWhatIDo',
-      'isCurrentEra',
-      'isCurrentEraLowerThan',
-      'isCurrentEraBiggerThan'
-    ]),
+    getRelevantWhatIDoLinks () {
+      return this.eraStore.getRelevantWhatIDoLinks
+    },
+    getWhatIDo () {
+      return this.eraStore.getWhatIDo
+    },
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
+    isCurrentEraBiggerThan () {
+      return this.eraStore.isCurrentEraBiggerThan
+    },
     relevantLinks () {
-      return this.getRelevantWhatIDoLinks
+      return this.eraStore.getRelevantWhatIDoLinks
     },
     getTodayButtonText () {
       const details = this.getTodayButtonDetails()
@@ -320,15 +350,13 @@ export default {
       return details.icon
     },
     colsBySections () {
-      if (this.relevantLinks.length === 1) {
-        return 12 // One big column
-      } else if (this.relevantLinks.length === 2) {
-        return 6 // Two columns
-      }
-      return 4 // Three columns by default
+      const links = this.eraStore.getRelevantWhatIDoLinks
+      if (links.length === 1) return 12
+      if (links.length === 2) return 6
+      return 4
     },
     portfolioTitle () {
-      switch (this.getWhatIDo) {
+      switch (this.eraStore.getWhatIDo) {
         case 'speak':
           return 'Some of my talks:'
         case 'write':
@@ -340,14 +368,15 @@ export default {
     }
   },
   watch: {
-    getWhatIDo (newValue, oldValue) {
-      // What 'what I do' changes, reset the value of the tab to 0
-      this.whatidotab = '0'
+    getWhatIDo () {
+      this.$nextTick(() => {
+        this.whatidotab = '0'
+      })
     }
   },
   methods: {
     getTodayButtonDetails () {
-      switch (this.getWhatIDo) {
+      switch (this.eraStore.getWhatIDo) {
         case 'speak':
           return {
             text: 'Watch and read',
@@ -371,8 +400,11 @@ export default {
 </script>
 
 <style lang="scss">
-.v-card__title {
-  word-break: break-word !important;
+.whatido-links-card .v-card .v-card-title {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .content-links table {

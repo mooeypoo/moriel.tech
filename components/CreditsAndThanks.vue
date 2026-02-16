@@ -10,7 +10,11 @@
       >
         <v-card-title>Technology</v-card-title>
         <v-card-text>
-          <nuxt-content :document="mdcredits.tech" />
+          <ContentRenderer
+            v-if="mdcredits.tech"
+            :value="mdcredits.tech"
+            class="maincontent"
+          />
         </v-card-text>
         <v-card-actions>
           <v-spacer />
@@ -81,14 +85,22 @@
         </v-card-text>
         <v-divider />
         <v-card-text>
-          <nuxt-content :document="mdcredits.rwc" />
+          <ContentRenderer
+            v-if="mdcredits.rwc"
+            :value="mdcredits.rwc"
+            class="maincontent"
+          />
         </v-card-text>
       </v-card>
 
       <v-card>
         <v-card-title>Assets</v-card-title>
         <v-card-text>
-          <nuxt-content :document="mdcredits.assets" />
+          <ContentRenderer
+            v-if="mdcredits.assets"
+            :value="mdcredits.assets"
+            class="maincontent"
+          />
         </v-card-text>
       </v-card>
     </v-col>
@@ -102,7 +114,10 @@
       <h2>
         Technology
       </h2>
-      <nuxt-content :document="mdcredits.tech" />
+      <ContentRenderer
+        v-if="mdcredits.tech"
+        :value="mdcredits.tech"
+      />
       <a
         href="https://www.buymeacoffee.com/mooeypoo"
         target="_blank"
@@ -144,30 +159,37 @@
       <h2 class="mt-3">
         Assets
       </h2>
-      <nuxt-content :document="mdcredits.assets" />
+      <ContentRenderer
+        v-if="mdcredits.assets"
+        :value="mdcredits.assets"
+      />
     </v-col>
   </v-row>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'CreditsAndThanks',
-  data: () => ({
-    mdcredits: {}
-  }),
-  computed: {
-    ...mapGetters([
-      'isCurrentEra',
-      'getAwesomePeople'
-    ])
+  async setup () {
+    const eraStore = useEraStore()
+    const q = (path) => queryCollection('credits').path(path).first()
+    const { data: mdcredits } = await useAsyncData('credits-content', () =>
+      Promise.all([
+        q('/credits/tech'),
+        q('/credits/assets'),
+        q('/credits/rwc')
+      ]).then(([tech, assets, rwc]) => ({ tech, assets, rwc }))
+    )
+    return { eraStore, mdcredits }
   },
-  async mounted () {
-    this.mdcredits = {
-      tech: await this.$content('credits', 'tech').fetch(),
-      assets: await this.$content('credits', 'assets').fetch(),
-      rwc: await this.$content('credits', 'rwc').fetch()
+  computed: {
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    getAwesomePeople () {
+      return this.eraStore.getAwesomePeople
     }
   }
 }

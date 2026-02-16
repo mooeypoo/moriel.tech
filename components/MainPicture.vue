@@ -13,7 +13,7 @@
           >
             <img
               alt="Moriel Schottlender"
-              :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
+              :src="`/images/${pictureOfMe}.jpg`"
             >
           </v-avatar>
         </div>
@@ -30,7 +30,7 @@
             class="pictureOfMe"
             :width="isCurrentEraLowerThan(2001) ? 200 : 250"
             alt="Moriel Schottlender"
-            :src="require(`~/assets/images/${pictureOfMe}.jpg`)"
+            :src="`/images/${pictureOfMe}.jpg`"
           >
         </div>
       </div>
@@ -39,22 +39,32 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'MainPicture',
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   data: () => ({
     imageClasses: ['imagecontainer']
   }),
   computed: {
-    ...mapGetters([
-      'getCurrentSiteEra',
-      'isCurrentEra',
-      'isCurrentEraLowerThan',
-      'isCurrentEraBiggerThan'
-    ]),
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
+    isCurrentEraBiggerThan () {
+      return this.eraStore.isCurrentEraBiggerThan
+    },
     pictureOfMe () {
-      switch (this.getCurrentSiteEra) {
+      switch (this.eraStore.getCurrentSiteEra) {
         case 1992:
           return 'moriel-50px'
         case 1997:
@@ -72,7 +82,7 @@ export default {
   beforeUpdate () {
     this.addAnimation()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.removeAnimation()
   },
   methods: {

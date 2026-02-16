@@ -1,6 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 .v-application.style-1997 {
-  &.theme--dark {
+  &.theme--dark,
+  &.v-theme--dark {
     background-image: url('~/assets/backgrounds/starfield.jpg');
     background-color: #000;
     color: white;
@@ -15,7 +16,8 @@
     }
   }
 
-  &.theme--light {
+  &.theme--light,
+  &.v-theme--light {
     background-image: url('~/assets/backgrounds/skies.jpg');
     background-color: #ccc;
     color: black;
@@ -41,6 +43,11 @@
       height: 200px;
       width: 200px;
     }
+
+    .maintitle small {
+      display: inline-block;
+    }
+    
 
     .whatidopicker {
       display: table;

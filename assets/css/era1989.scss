@@ -1,6 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 .v-application.style-1989 {
-  &.theme--dark {
+  &.theme--dark,
+  &.v-theme--dark {
     background-color: black;
     color: #0f0;// #129612;
 
@@ -33,7 +34,8 @@
     }
   }
 
-  &.theme--light {
+  &.theme--light,
+  &.v-theme--light {
     background-color: black;
     color: white;
 

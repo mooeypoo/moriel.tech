@@ -4,7 +4,8 @@
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
       <h2 class="my-2">
-        Hi, I'm Moriel, {{ introSentence }}
+        Hi, I'm Moriel, I create human-centered software
+        <small>{{ introSentence }}</small>
       </h2>
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr class="mb-5" />
@@ -12,9 +13,10 @@
     <div v-else-if="isCurrentEra(1997)" class="marqueewrapper">
       <!-- eslint-disable-next-line vue/html-self-closing -->
       <hr />
-      <div class="marquee" :class="$vuetify.breakpoint.xsOnly ? 'mobile' : ''">
-        <h2>
-          Hi, I'm Moriel, {{ introSentence }} &nbsp; &nbsp; &nbsp;
+      <div class="marquee" :class="display?.xs ? 'mobile' : ''">
+        <h2 class="my-2">
+          Hi, I'm Moriel, I create human-centered software
+          <small>{{ introSentence }}</small>
         </h2>
       </div>
       <!-- eslint-disable-next-line vue/html-self-closing -->
@@ -32,7 +34,8 @@
     >
       <v-col cols="12">
         <h2 class="text-center">
-          Hi, I'm Moriel, {{ introSentence }}
+          Hi, I'm Moriel, I create human-centered software
+          <small>{{ introSentence }}</small>
         </h2>
       </v-col>
     </v-row>
@@ -40,17 +43,29 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
+import { useEraStore } from '~/stores/era'
 
 export default {
   name: 'MainTitle',
+  setup () {
+    const eraStore = useEraStore()
+    const { display } = useDisplaySSRSafe()
+    return { eraStore, display }
+  },
   computed: {
-    ...mapGetters([
-      'getWhatIDo',
-      'getCurrentSiteEra',
-      'isCurrentEra',
-      'isCurrentEraLowerThan'
-    ]),
+    getWhatIDo () {
+      return this.eraStore.getWhatIDo
+    },
+    getCurrentSiteEra () {
+      return this.eraStore.getCurrentSiteEra
+    },
+    isCurrentEra () {
+      return this.eraStore.isCurrentEra
+    },
+    isCurrentEraLowerThan () {
+      return this.eraStore.isCurrentEraLowerThan
+    },
     introSentence () {
       switch (this.getWhatIDo) {
         case 'speak':
@@ -78,6 +93,9 @@ export default {
 </script>
 
 <style>
+.maintitle small {
+  display: block;
+}
 .marqueewrapper {
   width: 80%;
   margin: 0 auto;

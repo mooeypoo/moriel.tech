@@ -1,9 +1,11 @@
 <template>
-  <v-list-item-group
+  <v-list
     v-if="display === 'list'"
-    v-model="whatido"
-    color="pink accent-3"
+    v-model:selected="whatidoSelection"
+    color="pink-accent-3"
     class="whatidopicker"
+    :mandatory="true"
+    selectable
   >
     <v-list-item value="build">
       I Build
@@ -14,15 +16,13 @@
     <v-list-item value="write">
       I Write
     </v-list-item>
-  </v-list-item-group>
+  </v-list>
   <v-btn-toggle
     v-else-if="display === 'buttons'"
     v-model="whatido"
-    tile
-    color="pink accent-3"
+    color="pink-accent-3"
     class="whatidopicker"
-    group
-    mandatory
+    :mandatory="true"
   >
     <v-btn value="build">
       I Build
@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import { useEraStore } from '~/stores/era'
+
 export default {
   name: 'WhatIDoPicker',
   props: {
@@ -104,19 +106,32 @@ export default {
       default: ''
     }
   },
+  setup () {
+    const eraStore = useEraStore()
+    return { eraStore }
+  },
   computed: {
     whatido: {
       get () {
-        return this.$store.state.whatido
+        return this.eraStore.whatido
       },
       set (value) {
-        this.$store.commit('changeWhatIDo', value)
+        this.eraStore.changeWhatIDo(value)
+      }
+    },
+    whatidoSelection: {
+      get () {
+        return [this.eraStore.whatido]
+      },
+      set (v) {
+        const val = Array.isArray(v) && v.length ? v[0] : this.eraStore.whatido
+        this.eraStore.changeWhatIDo(val)
       }
     }
   },
   methods: {
     setWhatIdo (what) {
-      this.$store.commit('changeWhatIDo', what)
+      this.eraStore.changeWhatIDo(what)
     },
     getButtonClass (name) {
       return [

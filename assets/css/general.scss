@@ -1,6 +1,4 @@
 .v-application {
-  padding-bottom: 150px;
-
   img {
     max-width: 100%;
   }
@@ -9,7 +7,8 @@
     font-size: 1.6em;
   }
 
-  &.theme--dark .nuxt-content-editor {
+  &.theme--dark .nuxt-content-editor,
+  &.v-theme--dark .nuxt-content-editor {
     color: white;
   }
 
@@ -20,6 +19,10 @@
   .v-card__title {
     word-break: normal;
   }
+}
+
+ul {
+  margin-left: 2em;
 }
 
 @keyframes rolldown {

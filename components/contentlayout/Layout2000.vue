@@ -12,7 +12,7 @@
         <WhatIDoPicker
           display="links"
           class="bannerlinks"
-          :class="$vuetify.breakpoint.xsOnly ? 'bannerlinks-mobile' : ''"
+          :class="display?.xs ? 'bannerlinks-mobile' : ''"
         />
       </div>
     </div>
@@ -38,9 +38,14 @@ import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 
 export default {
   name: 'Layout2000',
+  setup () {
+    const { display } = useDisplaySSRSafe()
+    return { display }
+  },
   components: {
     WhatIDoPicker,
     MainTitle,

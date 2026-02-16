@@ -1,4 +1,6 @@
 /* stylelint-disable at-rule-no-unknown, no-descending-specificity, function-linear-gradient-no-nonstandard-direction */
+@use "sass:color";
+
 @mixin bootstrap_clearfix () {
   *zoom: 1;
 
@@ -74,7 +76,8 @@
     }
   }
 
-  &.theme--dark {
+  &.theme--dark,
+  &.v-theme--dark {
     background-color: #888;
 
     .container {
@@ -325,7 +328,7 @@
       color: #333;
       text-align: center;
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-      // #gradient > .vertical-three-colors(#fff, #fff, 25%, darken(#fff, 10%)); // Don't use .gradientbar() here since it does a three-color gradient
+      // #gradient > .vertical-three-colors(#fff, #fff, 25%, color.adjust(#fff, $lightness: -10%)); // Don't use .gradientbar() here since it does a three-color gradient
       border: 1px solid #ccc;
       border-bottom-color: #bbb;
       border-radius: 4px;
@@ -339,14 +342,14 @@
       }
 
       &-regular {
-        background-color: mix(#fff, darken(#fff, 10%), 80%);
-        background-image: linear-gradient(#fff, #fff 25%, darken(#fff, 10%));
+        background-color: color.mix(color.adjust(#fff, $lightness: -10%), #fff, 20%);
+        background-image: linear-gradient(#fff, #fff 25%, color.adjust(#fff, $lightness: -10%));
         background-repeat: no-repeat;
 
         &:hover {
           // color: #333;
           text-decoration: none;
-          background-color: darken(#fff, 10%);
+          background-color: color.adjust(#fff, $lightness: -10%);
           background-position: 0 -15px;
           // transition is only when going to hover, otherwise the background
           // behind the gradient (there for IE<=9 fallback) gets mismatched
