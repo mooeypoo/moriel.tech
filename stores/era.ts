@@ -7,6 +7,7 @@ const whatidoLinks = {
     {
       title: 'Web tools',
       links: [
+        { img: 'dddnd.png', title: 'DDDnD.app', description: 'A satirical web game about software delivery.', url: 'https://dddnd.app' },
         { img: 'rtlwtf.png', title: 'RTL.WTF', description: 'Experience and learn of Right-to-Left language support online', url: 'https://rtl.wtf' },
         { img: 'neutralitywtf.png', title: 'Neutrality:WTF', description: 'Challenge the perception of gendered language online', url: 'https://neutrality.wtf' },
         { img: 'rtlworks.png', title: 'RTL.WORKS', description: "Test your website's Right-to-Left language support", url: 'http://rtl.works' },
