@@ -36,7 +36,7 @@
     <v-app-bar>
       <v-avatar
         size="36"
-        class="mr-5"
+        :class="display.xs ? 'mr-2' : 'mr-5'"
         @click="$router.push({ path: '/', query: { era: $route.query.era } })"
       >
         <img
@@ -53,10 +53,21 @@
 
       <v-spacer v-if="!display.xs" />
       <Menu v-if="!display.xs" />
+      <DDDnDLaunchButton
+        v-if="!display.xs"
+        class="ml-2"
+      />
       <v-spacer />
+
+      <DDDnDLaunchButton
+        v-if="display.xs"
+        class="dddnd-launch-mobile mr-1"
+      />
 
       <v-switch
         v-model="isDark"
+        class="theme-switch"
+        :density="display.xs ? 'compact' : 'default'"
         color="blue"
         hide-details
         :true-icon="'mdi-weather-night'"
@@ -94,6 +105,7 @@
       <v-container class="container">
         <slot />
       </v-container>
+      <DDDnDPeepInvite />
     </v-main>
 
     <footer class="layout-footer">
@@ -105,6 +117,8 @@
 <script>
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
+import DDDnDLaunchButton from '~/components/DDDnDLaunchButton.vue'
+import DDDnDPeepInvite from '~/components/DDDnDPeepInvite.vue'
 import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 import { computed } from 'vue'
 import { useEraStore } from '~/stores/era'
@@ -113,7 +127,9 @@ import { useTheme } from 'vuetify'
 export default {
   components: {
     Menu,
-    Footer
+    Footer,
+    DDDnDLaunchButton,
+    DDDnDPeepInvite
   },
   setup () {
     const eraStore = useEraStore()
@@ -217,6 +233,18 @@ html {
 @media (max-width: 959px) {
   .v-application .eraslider .v-slider-track__tick-label {
     font-size: 0.65em !important;
+  }
+
+  .v-application .theme-switch {
+    margin-right: 4px;
+  }
+
+  .v-application .theme-switch .v-input__control {
+    min-height: 28px;
+  }
+
+  .v-application .dddnd-launch-mobile {
+    margin-right: 10px !important;
   }
 }
 

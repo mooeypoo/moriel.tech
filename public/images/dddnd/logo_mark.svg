@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+  <defs>
+    <!-- Bronze ring: top-lit vertical gradient -->
+    <linearGradient id="lm-bronze-v" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#c89824"/>
+      <stop offset="50%"  stop-color="#a07018"/>
+      <stop offset="100%" stop-color="#c89824"/>
+    </linearGradient>
+    <!-- Content area: teal-dark depth gradient -->
+    <linearGradient id="lm-content-bg" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%"   stop-color="#0e2232"/>
+      <stop offset="35%"  stop-color="#0b1c24"/>
+      <stop offset="100%" stop-color="#08171e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Shell octagon (dark charcoal, chamfer=13) -->
+  <path d="M13,0 H87 L100,13 V87 L87,100 H13 L0,87 V13 Z" fill="#0d0904"/>
+
+  <!-- 2. Bronze ring (2px gutter from shell) -->
+  <path d="M15,2 H85 L98,15 V85 L85,98 H15 L2,85 V15 Z" fill="url(#lm-bronze-v)"/>
+
+  <!-- 3. Content octagon (deep teal, 10px ring) -->
+  <path d="M25,12 H75 L88,25 V75 L75,88 H25 L12,75 V25 Z" fill="url(#lm-content-bg)"/>
+
+  <!-- 4. Castle domain mark (gold engraving on teal) -->
+  <g stroke="#d4b860" fill="none">
+    <!-- Tower outline: 3 battlements at y=24–32, wall body y=32–78, width x=28–72 -->
+    <path d="M28,78 V32 H32 V24 H40 V32 H46 V24 H54 V32 H60 V24 H68 V32 H72 V78 Z"
+          stroke-width="1.8" stroke-linejoin="miter" stroke-linecap="square" opacity="0.92"/>
+    <!-- Tier dividers -->
+    <line x1="28" y1="47" x2="72" y2="47" stroke-width="0.9" opacity="0.50"/>
+    <line x1="28" y1="61" x2="72" y2="61" stroke-width="0.9" opacity="0.50"/>
+    <!-- Core domain rect (tier 1) -->
+    <rect x="36" y="34" width="28" height="12" stroke-width="1.0" opacity="0.68"/>
+    <!-- Bounded context rects (tier 2) -->
+    <rect x="30" y="49" width="13" height="10" stroke-width="1.0" opacity="0.63"/>
+    <rect x="57" y="49" width="13" height="10" stroke-width="1.0" opacity="0.63"/>
+    <!-- Foundation bar (tier 3) with partition lines -->
+    <rect x="30" y="62" width="40" height="12" stroke-width="1.0" opacity="0.63"/>
+    <line x1="43" y1="62" x2="43" y2="74" stroke-width="0.8" opacity="0.42"/>
+    <line x1="57" y1="62" x2="57" y2="74" stroke-width="0.8" opacity="0.42"/>
+    <!-- Connector lines -->
+    <line x1="50" y1="46" x2="36.5" y2="52" stroke-width="0.8" opacity="0.38"/>
+    <line x1="50" y1="46" x2="63.5" y2="52" stroke-width="0.8" opacity="0.38"/>
+    <line x1="36.5" y1="59" x2="36.5" y2="62" stroke-width="0.8" opacity="0.38"/>
+    <line x1="63.5" y1="59" x2="63.5" y2="62" stroke-width="0.8" opacity="0.38"/>
+    <!-- Arcane ring accent -->
+    <circle cx="50" cy="55" r="22" stroke-width="0.8" opacity="0.13"/>
+  </g>
+  <!-- Domain nodes (filled gold) -->
+  <g fill="#d4b860">
+    <circle cx="50"   cy="40"  r="2.0"/>
+    <circle cx="36.5" cy="54"  r="1.5"/>
+    <circle cx="63.5" cy="54"  r="1.5"/>
+    <circle cx="36"   cy="68"  r="1.1"/>
+    <circle cx="50"   cy="68"  r="1.1"/>
+    <circle cx="64"   cy="68"  r="1.1"/>
+  </g>
+
+  <!-- 5. L-bracket ornaments on bronze ring face -->
+  <g stroke="#c89824" stroke-width="2" fill="none" stroke-linecap="butt">
+    <path d="M13,22 H22 V13"/>
+    <path d="M87,22 H78 V13"/>
+    <path d="M13,78 H22 V87"/>
+    <path d="M87,78 H78 V87"/>
+  </g>
+</svg>
