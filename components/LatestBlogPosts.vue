@@ -178,7 +178,7 @@ export default {
 }
 
 .latest-blog-posts-era-1997 .latest-blog-posts-title {
-  color: #003399;
+  color: #039;
 }
 
 .latest-blog-posts-era-1997 .latest-blog-posts-item {
@@ -186,7 +186,7 @@ export default {
 }
 
 .latest-blog-posts-era-1997 .latest-blog-posts-link {
-  color: #0000ee;
+  color: #00e;
 }
 
 .latest-blog-posts-era-2000 {

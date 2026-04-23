@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-.layout1997 :deep(.latest-blog-posts) {
+.layout1997 .latest-blog-posts {
   margin-left: auto;
   margin-right: auto;
 }
