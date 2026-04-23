@@ -33,6 +33,17 @@
       </v-icon>
       Credits
     </v-btn>
+    <v-btn
+      value="blog"
+      href="https://blog.moriel.tech"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <v-icon start>
+        mdi-post-outline
+      </v-icon>
+      Blog
+    </v-btn>
   </v-btn-toggle>
   <v-list
     v-else
@@ -67,6 +78,17 @@
         <v-icon>mdi-heart-multiple</v-icon>
       </template>
       <v-list-item-title>Credits</v-list-item-title>
+    </v-list-item>
+    <v-list-item
+      value="blog"
+      href="https://blog.moriel.tech"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <template #prepend>
+        <v-icon>mdi-post-outline</v-icon>
+      </template>
+      <v-list-item-title>Blog</v-list-item-title>
     </v-list-item>
   </v-list>
 </template>
