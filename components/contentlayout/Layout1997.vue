@@ -24,11 +24,29 @@
     <MainContent class="maincontent" />
 
     <MainContentLinks />
+
+    <v-row class="mt-4" justify="center">
+      <v-col cols="12" md="10" lg="9">
+        <LatestBlogPosts era="1997" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
+
 export default {
-  name: 'Layout1997'
+  name: 'Layout1997',
+  components: {
+    LatestBlogPosts
+  }
 }
 </script>
+
+<style scoped>
+.layout1997 :deep(.latest-blog-posts) {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

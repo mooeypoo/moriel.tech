@@ -52,6 +52,8 @@
     <div class="maincontent mt-5">
       <MainContentLinks />
     </div>
+
+    <LatestBlogPosts era="2012" />
   </div>
 </template>
 
@@ -60,6 +62,7 @@ import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
 
 export default {
   name: 'Layout2012',
@@ -67,7 +70,8 @@ export default {
     WhatIDoPicker,
     MainTitle,
     MainContent,
-    MainContentLinks
+    MainContentLinks,
+    LatestBlogPosts
   }
 }
 </script>

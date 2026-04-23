@@ -29,12 +29,15 @@
     </div>
 
     <MainContentLinks class="bbs-content-links" />
+
+    <LatestBlogPosts era="1989" />
   </div>
 </template>
 
 <script>
 import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
 import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 
 export default {
@@ -45,7 +48,8 @@ export default {
   },
   components: {
     WhatIDoPicker,
-    MainContentLinks
+    MainContentLinks,
+    LatestBlogPosts
   }
 }
 </script>

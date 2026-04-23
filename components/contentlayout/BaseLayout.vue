@@ -24,6 +24,8 @@
     <MainContent class="maincontent" />
 
     <MainContentLinks />
+
+    <LatestBlogPosts era="2021" />
   </div>
 </template>
 
@@ -33,6 +35,7 @@ import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
 import { useEraStore } from '~/stores/era'
 
 export default {
@@ -42,7 +45,8 @@ export default {
     WhatIDoPicker,
     MainTitle,
     MainContent,
-    MainContentLinks
+    MainContentLinks,
+    LatestBlogPosts
   },
   setup () {
     const eraStore = useEraStore()

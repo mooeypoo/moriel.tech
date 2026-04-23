@@ -28,6 +28,9 @@
           <MainTitle />
         </div>
         <MainContentLinks />
+        <div class="blog-widget-wrapper">
+          <LatestBlogPosts era="2000" />
+        </div>
       </div>
     </div>
   </div>
@@ -38,6 +41,7 @@ import WhatIDoPicker from '~/components/WhatIDoPicker.vue'
 import MainTitle from '~/components/MainTitle.vue'
 import MainContent from '~/components/MainContent.vue'
 import MainContentLinks from '~/components/MainContentLinks.vue'
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
 import { useDisplaySSRSafe } from '~/composables/useDisplaySSRSafe'
 
 export default {
@@ -50,7 +54,16 @@ export default {
     WhatIDoPicker,
     MainTitle,
     MainContent,
-    MainContentLinks
+    MainContentLinks,
+    LatestBlogPosts
   }
 }
 </script>
+
+<style scoped>
+.blog-widget-wrapper {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>

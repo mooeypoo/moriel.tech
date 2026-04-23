@@ -45,16 +45,26 @@
         </v-card-actions>
       </v-card>
     </ProgressBars>
+
+    <v-row class="mt-4" justify="center">
+      <v-col cols="12" md="10" lg="8">
+        <v-card class="blog-widget-card" variant="outlined">
+          <LatestBlogPosts era="2100" />
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import ProgressBars from '~/components/ProgressBars.vue'
+import LatestBlogPosts from '~/components/LatestBlogPosts.vue'
 
 export default {
   name: 'Layout2100',
   components: {
-    ProgressBars
+    ProgressBars,
+    LatestBlogPosts
   },
   data: () => ({
     timers: {
@@ -90,3 +100,10 @@ export default {
   })
 }
 </script>
+
+<style scoped>
+.blog-widget-card {
+  background: rgba(8, 18, 42, 0.65);
+  border-color: rgba(90, 169, 255, 0.45);
+}
+</style>
