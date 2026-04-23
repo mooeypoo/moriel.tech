@@ -49,41 +49,41 @@ const ERA_INVITES = {
   retro: [
     {
       title: 'BBS Quest',
-      message: 'MODEM READY. TYPE PLAY DDDND TO DEFEND DELIVERY.'
+      message: 'MODEM READY. Try my new game project, DDDnD, to defend delivery.'
     },
     {
       title: 'SYSOP Notice',
-      message: 'Stakeholders are restless. Enter the software dungeon.'
+      message: 'Stakeholders are restless. My new game project, DDDnD, is open.'
     }
   ],
   classicWeb: [
     {
       title: 'Under Construction',
-      message: 'While the web blinks, go battle scope creep in DDDnD.'
+      message: 'While the web blinks, try my new game project DDDnD.'
     },
     {
       title: 'Quest Portal',
-      message: 'Patch, refactor, and survive stakeholder chaos.'
+      message: 'Patch, refactor, and survive stakeholder chaos in DDDnD.'
     }
   ],
   modern: [
     {
       title: 'Stakeholder Ping',
-      message: 'Your CTO looks concerned. Roll for domain clarity.'
+      message: 'Your CTO looks concerned. Try my new game project, DDDnD.'
     },
     {
       title: 'Quest Available',
-      message: 'Delivery confidence is wobbling. A short run could help.'
+      message: 'Delivery confidence is wobbling. A short DDDnD run could help.'
     }
   ],
   future: [
     {
       title: 'Neural Alert',
-      message: 'Consciousness Chip requests a tactical DDDnD simulation.'
+      message: 'Consciousness Chip requests my new game project: DDDnD.'
     },
     {
       title: 'Synthetic Briefing',
-      message: 'Run a decision dungeon to stabilize your delivery timeline.'
+      message: 'Run DDDnD to stabilize your delivery timeline.'
     }
   ]
 }
@@ -95,7 +95,7 @@ const AVATARS = [
   { src: '/images/dddnd/paladin-angry.png', alt: 'Angry paladin stakeholder avatar' }
 ]
 
-const CORNERS = ['top-left', 'top-right', 'bottom-left', 'bottom-right']
+const CORNERS = ['bottom-left', 'bottom-right']
 
 function randomItem (arr) {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -130,10 +130,10 @@ export default {
     },
     ctaLabel () {
       const era = this.eraStore.getCurrentSiteEra
-      if (era <= 1992) return 'Enter BBS Quest'
-      if (era <= 2000) return 'Launch Dungeon'
-      if (era >= 2100) return 'Run Simulation'
-      return 'Accept Quest'
+      if (era <= 1992) return 'Play my new game: DDDnD'
+      if (era <= 2000) return 'Launch my game project: DDDnD'
+      if (era >= 2100) return 'Run DDDnD simulation'
+      return 'Play my new game project: DDDnD'
     },
     eraClass () {
       const era = this.eraStore.getCurrentSiteEra
